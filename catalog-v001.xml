@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="travel.owl import" name="http://www.owl-ontologies.com/travel.owl" uri="travel.owl"/>
+    <uri id="schema.owl" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9" uri="schema.owl"/>
+    <uri id="data.owl" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/tourism-data" uri="data.owl"/>
+</catalog>
