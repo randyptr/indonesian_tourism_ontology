@@ -220,7 +220,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#servesFood"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousHoliday">
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
   </rdf:Description>

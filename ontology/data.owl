@@ -1,0 +1,1613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ns1="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Semarajaya_Museum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd3ec544216d34d0285f4e0274c69f75e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N85e4b44fa5234edb99b3370aa9254f78"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ubud_Writers___Readers_Festival">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Festival"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Blanco_Renaissance_Museum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Belu_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bajra_Sandhi_Monument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Denpasar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Pandawa_Beach"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Legian"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Padang_Padang_Beach"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Dreamland_Beach"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lovina_Beach"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Bali_National_Park"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bratan__volcano_"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mount_Agung"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mount_Batur"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Le_Mayeur_Museum"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Semarajaya_Museum"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Neka_Art_Museum"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Museum"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum_Pasifika"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum_Rudana"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Puri_Lukisan_Museum"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Blanco_Renaissance_Museum"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Gedong_Arca_Museum__Bedulu"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Gedong_Kirtya"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bajra_Sandhi_Monument"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Arts_Festival"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ubud_Writers___Readers_Festival"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Penjor"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Melasti"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Melaspas"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ngelawang"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Otonan"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Omed_omedan"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mangkeng"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sedekah_Rame"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nyepi"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Galungan"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ngaben"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ogoh_ogoh"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Laiwangi_Wanggameti_National_Park">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Melasti">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#availableAt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sesame_Seeds">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Fish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nyepi">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Surfing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Badung_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#organisedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <rdfs:range rdf:nodeID="Nb322865cd8934fbfa9b3cc03c4812b3b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ngada_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Praya__Lombok">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isLactoseFree">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8afcd88e1f144c4894110e90d3c70d9e">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <rdf:rest rdf:nodeID="N7d4ae2c79f744d4683fcb386026e41c8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mount_Inerie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Volcano"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7d4ae2c79f744d4683fcb386026e41c8">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdf:rest rdf:nodeID="N26a3d5c9b039408c948d0f3cb66a5502"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Manggarai_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasVegetarianFood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#servesFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#establishedYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Malaka_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Bali_National_Park">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nembrala">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Snorkeling"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Diving"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sedekah_Rame">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N588fa1e126a7452ea2dbec7ceaa4ece9">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdf:rest rdf:nodeID="N55ac388d5db94f64baf2f73f5a328a5d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInIsland">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sulphites">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Snorkeling">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Locals">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Rote_Ndao_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Le_Mayeur_Museum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nusa_Lembongan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#SpiritualSeeker">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#South_Central_Timor_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sasak_Heritage_Festival">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Festival"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#2018_East_Nusa_Tenggara_gubernatorial_election">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Festival"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sikka_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Port">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N00928ab0bdc040a9a12270cb02548e54">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#North_Central_Timor_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ogoh_ogoh">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nac7c19566c0640ffa71387c0aa2369d9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N7002bece7fb245e3bf55e988bd328483"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Central_Sumba_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Pandawa_Beach">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Snorkeling"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ende_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Temple">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalDance"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTargetAudience">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <rdfs:range rdf:nodeID="N789facd3dd1243cfa569eacc52bfce16"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Sumbawa_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb322865cd8934fbfa9b3cc03c4812b3b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N111c60006d454cefb4e0908f5e851bdf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedInCountry rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Indonesia"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Gedong_Kirtya">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7002bece7fb245e3bf55e988bd328483">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
+    <rdf:rest rdf:nodeID="N089b9dc290704072a968eeeecebb11be"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7f00950c037c4affab14cdc9d4d63991">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N69129e27a65a4aff83f55e8a835c1564">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <rdf:rest rdf:nodeID="N2c203eb9f3f74589a046d0133b74a9fe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4ab3d407e3d24302b93b9cf759930c12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N4cf8a645963841f8ae18c18d63808217"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Arts_Festival">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Festival"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tanjung_Ringgit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Surfing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Dreamland_Beach">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Surfing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Review">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CeremonialFood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Southwest_Sumba_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalDance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2c203eb9f3f74589a046d0133b74a9fe">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mount_Rinjani_National_Park">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Manupeu_Tanah_Daru_National_Park">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTransportation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndad820ed95994cd8870b9b01d3513bef">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Crustaceans"/>
+    <rdf:rest rdf:nodeID="N81b80f289457467a8abd14fdf6ac450c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Molluscs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Crustaceans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kelimutu_National_Park">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasOperatingHours">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="Ndae4156bca1c4a21b390216c29fa50b4"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasFood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum_Rudana">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Lombok_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nusa_Penida">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6a0146de9009438ca4a36f24f33ffe95">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nuts"/>
+    <rdf:rest rdf:nodeID="N496cd94576644a218caecefded12d91e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Padang_Padang_Beach">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Surfing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#StreetVendor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N736f1d2136244f2a8657cd07729d973e">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <rdf:rest rdf:nodeID="N4d720c264e8f49cea7c7d273cebf33a3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mangkeng">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hiking">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="Nac7c19566c0640ffa71387c0aa2369d9"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Klungkung_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tjampuhan_Hotel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedInCountry rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Indonesia"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Gandrung">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Diving">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Lombok_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sabu_Raijua_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kupang_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#servesFood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Festival">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#AirTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#LandTransport"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasEntryFee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isVegetarian">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lembata_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Besar_Island__Flores">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2a94601a79f84c9c8e76460443e17f7c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Molluscs"/>
+    <rdf:rest rdf:nodeID="N6a0146de9009438ca4a36f24f33ffe95"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInProvince">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Celery">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lovina_Beach">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Snorkeling"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Diving"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Caci">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Gedong_Arca_Museum__Bedulu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Man">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Satonda_Island">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Museum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ngelawang">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bratan__volcano_">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Volcano"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTheme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N111c60006d454cefb4e0908f5e851bdf">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Organisation"/>
+    <rdf:rest rdf:nodeID="N00928ab0bdc040a9a12270cb02548e54"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/travel.owl#NationalPark">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Gianyar_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfb9b9d191bb84a99be19e030a3fdd3c7">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Soybeans"/>
+    <rdf:rest rdf:nodeID="N127720dfd33445ac871ec9d70ad070f1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#North_Lombok_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Camping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Resort">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Omed_omedan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Organisation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Villa">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMaxCapacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="Nd3ec544216d34d0285f4e0274c69f75e"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf6425f35fe3d46e38d715eb52527773c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lupin"/>
+    <rdf:rest rdf:nodeID="N2a94601a79f84c9c8e76460443e17f7c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasPrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Restaurant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Temple"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalDance"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/tourism-data">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:imports rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isWheelchairAccessible">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="N1c47d4e247bc49a3bd65d94882d85476"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/travel.owl#Accommodation">
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Adult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nagekeo_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na0b435b5ec29485cb69ac5b9d418e255">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Puri_Lukisan_Museum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Soup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nab5e2d8a420b451ea0d9ab7dff5404ab">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
+    <rdf:rest rdf:nodeID="Na0b435b5ec29485cb69ac5b9d418e255"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tourists">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4cf8a645963841f8ae18c18d63808217">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <rdf:rest rdf:nodeID="N1caab359a3a04d3c8f0d9c6436b7c188"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ferry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Manggarai_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isGlutenFree">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/travel.owl#Surfing">
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Surfing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Woman">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4d720c264e8f49cea7c7d273cebf33a3">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+    <rdf:rest rdf:nodeID="N4aa8ef9e63c045fdb472cf3be7a3aa87"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Legian">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Surfing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasContactWebSite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="N216194547781429ca8964357c677cfa2"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hostel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N089b9dc290704072a968eeeecebb11be">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N127720dfd33445ac871ec9d70ad070f1">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sulphites"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#writtenBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Review"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Galungan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1caab359a3a04d3c8f0d9c6436b7c188">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInCity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
+    <rdfs:domain rdf:nodeID="N36e3ddf7a6a0459088f4a3f4f51b5942"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kupang">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nembrala"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cepi_Watu_Beach"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Komodo_National_Park"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Manupeu_Tanah_Daru_National_Park"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kelimutu_National_Park"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Laiwangi_Wanggameti_National_Park"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Pasola"/>
+    <ns1:hasTouristAttraction rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Caci"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Jembrana_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Komodo_National_Park">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sightseeing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N083c17b1faec475b9739eb3c79e64304">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Volcano">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N79839156fe53406fbd6981545388c2f5">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country"/>
+    <rdf:rest rdf:nodeID="N736f1d2136244f2a8657cd07729d973e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Labuhan_Lombok">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naea40a818a3c427492781d46be318aca">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sesame_Seeds"/>
+    <rdf:rest rdf:nodeID="Nfb9b9d191bb84a99be19e030a3fdd3c7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mount_Tambora">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Volcano"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hiking"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N789facd3dd1243cfa569eacc52bfce16">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nab5e2d8a420b451ea0d9ab7dff5404ab"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalMarket">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Youth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Central_Lombok_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Dompu_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasVeganFood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasLactoseFreeFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mount_Agung">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Volcano"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hiking"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N26a3d5c9b039408c948d0f3cb66a5502">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Dessert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Flores_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Moyo_Island">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lupin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMember">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#memberOf"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum_Pasifika">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Wainyapu__Sumba">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Raifatus__East_Nusa_Tenggara">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cepi_Watu_Beach">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Menjangan_Island">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nuts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bima_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N55ac388d5db94f64baf2f73f5a328a5d">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lactose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Club">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasEndDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bangli_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Eggs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N606c2913d48344eaaa0cc9d8b558da50">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nc9e23ff503fb48b9a9f70231434fd86b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbcc7ab05d5184f0e9541ed98467c35c7">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lactose"/>
+    <rdf:rest rdf:nodeID="Nf6425f35fe3d46e38d715eb52527773c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Peanuts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInCountry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Otonan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasRating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasIngredient">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ingredient"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#InterContinental_Hotel_Bali">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#originatesFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Pasola">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Serangan_Island">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Narmada__West_Lombok__Narmada__1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/travel.owl#Museums">
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tandjung_Sari">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Mount_Batur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Volcano"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hiking"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Balikpapan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasLactoseFreeFood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#servesFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3df893e69a354e42b179a0ad0c31eee1">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Guesthouse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#SideDish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTouristAttraction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Melaspas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Manggarai_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bungin_Island">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Pub">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N36e3ddf7a6a0459088f4a3f4f51b5942">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nae9924058b964af4a677ed6aef41a256"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Family">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tanah_Lot_Beach">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:imports rdf:resource="http://www.owl-ontologies.com/travel.owl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Alor_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Amankila">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMinimumAge">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="N606c2913d48344eaaa0cc9d8b558da50"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tabanan_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Soybeans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#LandTransport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTicket">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Penjor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedInCountry rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Indonesia"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5f3fd0f4e38047248d5c932e97f0ace8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N1001ab60de8d40de92defc7ee1768f0d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasAccommodation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Karangasem_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kintamani__Bali">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nusa_Ceningan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <ns1:locatedInProvince rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sailing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Sumba_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Neka_Art_Museum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/travel.owl#Hiking">
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hiking"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasStartDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MainDish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N496cd94576644a218caecefded12d91e">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Peanuts"/>
+    <rdf:rest rdf:nodeID="Naea40a818a3c427492781d46be318aca"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N81b80f289457467a8abd14fdf6ac450c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Eggs"/>
+    <rdf:rest rdf:nodeID="Nd750a54cb9a943a59537d7e9f6803878"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Woha__Sumbawa">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N04f5729348a041d499e53714a3ec54f9">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Celery"/>
+    <rdf:rest rdf:nodeID="Ndad820ed95994cd8870b9b01d3513bef"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/travel.owl#hasAccommodation">
+    <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasAccommodation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Indonesia">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ingredient">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#StapleFood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Climbing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N216194547781429ca8964357c677cfa2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nff2ee38739004d64886d0f92f449297b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc9e23ff503fb48b9a9f70231434fd86b">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <rdf:rest rdf:nodeID="N083c17b1faec475b9739eb3c79e64304"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isHalal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kuta__Bali">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beverage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ngaben">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:hasActivity rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Cultural_Tour"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1c47d4e247bc49a3bd65d94882d85476">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N9b0acc9f734f4973acb3e827f6ff00b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nff2ee38739004d64886d0f92f449297b">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <rdf:rest rdf:nodeID="N3df893e69a354e42b179a0ad0c31eee1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasAreaSqKm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="N5f3fd0f4e38047248d5c932e97f0ace8"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Belmond_Jimbaran_Puri">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#LandTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Condiment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#memberOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N453cb9861f6f48989d447e4baae901ea">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N04f5729348a041d499e53714a3ec54f9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Buleleng_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali_Island"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isVegan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Food"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasReview">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="N4ab3d407e3d24302b93b9cf759930c12"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Sumba_Regency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <ns1:locatedIn rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara"/>
+    <ns1:locatedInIsland rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hindus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/travel.owl#Activity">
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kayaking">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sanur__Bali">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N85e4b44fa5234edb99b3370aa9254f78">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <rdf:rest rdf:nodeID="N7f00950c037c4affab14cdc9d4d63991"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndae4156bca1c4a21b390216c29fa50b4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N69129e27a65a4aff83f55e8a835c1564"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9b0acc9f734f4973acb3e827f6ff00b8">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <rdf:rest rdf:nodeID="N588fa1e126a7452ea2dbec7ceaa4ece9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Plane">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#AirTransport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Household">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1001ab60de8d40de92defc7ee1768f0d">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <rdf:rest rdf:nodeID="N79839156fe53406fbd6981545388c2f5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tanjung__Lombok">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Yogi">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nae9924058b964af4a677ed6aef41a256">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <rdf:rest rdf:nodeID="N8afcd88e1f144c4894110e90d3c70d9e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ingredient"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Show">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd750a54cb9a943a59537d7e9f6803878">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Fish"/>
+    <rdf:rest rdf:nodeID="Nbcc7ab05d5184f0e9541ed98467c35c7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4aa8ef9e63c045fdb472cf3be7a3aa87">
+    <rdf:first rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+</rdf:RDF>
