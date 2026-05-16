@@ -1,0 +1,319 @@
+Prefix: ex:   <http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+Ontology: <http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_Establishments>
+
+
+# ---------------------------------------------------------
+# Entity stubs — declared so the Manchester parser knows
+# their types without needing to resolve the schema import.
+# When this file is merged into schema.owl (same IRIs),
+# OWL treats them as the same entities.
+# ---------------------------------------------------------
+
+Class: ex:Accommodation
+
+Class: ex:Establishments
+
+Class: ex:Restaurant
+    SubClassOf: ex:Establishments
+
+Class: ex:StreetVendor
+    SubClassOf: ex:Establishments
+
+Class: ex:TraditionalMarket
+    SubClassOf: ex:Establishments
+
+Class: ex:Resort
+    SubClassOf: ex:Accommodation
+
+Class: ex:Villa
+    SubClassOf: ex:Accommodation
+
+Class: ex:Guesthouse
+    SubClassOf: ex:Accommodation
+
+Class: ex:Hostel
+    SubClassOf: ex:Accommodation
+
+ObjectProperty: ex:locatedIn
+
+Individual: ex:Bali
+Individual: ex:West_Nusa_Tenggara
+Individual: ex:East_Nusa_Tenggara
+
+
+# ---------------------------------------------------------
+# Restaurants  (Establishments)
+# ---------------------------------------------------------
+
+Individual: ex:Locavore
+    Annotations: rdfs:label "Locavore"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Merah_Putih_Restaurant
+    Annotations: rdfs:label "Merah Putih Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Mozaic_Restaurant
+    Annotations: rdfs:label "Mozaic Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Sardine_Restaurant
+    Annotations: rdfs:label "Sardine Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Wahaha_Restaurant
+    Annotations: rdfs:label "Wahaha Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Ashtari_Restaurant
+    Annotations: rdfs:label "Ashtari Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Bale_Lombok_Restaurant
+    Annotations: rdfs:label "Bale Lombok Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Square_Restaurant
+    Annotations: rdfs:label "Square Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Kampung_Ujung_Restaurant
+    Annotations: rdfs:label "Kampung Ujung Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+Individual: ex:Tree_Top_Restaurant
+    Annotations: rdfs:label "Tree Top Restaurant"
+    Types: ex:Restaurant
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+
+# ---------------------------------------------------------
+# Street Vendors  (Establishments)
+# ---------------------------------------------------------
+
+Individual: ex:Warung_Ibu_Oka
+    Annotations: rdfs:label "Warung Ibu Oka"
+    Types: ex:StreetVendor
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Warung_Nasi_Ayam_Bu_Mus
+    Annotations: rdfs:label "Warung Nasi Ayam Bu Mus"
+    Types: ex:StreetVendor
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Kreneng_Night_Market
+    Annotations: rdfs:label "Kreneng Night Market"
+    Types: ex:StreetVendor
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Warung_Taliwang_Irama
+    Annotations: rdfs:label "Warung Taliwang Irama"
+    Types: ex:StreetVendor
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Pasar_Malam_Sindu
+    Annotations: rdfs:label "Pasar Malam Sindu"
+    Types: ex:StreetVendor
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Warung_Seafood_Kupang
+    Annotations: rdfs:label "Warung Seafood Kupang"
+    Types: ex:StreetVendor
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+Individual: ex:Pasar_Malam_Labuan_Bajo
+    Annotations: rdfs:label "Pasar Malam Labuan Bajo"
+    Types: ex:StreetVendor
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+
+# ---------------------------------------------------------
+# Traditional Markets  (Establishments)
+# ---------------------------------------------------------
+
+Individual: ex:Pasar_Badung
+    Annotations: rdfs:label "Pasar Badung"
+    Types: ex:TraditionalMarket
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Pasar_Ubud
+    Annotations: rdfs:label "Pasar Ubud"
+    Types: ex:TraditionalMarket
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Pasar_Sukawati
+    Annotations: rdfs:label "Pasar Sukawati"
+    Types: ex:TraditionalMarket
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Pasar_Cakranegara
+    Annotations: rdfs:label "Pasar Cakranegara"
+    Types: ex:TraditionalMarket
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Pasar_Bertais
+    Annotations: rdfs:label "Pasar Bertais"
+    Types: ex:TraditionalMarket
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Pasar_Inpres_Labuan_Bajo
+    Annotations: rdfs:label "Pasar Inpres Labuan Bajo"
+    Types: ex:TraditionalMarket
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+Individual: ex:Pasar_Oebobo
+    Annotations: rdfs:label "Pasar Oebobo"
+    Types: ex:TraditionalMarket
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+
+# ---------------------------------------------------------
+# Resorts  (Accommodation)
+# ---------------------------------------------------------
+
+Individual: ex:Four_Seasons_Resort_Sayan
+    Annotations: rdfs:label "Four Seasons Resort Bali at Sayan"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Alila_Villas_Uluwatu
+    Annotations: rdfs:label "Alila Villas Uluwatu"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:COMO_Shambhala_Estate
+    Annotations: rdfs:label "COMO Shambhala Estate"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Amanusa
+    Annotations: rdfs:label "Amanusa"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Katamaran_Resort_Lombok
+    Annotations: rdfs:label "Katamaran Resort Lombok"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Qunci_Villas_Hotel
+    Annotations: rdfs:label "Qunci Villas Hotel"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Jeeva_Klui_Resort
+    Annotations: rdfs:label "Jeeva Klui Resort"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Plataran_Komodo_Resort
+    Annotations: rdfs:label "Plataran Komodo Resort"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+Individual: ex:Sudamala_Resort_Komodo
+    Annotations: rdfs:label "Sudamala Resort Komodo"
+    Types: ex:Resort
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+
+# ---------------------------------------------------------
+# Villas  (Accommodation)
+# ---------------------------------------------------------
+
+Individual: ex:Alila_Villas_Soori
+    Annotations: rdfs:label "Alila Villas Soori"
+    Types: ex:Villa
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Karma_Kandara
+    Annotations: rdfs:label "Karma Kandara"
+    Types: ex:Villa
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:The_Royal_Purnama
+    Annotations: rdfs:label "The Royal Purnama"
+    Types: ex:Villa
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Selong_Selo_Villas
+    Annotations: rdfs:label "Selong Selo Villas"
+    Types: ex:Villa
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Jeeva_Beloam
+    Annotations: rdfs:label "Jeeva Beloam"
+    Types: ex:Villa
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Sudamala_Surya_Djiwa
+    Annotations: rdfs:label "Sudamala Surya Djiwa"
+    Types: ex:Villa
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+
+# ---------------------------------------------------------
+# Guesthouses  (Accommodation)
+# ---------------------------------------------------------
+
+Individual: ex:Pondok_Pitaya
+    Annotations: rdfs:label "Pondok Pitaya"
+    Types: ex:Guesthouse
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Sanur_Sunrise_Guesthouse
+    Annotations: rdfs:label "Sanur Sunrise Guesthouse"
+    Types: ex:Guesthouse
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Kuta_Indah_Guesthouse
+    Annotations: rdfs:label "Kuta Indah Guesthouse"
+    Types: ex:Guesthouse
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Gardena_Guesthouse
+    Annotations: rdfs:label "Gardena Guesthouse"
+    Types: ex:Guesthouse
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+Individual: ex:Wae_Rebo_Homestay
+    Annotations: rdfs:label "Wae Rebo Homestay"
+    Types: ex:Guesthouse
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara
+
+
+# ---------------------------------------------------------
+# Hostels  (Accommodation)
+# ---------------------------------------------------------
+
+Individual: ex:Puri_Garden_Hostel
+    Annotations: rdfs:label "Puri Garden Hostel"
+    Types: ex:Hostel
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Tribal_Hostel
+    Annotations: rdfs:label "Tribal Hostel"
+    Types: ex:Hostel
+    Facts: ex:locatedIn ex:Bali
+
+Individual: ex:Shady_Shack_Hostel
+    Annotations: rdfs:label "Shady Shack Hostel"
+    Types: ex:Hostel
+    Facts: ex:locatedIn ex:West_Nusa_Tenggara
+
+Individual: ex:Bajo_Komodo_Hostel
+    Annotations: rdfs:label "Bajo Komodo Hostel"
+    Types: ex:Hostel
+    Facts: ex:locatedIn ex:East_Nusa_Tenggara

@@ -1,16 +1,11 @@
-"""Graph embeddings + link prediction for the tourism ontology (PyKEEN).
+"""Knowledge graph embeddings and link prediction for the tourism ontology.
 
-Workflow:
-    1. Extract object-property triples from data.owl + schema.owl.
-    2. Define 3 new individuals (with one or two known facts each) so PyKEEN
-       learns embeddings for them.
-    3. Train a TransE model on all triples.
-    4. Project entity embeddings to 2D with t-SNE and save a coloured plot.
-    5. For each new individual, predict the missing tail of a chosen relation
-       and append the top prediction back into data.owl as a new triple.
-
-Run:
-    python graph_embedding.py
+Uses PyKEEN to train a DistMult embedding model on the ontology's object-property
+triples, then demonstrates link prediction by:
+    1. Defining 3 new "test" individuals with partial knowledge.
+    2. Training embeddings that include these individuals.
+    3. Predicting the missing tail for a chosen relation (e.g. locatedIn).
+    4. Visualising all entity embeddings as a 2D t-SNE scatter plot.
 """
 
 from __future__ import annotations
@@ -26,31 +21,59 @@ from pykeen.triples import TriplesFactory
 from pykeen.pipeline import pipeline
 from pykeen.predict import predict_target
 
-from config import DATA_FILE, SCHEMA_FILE, ONT, ONT_IRI
-from graph_utils import local_name, add_individual, add_rel
+from config import DATA_FILE, SCHEMA_FILE, ONT, ONT_IRI, ONTOLOGY_DIR
+from graph_utils import local_name, add_individual, add_relation
+from reasoning import _graph_from_ttl, _build_establishments_graph
 
 log = logging.getLogger(__name__)
 
-# ── Constants ─────────────────────────────────────────────────────────────────
-PLOT_FILE       = "embedding_clusters.png"
-MODEL_NAME      = "DistMult"          # DistMult often outperforms TransE on small KGs
-EMBEDDING_DIM   = 64
-NUM_EPOCHS      = 400
-RANDOM_SEED     = 42
-TOP_K           = 5
+# ── Training Configuration ───────────────────────────────────────────────────
+PLOT_OUTPUT_FILE = "embedding_clusters.png"   # t-SNE scatter plot output
 
-# ── Hand-defined new individuals ──────────────────────────────────────────────
-# Each gets one or two anchoring facts (pre-training), then a query whose tail
-# we ask the model to predict.
+# Only these classes are included in the t-SNE plot
+PLOT_CLASSES = {
+    "Beach", "Park", "Volcano", "MainDish", "SideDish",
+    "ReligiousCeremony", "Festival", "City", "Island", "Province",
+    "Ingredient", "Allergens", "Guesthouse", "Hostel", "Hotel",
+    "Resort", "Villa", "Restaurant", "StreetVendor", "TraditionalMarket",
+}
+MODEL_NAME       = "DistMult"                 # embedding model architecture
+EMBEDDING_DIM    = 64                         # dimensionality of entity/relation vectors
+NUM_EPOCHS       = 400                        # training iterations over the full graph
+RANDOM_SEED      = 42                         # reproducibility seed for training + t-SNE
+TOP_K_PREDICTIONS = 5                         # how many top candidates to display
+
+# ── Test Individuals for Link Prediction ─────────────────────────────────────
+# Each gets one or two "anchoring" facts (pre-training), then a query whose
+# tail we ask the trained model to predict.
+
+
 @dataclass(frozen=True)
 class TestIndividual:
+    """A synthetic individual used to evaluate link prediction quality.
+
+    Attributes
+    ----------
+    name : str
+        OWL local name for the individual.
+    known_facts : list[tuple[str, str]]
+        Facts asserted before training. Each is (predicate, tail_local_name).
+        Use "rdf:type" as predicate for class membership.
+    query_relation : str
+        The predicate for which we want the model to predict the tail.
+    expected_class : str
+        Only candidates of this class are considered valid predictions.
+    note : str
+        Human-readable explanation of what we expect the model to predict.
+    """
     name: str
-    known_facts: list[tuple[str, str]]      # list of (predicate, tail)
-    query_relation: str                      # predicate for which we predict tail
-    expected_class: str                      # used to filter predictions
+    known_facts: list[tuple[str, str]]
+    query_relation: str
+    expected_class: str
     note: str
 
-NEW_INDIVIDUALS: list[TestIndividual] = [
+
+TEST_INDIVIDUALS: list[TestIndividual] = [
     TestIndividual(
         name="Tanah_Lot_Beach",
         known_facts=[("rdf:type", "Beach")],
@@ -75,210 +98,377 @@ NEW_INDIVIDUALS: list[TestIndividual] = [
 ]
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 1. Load triples
-# ─────────────────────────────────────────────────────────────────────────────
-def load_object_triples() -> tuple[Graph, np.ndarray]:
-    """Read data.owl (+ schema.owl for class hierarchy) and return:
-       - the merged rdflib graph (used later for type lookup / writing back)
-       - an (N, 3) ndarray of (s, p, o) string triples for PyKEEN
-    Literals and non-ontology IRIs are dropped.
+# ═══════════════════════════════════════════════════════════════════════════════
+# Step 1: Load Triples
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def load_object_property_triples() -> tuple[Graph, np.ndarray]:
+    """Extract all object-property triples from data.owl and schema.owl.
+
+    Reads both ontology files and filters to keep only triples where:
+    - Both subject and object are URIRefs (no literals).
+    - The object is not owl:NamedIndividual (meta-level noise).
+
+    Returns
+    -------
+    tuple[rdflib.Graph, np.ndarray]
+        - The merged rdflib graph (used later for type lookup and writing back).
+        - An (N, 3) array of string triples suitable for PyKEEN.
     """
-    g = Graph()
-    g.parse(str(DATA_FILE), format="xml")
-    g.parse(str(SCHEMA_FILE), format="xml")
+    merged_graph = Graph()
+    merged_graph.parse(str(DATA_FILE), format="xml")
+    merged_graph.parse(str(SCHEMA_FILE), format="xml")
+    # Parse imported ontology files (rdflib does not follow owl:imports)
+    merged_graph += _graph_from_ttl(ONTOLOGY_DIR / "alergy_ingredients_dishes.ttl")
+    merged_graph += _build_establishments_graph()
 
-    triples = [
-        (str(s), str(p), str(o))
-        for s, p, o in g
-        if isinstance(s, URIRef) and isinstance(o, URIRef)
-        and not isinstance(o, Literal)
-        and o != OWL.NamedIndividual
+    triple_strings = [
+        (str(subject), str(predicate), str(obj))
+        for subject, predicate, obj in merged_graph
+        if isinstance(subject, URIRef) and isinstance(obj, URIRef)
+        and not isinstance(obj, Literal)
+        and obj != OWL.NamedIndividual
     ]
-    return g, np.array(triples)
+    return merged_graph, np.array(triple_strings)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 2. Extend graph with new individuals
-# ─────────────────────────────────────────────────────────────────────────────
-def add_test_individuals(g: Graph) -> np.ndarray:
-    """Add NEW_INDIVIDUALS to the graph in-place AND return the extra triples
-    so they can be appended to the PyKEEN triples factory."""
-    extra = []
-    for ind in NEW_INDIVIDUALS:
-        for pred, tail in ind.known_facts:
-            if pred == "rdf:type":
-                add_individual(g, tail, ind.name)
-                extra.append((str(ONT[ind.name]), str(RDF.type), str(ONT[tail])))
+# ═══════════════════════════════════════════════════════════════════════════════
+# Step 2: Add Test Individuals
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def add_test_individuals_to_graph(graph: Graph) -> np.ndarray:
+    """Insert TEST_INDIVIDUALS into the graph and return their triples.
+
+    Each test individual gets its known_facts asserted in the graph so that
+    PyKEEN can learn an embedding for it during training. The returned
+    triples are appended to the training set.
+
+    Parameters
+    ----------
+    graph : rdflib.Graph
+        The knowledge graph to modify in-place.
+
+    Returns
+    -------
+    np.ndarray
+        An (M, 3) array of the extra triples added (for concatenation
+        with the base training triples).
+    """
+    extra_triples = []
+
+    for test_individual in TEST_INDIVIDUALS:
+        for predicate, tail_name in test_individual.known_facts:
+            if predicate == "rdf:type":
+                add_individual(graph, tail_name, test_individual.name)
+                extra_triples.append((
+                    str(ONT[test_individual.name]),
+                    str(RDF.type),
+                    str(ONT[tail_name]),
+                ))
             else:
-                add_rel(g, ind.name, pred, tail)
-                extra.append((str(ONT[ind.name]), str(ONT[pred]), str(ONT[tail])))
-    return np.array(extra)
+                add_relation(graph, test_individual.name, predicate, tail_name)
+                extra_triples.append((
+                    str(ONT[test_individual.name]),
+                    str(ONT[predicate]),
+                    str(ONT[tail_name]),
+                ))
+
+    return np.array(extra_triples)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 3. Train embeddings
-# ─────────────────────────────────────────────────────────────────────────────
-def train_embeddings(triples: np.ndarray):
-    """Train TransE on all triples (no held-out test set — we want embeddings
-    for every entity, including the 3 new ones)."""
-    tf = TriplesFactory.from_labeled_triples(triples)
-    result = pipeline(
-        training=tf, testing=tf, validation=tf,
+# ═══════════════════════════════════════════════════════════════════════════════
+# Step 3: Train Embeddings
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def train_embedding_model(all_triples: np.ndarray):
+    """Train a DistMult model on the full set of triples.
+
+    Uses the entire graph for training (no held-out test set) because our
+    goal is to learn high-quality embeddings for ALL entities including
+    the 3 test individuals — not to evaluate ranking metrics.
+
+    Parameters
+    ----------
+    all_triples : np.ndarray
+        An (N, 3) array of (subject, predicate, object) string triples.
+
+    Returns
+    -------
+    tuple[PipelineResult, TriplesFactory]
+        The trained pipeline result (contains model) and the triples factory
+        (contains entity/relation ID mappings).
+    """
+    triples_factory = TriplesFactory.from_labeled_triples(all_triples)
+    training_result = pipeline(
+        training=triples_factory,
+        testing=triples_factory,
+        validation=triples_factory,
         model=MODEL_NAME,
         model_kwargs=dict(embedding_dim=EMBEDDING_DIM),
         training_kwargs=dict(num_epochs=NUM_EPOCHS, use_tqdm_batch=False),
         random_seed=RANDOM_SEED,
     )
-    return result, tf
+    return training_result, triples_factory
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 4. Visualize clusters with t-SNE
-# ─────────────────────────────────────────────────────────────────────────────
-def _build_type_map(g: Graph) -> dict[str, str]:
-    """Map each individual IRI → its primary ontology class local name."""
-    out: dict[str, str] = {}
-    for s, _, o in g.triples((None, RDF.type, None)):
-        if not isinstance(o, URIRef) or o == OWL.NamedIndividual:
-            continue
-        if str(o).startswith(ONT_IRI):
-            out[str(s)] = local_name(o)
-    return out
+# ═══════════════════════════════════════════════════════════════════════════════
+# Step 4: Visualize with t-SNE
+# ═══════════════════════════════════════════════════════════════════════════════
 
+def build_entity_type_map(graph: Graph) -> dict[str, str]:
+    """Map each individual's full IRI to its ontology class local name.
 
-def visualize_embeddings(model, tf: TriplesFactory, g: Graph) -> None:
-    """Project entity embeddings to 2D with t-SNE and scatter-plot by class.
-
-    Only ABox individuals (those with an ontology rdf:type) are shown;
-    TBox entities (class/property definitions, OWL restrictions) are
-    filtered out so the plot isn't dominated by an "Other" cloud.
+    Used by the visualization to colour entities by their class membership.
+    Only entities in our ontology namespace are included.
     """
-    emb = model.entity_representations[0](indices=None).detach().cpu().numpy()
-    labels = [tf.entity_id_to_label[i] for i in range(emb.shape[0])]
-    type_of = _build_type_map(g)
+    type_map: dict[str, str] = {}
+    for subject, _, object_type in graph.triples((None, RDF.type, None)):
+        if not isinstance(object_type, URIRef) or object_type == OWL.NamedIndividual:
+            continue
+        if str(object_type).startswith(ONT_IRI):
+            class_name = local_name(object_type)
+            if class_name in PLOT_CLASSES:
+                type_map[str(subject)] = class_name
+    return type_map
 
-    # Keep only entities that have a known ontology class (ABox individuals)
-    keep = [i for i, lbl in enumerate(labels) if lbl in type_of]
-    if not keep:
+
+def visualize_embeddings(trained_model, triples_factory: TriplesFactory, graph: Graph) -> None:
+    """Project entity embeddings to 2D with t-SNE and save a scatter plot.
+
+    Only ABox individuals (those with a known ontology rdf:type) are plotted.
+    TBox entities (class definitions, property definitions, OWL restrictions)
+    are filtered out to avoid an overwhelming "Other" cloud that obscures
+    the meaningful clusters.
+
+    Parameters
+    ----------
+    trained_model : pykeen.models.Model
+        The trained embedding model (provides entity vectors).
+    triples_factory : TriplesFactory
+        Maps entity IDs to their IRI labels.
+    graph : rdflib.Graph
+        Used to determine each entity's class for colouring.
+    """
+    # Extract raw embedding vectors for all entities
+    all_embeddings = trained_model.entity_representations[0](
+        indices=None
+    ).detach().cpu().numpy()
+
+    entity_labels = [
+        triples_factory.entity_id_to_label[entity_id]
+        for entity_id in range(all_embeddings.shape[0])
+    ]
+    entity_type_map = build_entity_type_map(graph)
+
+    # Filter to only ABox individuals (those with a known class)
+    abox_indices = [
+        index for index, label in enumerate(entity_labels)
+        if label in entity_type_map
+    ]
+    if not abox_indices:
         log.warning("No typed entities found — skipping plot")
         return
-    emb_filtered = emb[keep]
-    labels_filtered = [labels[i] for i in keep]
-    classes = [type_of[lbl] for lbl in labels_filtered]
 
-    perplexity = min(30, max(2, len(keep) - 1))
-    proj = TSNE(n_components=2, random_state=RANDOM_SEED,
-                perplexity=perplexity, init="pca").fit_transform(emb_filtered)
+    filtered_embeddings = all_embeddings[abox_indices]
+    filtered_labels = [entity_labels[i] for i in abox_indices]
+    entity_classes = [entity_type_map[label] for label in filtered_labels]
 
-    plt.figure(figsize=(11, 8))
-    cmap = plt.get_cmap("tab20")
-    for i, cls in enumerate(sorted(set(classes))):
-        idx = [j for j, c in enumerate(classes) if c == cls]
-        plt.scatter(proj[idx, 0], proj[idx, 1], s=28,
-                    color=cmap(i % cmap.N), label=cls, alpha=0.8)
+    # Run t-SNE dimensionality reduction
+    perplexity_value = min(30, max(2, len(abox_indices) - 1))
+    projected_2d = TSNE(
+        n_components=2, random_state=RANDOM_SEED,
+        perplexity=perplexity_value, init="pca",
+    ).fit_transform(filtered_embeddings)
 
-    # Highlight the new individuals
-    for ind in NEW_INDIVIDUALS:
-        iri = str(ONT[ind.name])
-        if iri in labels_filtered:
-            j = labels_filtered.index(iri)
-            plt.annotate(ind.name, (proj[j, 0], proj[j, 1]),
-                         fontsize=8, fontweight="bold",
-                         xytext=(5, 5), textcoords="offset points")
+    # Create scatter plot coloured by class
+    plt.figure(figsize=(14, 8))
+    colour_palette = plt.get_cmap("tab20")
 
-    plt.legend(fontsize=8, loc="best", markerscale=1.2)
+    unique_classes = sorted(set(entity_classes))
+    for class_index, class_name in enumerate(unique_classes):
+        point_indices = [j for j, c in enumerate(entity_classes) if c == class_name]
+        plt.scatter(
+            projected_2d[point_indices, 0],
+            projected_2d[point_indices, 1],
+            s=28, color=colour_palette(class_index % colour_palette.N),
+            label=class_name, alpha=0.8,
+        )
+
+    # Annotate the test individuals for easy identification
+    for test_individual in TEST_INDIVIDUALS:
+        individual_iri = str(ONT[test_individual.name])
+        if individual_iri in filtered_labels:
+            point_index = filtered_labels.index(individual_iri)
+            plt.annotate(
+                test_individual.name,
+                (projected_2d[point_index, 0], projected_2d[point_index, 1]),
+                fontsize=8, fontweight="bold",
+                xytext=(5, 5), textcoords="offset points",
+            )
+
+    plt.legend(fontsize=8, loc="upper left", markerscale=1.2, bbox_to_anchor=(1.01, 1))
     plt.title(f"{MODEL_NAME} entity embeddings (t-SNE projection)")
     plt.tight_layout()
-    plt.savefig(PLOT_FILE, dpi=140)
+    plt.savefig(PLOT_OUTPUT_FILE, dpi=140, bbox_inches="tight")
     plt.close()
-    log.info("Saved cluster plot → %s", PLOT_FILE)
+    log.info("Saved cluster plot -> %s", PLOT_OUTPUT_FILE)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 5. Link prediction
-# ─────────────────────────────────────────────────────────────────────────────
-def _filter_by_class(df, expected_class: str, type_of: dict[str, str]):
-    """Keep only candidate tails whose rdf:type matches expected_class."""
-    return df[df["tail_label"].apply(lambda iri: type_of.get(iri) == expected_class)]
+# ═══════════════════════════════════════════════════════════════════════════════
+# Step 5: Link Prediction
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def filter_predictions_by_class(
+    predictions_dataframe,
+    expected_class: str,
+    entity_type_map: dict[str, str],
+):
+    """Keep only candidate tails whose rdf:type matches the expected class.
+
+    This ensures predictions are semantically valid (e.g. locatedIn should
+    only predict Province or Island, not Beach or Activity).
+    """
+    return predictions_dataframe[
+        predictions_dataframe["tail_label"].apply(
+            lambda iri: entity_type_map.get(iri) == expected_class
+        )
+    ]
 
 
-def predict_for_new_individuals(model, tf: TriplesFactory, g: Graph) -> list[tuple[str, str, str]]:
-    """For each TestIndividual, run link prediction and pick the top
-    type-consistent tail. Returns the new triples to add back to the graph."""
-    type_of = _build_type_map(g)
-    new_triples: list[tuple[str, str, str]] = []
+def predict_missing_links(
+    trained_model,
+    triples_factory: TriplesFactory,
+    graph: Graph,
+) -> list[tuple[str, str, str]]:
+    """Run link prediction for each test individual and return new triples.
 
-    for ind in NEW_INDIVIDUALS:
-        head_iri = str(ONT[ind.name])
-        rel_iri  = str(ONT[ind.query_relation])
-        if head_iri not in tf.entity_to_id or rel_iri not in tf.relation_to_id:
-            log.warning("Skipping %s — head or relation not in training data", ind.name)
+    For each TestIndividual, predicts the most likely tail entity for its
+    query_relation, filtering candidates to only those matching expected_class.
+
+    Parameters
+    ----------
+    trained_model : pykeen.models.Model
+        The trained embedding model.
+    triples_factory : TriplesFactory
+        Entity/relation ID mappings from training.
+    graph : rdflib.Graph
+        Used to look up entity types for filtering predictions.
+
+    Returns
+    -------
+    list[tuple[str, str, str]]
+        New (subject_iri, predicate_iri, object_iri) triples to add to the graph.
+    """
+    entity_type_map = build_entity_type_map(graph)
+    predicted_triples: list[tuple[str, str, str]] = []
+
+    for test_individual in TEST_INDIVIDUALS:
+        head_iri = str(ONT[test_individual.name])
+        relation_iri = str(ONT[test_individual.query_relation])
+
+        # Skip if the entity or relation wasn't seen during training
+        if head_iri not in triples_factory.entity_to_id:
+            log.warning("Skipping %s — entity not in training data", test_individual.name)
+            continue
+        if relation_iri not in triples_factory.relation_to_id:
+            log.warning("Skipping %s — relation not in training data", test_individual.name)
             continue
 
-        pred = predict_target(
-            model=model, head=head_iri, relation=rel_iri, triples_factory=tf,
+        # Get raw predictions from the model
+        raw_predictions = predict_target(
+            model=trained_model, head=head_iri,
+            relation=relation_iri, triples_factory=triples_factory,
         ).df
 
-        filtered = _filter_by_class(pred, ind.expected_class, type_of)
-        log.info("\n%s -- %s -- ?  (%s)", ind.name, ind.query_relation, ind.note)
-        log.info("  Top-%d type-consistent (%s):", TOP_K, ind.expected_class)
-        for _, row in filtered.head(TOP_K).iterrows():
+        # Filter to type-consistent candidates only
+        valid_predictions = filter_predictions_by_class(
+            raw_predictions, test_individual.expected_class, entity_type_map,
+        )
+
+        log.info(
+            "\n%s -- %s -- ?  (%s)",
+            test_individual.name, test_individual.query_relation, test_individual.note,
+        )
+        log.info("  Top-%d type-consistent (%s):", TOP_K_PREDICTIONS, test_individual.expected_class)
+
+        for _, row in valid_predictions.head(TOP_K_PREDICTIONS).iterrows():
             log.info("    %.4f  %s", row["score"], local_name(row["tail_label"]))
 
-        if not filtered.empty:
-            top_tail = filtered.iloc[0]["tail_label"]
-            new_triples.append((head_iri, rel_iri, top_tail))
-            log.info("  → autocompleting: %s %s %s",
-                     ind.name, ind.query_relation, local_name(top_tail))
+        # Take the highest-scoring valid prediction
+        if not valid_predictions.empty:
+            best_tail_iri = valid_predictions.iloc[0]["tail_label"]
+            predicted_triples.append((head_iri, relation_iri, best_tail_iri))
+            log.info(
+                "  -> autocompleting: %s %s %s",
+                test_individual.name, test_individual.query_relation,
+                local_name(best_tail_iri),
+            )
 
-    return new_triples
+    return predicted_triples
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 6. Write predictions back to data.owl
-# ─────────────────────────────────────────────────────────────────────────────
-def append_predictions_to_data_owl(g: Graph, new_triples: list[tuple[str, str, str]]) -> None:
-    """Add the predicted triples to the graph and overwrite data.owl."""
-    if not new_triples:
+# ═══════════════════════════════════════════════════════════════════════════════
+# Step 6: Write Predictions Back to Ontology
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def write_predictions_to_data_owl(
+    graph: Graph,
+    predicted_triples: list[tuple[str, str, str]],
+) -> None:
+    """Append predicted triples to the graph and save to data.owl.
+
+    Parameters
+    ----------
+    graph : rdflib.Graph
+        The knowledge graph to modify.
+    predicted_triples : list[tuple[str, str, str]]
+        New triples from link prediction (subject_iri, predicate_iri, object_iri).
+    """
+    if not predicted_triples:
         log.info("No predictions to write back.")
         return
-    for s, p, o in new_triples:
-        g.add((URIRef(s), URIRef(p), URIRef(o)))
-    g.serialize(destination=str(DATA_FILE), format="xml")
-    log.info("\nAppended %d predicted triples to %s", len(new_triples), DATA_FILE.name)
+
+    for subject_iri, predicate_iri, object_iri in predicted_triples:
+        graph.add((URIRef(subject_iri), URIRef(predicate_iri), URIRef(object_iri)))
+
+    graph.serialize(destination=str(DATA_FILE), format="xml")
+    log.info("\nAppended %d predicted triples to %s", len(predicted_triples), DATA_FILE.name)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Entry point
-# ─────────────────────────────────────────────────────────────────────────────
+# ═══════════════════════════════════════════════════════════════════════════════
+# Entry Point
+# ═══════════════════════════════════════════════════════════════════════════════
+
 def main() -> None:
+    """Execute the full embedding + link prediction pipeline."""
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     log.info("=" * 60)
     log.info("Step 1: Load object-property triples from data.owl + schema.owl")
-    g, base_triples = load_object_triples()
+    graph, base_triples = load_object_property_triples()
     log.info("  %d triples extracted", len(base_triples))
 
-    log.info("\nStep 2: Add 3 new individuals with anchoring facts")
-    extra = add_test_individuals(g)
-    all_triples = np.vstack([base_triples, extra])
-    log.info("  +%d anchoring triples (total %d)", len(extra), len(all_triples))
+    log.info("\nStep 2: Add %d new individuals with anchoring facts", len(TEST_INDIVIDUALS))
+    extra_triples = add_test_individuals_to_graph(graph)
+    all_triples = np.vstack([base_triples, extra_triples])
+    log.info("  +%d anchoring triples (total %d)", len(extra_triples), len(all_triples))
 
     log.info("\nStep 3: Train %s (dim=%d, epochs=%d) …", MODEL_NAME, EMBEDDING_DIM, NUM_EPOCHS)
-    result, tf = train_embeddings(all_triples)
+    training_result, triples_factory = train_embedding_model(all_triples)
 
     log.info("\nStep 4: Project embeddings with t-SNE")
-    visualize_embeddings(result.model, tf, g)
+    visualize_embeddings(training_result.model, triples_factory, graph)
 
-    log.info("\nStep 5: Link prediction for the 3 new individuals")
-    new_triples = predict_for_new_individuals(result.model, tf, g)
+    log.info("\nStep 5: Link prediction for the %d new individuals", len(TEST_INDIVIDUALS))
+    predicted_triples = predict_missing_links(training_result.model, triples_factory, graph)
 
     log.info("\nStep 6: Autocomplete data.owl with the predictions")
-    append_predictions_to_data_owl(g, new_triples)
+    write_predictions_to_data_owl(graph, predicted_triples)
 
-    log.info("\nDone. Run `python -c 'from reasoning import check_consistency; check_consistency()'`"
-             " to verify the autocompleted ontology is still consistent.")
+    log.info(
+        "\nDone. Run `python -c 'from reasoning import check_consistency; check_consistency()'`"
+        " to verify the autocompleted ontology is still consistent."
+    )
 
 
 if __name__ == "__main__":

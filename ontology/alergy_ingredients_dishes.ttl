@@ -1,0 +1,419 @@
+@prefix ex:   <http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+<http://www.semanticweb.org/emmaa/ontologies/2026/3/alergy-ingredients-dishes>
+    a owl:Ontology .
+
+# ---------------------------------------------------------
+# 1. POPULATING THE Allergens CLASS WITH INDIVIDUALS
+# ---------------------------------------------------------
+ex:Crustaceans a ex:Allergens ;
+    rdfs:label "Crustaceans" .
+
+ex:Nuts a ex:Allergens ;
+    rdfs:label "Nuts" .
+
+ex:Fish a ex:Allergens ;
+    rdfs:label "Fish" .
+
+ex:Celery a ex:Allergens ;
+    rdfs:label "Celery" .
+
+ex:Eggs a ex:Allergens ;
+    rdfs:label "Eggs" .
+
+ex:Lactose a ex:Allergens ;
+    rdfs:label "Lactose" .
+
+ex:Lupin a ex:Allergens ;
+    rdfs:label "Lupin" .
+
+ex:Molluscs a ex:Allergens ;
+    rdfs:label "Molluscs" .
+
+ex:Sesame_Seeds a ex:Allergens ;
+    rdfs:label "Sesame_seeds" .
+
+ex:Soybeans a ex:Allergens ;
+    rdfs:label "Soybeans" .
+
+ex:Sulphites a ex:Allergens ;
+    rdfs:label "Sulphites" .
+
+ex:Gluten a ex:Allergens ;
+    rdfs:label "Gluten" .
+
+# ---------------------------------------------------------
+# 2. POPULATING THE INGREDIENT CLASS WITH INDIVIDUALS
+
+# =========================================================
+# 1. YOUR ORIGINAL INGREDIENTS (Updated with isLactoseFree)
+# =========================================================
+
+ex:Pork a ex:Ingredient ;
+    rdfs:label "Pork" ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Shrimp_Paste a ex:Ingredient ;
+    rdfs:label "Shrimp Paste" ;
+    ex:hasAllergens ex:Crustaceans ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Minced_Fish a ex:Ingredient ;
+    rdfs:label "Minced Fish" ;
+    ex:hasAllergens ex:Fish ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Candlenut a ex:Ingredient ;
+    rdfs:label "Candlenut" ;
+    ex:hasAllergens ex:Nuts ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Wheat_Flour a ex:Ingredient ;
+    rdfs:label "Wheat Flour" ;
+    ex:hasAllergens ex:Gluten ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Duck a ex:Ingredient ;
+    rdfs:label "Duck" ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Chicken a ex:Ingredient ;
+    rdfs:label "Chicken" ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Egg a ex:Ingredient ;
+    rdfs:label "Egg" ;
+    ex:hasAllergens ex:Eggs ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Cassava_Leaves a ex:Ingredient ;
+    rdfs:label "Cassava Leaves" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Grated_Coconut a ex:Ingredient ;
+    rdfs:label "Grated Coconut" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Water_Spinach a ex:Ingredient ;
+    rdfs:label "Water Spinach" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# =========================================================
+# 2. 30 NEW INGREDIENTS
+# =========================================================
+
+# --- DAIRY (Lactose warnings!) ---
+ex:Cow_Milk a ex:Ingredient ;
+    rdfs:label "Cow Milk" ;
+    ex:hasAllergens ex:Lactose ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "false"^^xsd:boolean .
+
+ex:Butter a ex:Ingredient ;
+    rdfs:label "Butter" ;
+    ex:hasAllergens ex:Lactose ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "false"^^xsd:boolean .
+
+ex:Cheddar_Cheese a ex:Ingredient ;
+    rdfs:label "Cheddar Cheese" ;
+    ex:hasAllergens ex:Lactose ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "false"^^xsd:boolean .
+
+# --- MEATS & SEAFOOD ---
+ex:Beef a ex:Ingredient ;
+    rdfs:label "Beef" ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Lamb a ex:Ingredient ;
+    rdfs:label "Lamb" ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Crab a ex:Ingredient ;
+    rdfs:label "Crab" ;
+    ex:hasAllergens ex:Crustaceans ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Squid a ex:Ingredient ;
+    rdfs:label "Squid" ;
+    ex:hasAllergens ex:Molluscs ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Salmon a ex:Ingredient ;
+    rdfs:label "Salmon" ;
+    ex:hasAllergens ex:Fish ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# --- VEGETARIAN PROTEINS (Soy & Nuts) ---
+ex:Tofu a ex:Ingredient ;
+    rdfs:label "Tofu" ;
+    ex:hasAllergens ex:Soybeans ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Tempeh a ex:Ingredient ;
+    rdfs:label "Tempeh" ;
+    ex:hasAllergens ex:Soybeans ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Peanut a ex:Ingredient ;
+    rdfs:label "Peanut" ;
+    ex:hasAllergens ex:Peanuts ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Almond a ex:Ingredient ;
+    rdfs:label "Almond" ;
+    ex:hasAllergens ex:Nuts ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# --- VEGETABLES ---
+ex:Garlic a ex:Ingredient ;
+    rdfs:label "Garlic" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Onion a ex:Ingredient ;
+    rdfs:label "Onion" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Tomato a ex:Ingredient ;
+    rdfs:label "Tomato" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Potato a ex:Ingredient ;
+    rdfs:label "Potato" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Carrot a ex:Ingredient ;
+    rdfs:label "Carrot" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Spinach a ex:Ingredient ;
+    rdfs:label "Spinach" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Chili_Pepper a ex:Ingredient ;
+    rdfs:label "Chili Pepper" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# --- GRAINS & STARCHES ---
+ex:White_Rice a ex:Ingredient ;
+    rdfs:label "White Rice" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Brown_Rice a ex:Ingredient ;
+    rdfs:label "Brown Rice" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Rice_Noodles a ex:Ingredient ;
+    rdfs:label "Rice Noodles" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Corn a ex:Ingredient ;
+    rdfs:label "Corn" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# --- LIQUIDS & CONDIMENTS ---
+ex:Coconut_Milk a ex:Ingredient ;
+    rdfs:label "Coconut Milk" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Soy_Sauce a ex:Ingredient ;
+    rdfs:label "Soy Sauce" ;
+    ex:hasAllergens ex:Soybeans, ex:Gluten ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Sesame_Oil a ex:Ingredient ;
+    rdfs:label "Sesame Oil" ;
+    ex:hasAllergens ex:Sesame_Seeds ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Olive_Oil a ex:Ingredient ;
+    rdfs:label "Olive Oil" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# --- SPICES & SWEETENERS ---
+ex:Salt a ex:Ingredient ;
+    rdfs:label "Salt" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Black_Pepper a ex:Ingredient ;
+    rdfs:label "Black Pepper" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Honey a ex:Ingredient ;
+    rdfs:label "Honey" ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+
+# Adding Dishes
+
+# 1. Gado-Gado (A traditional Indonesian salad with peanut sauce)
+ex:Gado_Gado a ex:MainDish ;
+    rdfs:label "Gado Gado" ;
+    ex:hasIngredient ex:Spinach,
+                     ex:Cabbage,
+                     ex:Potato,
+                     ex:Tofu,
+                     ex:Tempeh,
+                     ex:Peanut,         
+                     ex:Sweet_Soy_Sauce, 
+                     ex:Garlic,
+                     ex:Chili_Pepper ;
+    ex:originatesFrom ex:Bali .
+
+# 2. Nasi Goreng (Indonesian Fried Rice)
+ex:Nasi_Goreng a ex:MainDish ;
+    rdfs:label "Nasi Goreng" ;
+    ex:hasIngredient ex:White_Rice,
+                     ex:Chicken,        
+                     ex:Egg,            
+                     ex:Sweet_Soy_Sauce,
+                     ex:Garlic,
+                     ex:Onion ;
+    ex:originatesFrom ex:Bali .
+
+
+ex:Babi_Guling a ex:MainDish ;
+    rdfs:label "Babi Guling" ;
+    ex:hasIngredient ex:Pork, 
+                     ex:Shrimp_Paste, 
+                     ex:Candlenut ;
+    ex:originatesFrom ex:Bali .
+
+ex:Lawar a ex:SideDish ;
+    rdfs:label "Lawar" ;
+    ex:hasIngredient ex:Pork, 
+                     ex:Grated_Coconut, 
+                     ex:Shrimp_Paste ;
+    ex:originatesFrom ex:Bali .
+
+ex:Sate_Lilit a ex:MainDish ;
+    rdfs:label "Sate Lilit" ;
+    ex:hasIngredient ex:Minced_Fish, 
+                     ex:Grated_Coconut, 
+                     ex:Candlenut ;
+    ex:originatesFrom ex:Bali .
+
+# =========================================================
+# 3. EXPANDED DISHES FROM BALI & NUSA TENGGARA
+# =========================================================
+
+# Ayam Taliwang 
+ex:Ayam_Taliwang a ex:MainDish ;
+    rdfs:label "Ayam Taliwang" ;
+    ex:hasIngredient ex:Chicken, 
+                     ex:Garlic, 
+                     ex:Chili_Pepper, 
+                     ex:Shrimp_Paste, 
+                     ex:Tomato ;
+    ex:originatesFrom ex:West_Nusa_Tenggara .
+
+# Plecing Kangkung 
+ex:Plecing_Kangkung a ex:SideDish ;
+    rdfs:label "Plecing Kangkung" ;
+    ex:hasIngredient ex:Water_Spinach, 
+                     ex:Tomato, 
+                     ex:Shrimp_Paste, 
+                     ex:Chili_Pepper ;
+    ex:originatesFrom ex:West_Nusa_Tenggara .
+
+# Sei Sapi 
+ex:Sei_Sapi a ex:MainDish ;
+    rdfs:label "Sei Sapi" ;
+    ex:hasIngredient ex:Beef, 
+                     ex:Cassava_Leaves, 
+                     ex:Chili_Pepper, 
+                     ex:Onion ;
+    ex:originatesFrom ex:East_Nusa_Tenggara .
+
+# Ayam Betutu 
+ex:Ayam_Betutu a ex:MainDish ;
+    rdfs:label "Ayam Betutu" ;
+    ex:hasIngredient ex:Chicken, 
+                     ex:Candlenut, 
+                     ex:Cassava_Leaves, 
+                     ex:Garlic,
+                     ex:Chili_Pepper ;
+    ex:originatesFrom ex:Bali .

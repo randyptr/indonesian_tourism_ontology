@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_Establishments" uri="establishments.omn"/>
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/alergy-ingredients-dishes" uri="alergy_ingredients_dishes.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_establishments" uri="establishments.omn"/>
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_Establishment" uri="establishments.omn"/>
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_establishments" uri="establishments.omn"/>
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_establishments" uri="establishments.omn"/>
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_establishments" uri="establishments.omn"/>
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/alergy-ingredients-dishes" uri="alergy_ingredients_dishes.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_establishments" uri="populate_establishments.omn"/>
     <uri id="travel.owl import" name="http://www.owl-ontologies.com/travel.owl" uri="travel.owl"/>
     <uri id="schema.owl" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9" uri="schema.owl"/>
     <uri id="data.owl" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/tourism-data" uri="data.owl"/>
+    <uri id="populate_establishments.omn" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_establishments" uri="populate_establishments.omn"/>
+    <uri id="populate_establishments.ttl" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_establishments_ttl" uri="populate_establishments.ttl"/>
 </catalog>

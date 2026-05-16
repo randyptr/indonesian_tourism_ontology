@@ -13,10 +13,10 @@ a small modular Python pipeline.
 
 ```
 .
-├── main.py             # Orchestrator: populate → enrich → save → reason
+├── main.py             # Orchestrator: populate -> enrich -> save -> reason
 ├── config.py           # Constants, IRIs, file paths, domain mappings (data, no logic)
 ├── graph_utils.py      # Tiny RDF helpers (slugify, add_individual, …)
-├── populate.py         # DBpedia SPARQL queries → individuals (rdf:type)
+├── populate.py         # DBpedia SPARQL queries -> individuals (rdf:type)
 ├── enrich.py           # Relational triples (locatedIn, hasActivity, …)
 ├── reasoning.py        # HermiT consistency check via owlready2
 ├── visualize.py        # Interactive HTML graph (PyVis)
@@ -42,7 +42,7 @@ You also need a working **Java** runtime on `PATH` (HermiT is a `.jar`).
 ## Usage
 
 ```bash
-# Full pipeline: query DBpedia → enrich → save data.owl → run HermiT
+# Full pipeline: query DBpedia -> enrich -> save data.owl -> run HermiT
 python main.py
 
 # Render data.owl + schema.owl as an interactive HTML graph
@@ -78,8 +78,8 @@ Typical numbers per run:
 ## Object properties used
 
 - `locatedIn` (parent), `locatedInCountry`, `locatedInProvince`, `locatedInIsland`
-- `hasTouristAttraction` (City → TouristAttraction)
-- `hasActivity` (TouristAttraction → Activities)
+- `hasTouristAttraction` (City -> TouristAttraction)
+- `hasActivity` (TouristAttraction -> Activities)
 
 ## Data sources
 
