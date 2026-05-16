@@ -23,7 +23,7 @@ from graph_utils import local_name
 log = logging.getLogger(__name__)
 
 # Output file name for the interactive HTML visualization
-OUTPUT_HTML_FILE = "ontology_graph.html"
+OUTPUT_HTML_FILE = "./graph_viz/ontology_graph.html"
 
 # ── Colour Palette ───────────────────────────────────────────────────────────
 # Each ontology class gets a distinct colour for visual differentiation.

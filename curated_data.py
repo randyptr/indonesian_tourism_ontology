@@ -59,7 +59,7 @@ Accommodation (top-level class)
 # INDIVIDUALS
 # =============================================================================
 
-# ── Transportation ────────────────────────────────────────────────────────────
+# ── Transportation 
 # Domain of hasTransportation: City -> Transportation
 # Populated here because DBpedia lacks structured airport/port data for this region.
 
@@ -84,13 +84,11 @@ TRANSPORTATION: list[dict] = [
 ]
 
 
-# ── Festivals ─────────────────────────────────────────────────────────────────
+# ── Festivals
 # NTB and NTT festivals are added manually because:
 #   - NTB:  DBpedia returns 0 results for Festival in West Nusa Tenggara
 #   - NTT:  DBpedia incorrectly categorises a gubernatorial election as a
 #           SocietalEvent under Tourist_attractions_in_East_Nusa_Tenggara
-# Bali festivals (Bali_Arts_Festival, Ubud_Writers___Readers_Festival) are
-# already populated correctly by DBpedia — not repeated here.
 
 FESTIVALS: list[dict] = [
 
@@ -106,7 +104,7 @@ FESTIVALS: list[dict] = [
 ]
 
 
-# ── Food ──────────────────────────────────────────────────────────────────────
+# ── Food 
 # Domain of hasFood:        City -> Food
 # Domain of originatesFrom: Food -> Province
 
@@ -139,7 +137,7 @@ FOOD: list[dict] = [
 ]
 
 
-# ── Traditional Dances ────────────────────────────────────────────────────────
+# ── Traditional Dances 
 # TraditionalDance ⊑ CulturalAttraction ⊑ TouristAttraction
 # DBpedia returns no structured dance data for this region; all entries are manual.
 
@@ -165,7 +163,7 @@ TRADITIONAL_DANCES: list[dict] = [
 ]
 
 
-# ── Traditional Houses ────────────────────────────────────────────────────────
+# ── Traditional Houses 
 # TraditionalHouse ⊑ CulturalAttraction ⊑ TouristAttraction
 #                  ⊑ Establishments  (can have servesFood edge)
 # DBpedia does not reliably classify Indonesian vernacular architecture; all manual.
@@ -188,7 +186,7 @@ TRADITIONAL_HOUSES: list[dict] = [
 ]
 
 
-# ── Restaurants ───────────────────────────────────────────────────────────────
+# ── Restaurants ───────
 # Restaurant ⊑ Establishments
 # DBpedia has no restaurant data for this region; all entries are manual.
 
@@ -212,7 +210,7 @@ RESTAURANTS: list[dict] = [
 ]
 
 
-# ── Street Vendors ────────────────────────────────────────────────────────────
+# ── Street Vendors ────
 # StreetVendor ⊑ Establishments
 # Includes warungs (small local eateries) and night markets.
 
@@ -254,7 +252,7 @@ TRADITIONAL_MARKETS: list[dict] = [
 ]
 
 
-# ── Resorts ───────────────────────────────────────────────────────────────────
+# ── Resorts ───────────
 # Resort ⊑ Accommodation
 # City -> hasAccommodation -> Resort
 
@@ -277,7 +275,7 @@ RESORTS: list[dict] = [
 ]
 
 
-# ── Villas ────────────────────────────────────────────────────────────────────
+# ── Villas ────────────
 # Villa ⊑ Accommodation
 
 VILLAS: list[dict] = [
@@ -296,7 +294,7 @@ VILLAS: list[dict] = [
 ]
 
 
-# ── Guesthouses ───────────────────────────────────────────────────────────────
+# ── Guesthouses ───────
 # Guesthouse ⊑ Accommodation
 # Includes homestays and budget boutique lodging.
 
@@ -315,7 +313,7 @@ GUESTHOUSES: list[dict] = [
 ]
 
 
-# ── Hostels ───────────────────────────────────────────────────────────────────
+# ── Hostels ───────────
 # Hostel ⊑ Accommodation
 
 HOSTELS: list[dict] = [
@@ -383,8 +381,8 @@ RATINGS = {
     },
 }
 
-# hasEntryFee (xsd:boolean) – True = charges an entry fee
-# Domain: TouristAttraction. Hotels excluded (they're Accommodation, disjoint).
+# hasEntryFee (xsd:boolean) - True = charges an entry fee
+# Domain: TouristAttraction
 ENTRY_FEE = {
     "Bali_Museum":                    True,
     "Neka_Art_Museum":                True,
@@ -396,7 +394,7 @@ ENTRY_FEE = {
     "Semarajaya_Museum":              True,
     "Gedong_Arca_Museum__Bedulu":     True,
     "Gedong_Kirtya":                  False,
-    "Bajra_Sandhi_Monument":          False,  # free entry
+    "Bajra_Sandhi_Monument":          False,
     "Komodo_National_Park":           True,
     "Kelimutu_National_Park":         True,
     "Mount_Rinjani_National_Park":    True,
@@ -406,8 +404,7 @@ ENTRY_FEE = {
     "Bali_Botanic_Garden":            True,
 }
 
-# establishedYear (xsd:integer) for Parks — known historical dates.
-# Used as a fallback when DBpedia returns no foundingDate / formationYear.
+# establishedYear (xsd:integer) for Parks
 PARK_ESTABLISHED_YEAR = {
     "Komodo_National_Park":              1980,
     "Kelimutu_National_Park":            1992,

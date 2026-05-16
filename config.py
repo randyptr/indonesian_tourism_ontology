@@ -21,9 +21,8 @@ from rdflib import Namespace
 # All ontology files live under the 'ontology/' subdirectory of this project.
 PROJECT_DIR  = Path(__file__).resolve().parent
 ONTOLOGY_DIR = PROJECT_DIR / "ontology"
-SCHEMA_FILE  = ONTOLOGY_DIR / "schema.owl"       # TBox — class and property definitions
-DATA_FILE    = ONTOLOGY_DIR / "data.owl"          # ABox — individuals and assertions
-CATALOG_FILE = ONTOLOGY_DIR / "catalog-v001.xml"  # Protégé catalog for local resolution
+SCHEMA_FILE  = ONTOLOGY_DIR / "schema.owl"   # TBox — class and property definitions
+DATA_FILE    = ONTOLOGY_DIR / "data.owl"     # ABox — individuals and assertions
 
 # ── Namespaces ───────────────────────────────────────────────────────────────
 # The ontology IRI is used as the namespace for all classes, properties,

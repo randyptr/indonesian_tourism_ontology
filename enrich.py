@@ -43,7 +43,7 @@ from config import (
     DBPEDIA_ENDPOINT, DBPEDIA_TIMEOUT_S, DBPEDIA_THROTTLE_S,
     ACTIVITIES,
 )
-from graph_utils import add_individual, add_rel, has_type, local_name
+from graph_utils import add_individual, add_relation, has_type, local_name
 from populate import get_dbpedia_mappings
 from curated_data import (
     RATINGS, ENTRY_FEE, PARK_ESTABLISHED_YEAR,
@@ -246,7 +246,7 @@ def add_country_backbone(graph: Graph) -> None:
     """
     add_individual(graph, "Country", "Indonesia")
     for province_name in PROVINCES.values():
-        add_rel(graph, province_name, "locatedInCountry", "Indonesia")
+        add_relation(graph, province_name, "locatedInCountry", "Indonesia")
     log.info("  Country backbone: 3 provinces -> Indonesia")
 
 
@@ -261,7 +261,7 @@ def add_bali_island(graph: Graph) -> None:
     in Bali can use locatedInIsland -> Bali_Island (domain = City).
     """
     add_individual(graph, "Island", "Bali_Island")
-    add_rel(graph, "Bali_Island", "locatedInProvince", "Bali")
+    add_relation(graph, "Bali_Island", "locatedInProvince", "Bali")
     log.info("  Added Bali_Island (manual — DBpedia has Bali as Province)")
 
 
@@ -320,7 +320,7 @@ def add_island_province(graph: Graph) -> None:
         province_name = province_uri_to_local.get(province_uri)
 
         if island_name and province_name:
-            add_rel(graph, island_name, "locatedInProvince", province_name)
+            add_relation(graph, island_name, "locatedInProvince", province_name)
             link_count += 1
 
     log.info("  Island -> Province: %d links (auto from DBpedia)", link_count)
@@ -460,7 +460,7 @@ def add_location_links(graph: Graph) -> None:
             property_name = _choose_location_property(source_class, target_class)
 
             if property_name:
-                add_rel(graph, source_name, property_name, target_name)
+                add_relation(graph, source_name, property_name, target_name)
                 link_count += 1
 
     log.info("  wikiPageWikiLink -> locatedIn: %d links (auto)", link_count)
@@ -614,7 +614,7 @@ def add_activity_links(graph: Graph) -> None:
 
     # Add the triples to the graph
     for entity_name, activity_name in activity_pairs:
-        add_rel(graph, entity_name, "hasActivity", activity_name)
+        add_relation(graph, entity_name, "hasActivity", activity_name)
 
     log.info(
         "  hasActivity: %d links (auto from categories + wikiLinks)",
@@ -649,7 +649,7 @@ def add_activity_fallbacks(graph: Graph) -> None:
 
             entity_name = local_name(subject)
             for activity_name in default_activities:
-                add_rel(graph, entity_name, "hasActivity", activity_name)
+                add_relation(graph, entity_name, "hasActivity", activity_name)
                 link_count += 1
 
     log.info("  Default activities (fallback): %d links", link_count)
@@ -918,12 +918,12 @@ def add_manual_transportation(graph: Graph) -> None:
 
         # Create the individual and link to province
         add_individual(graph, owl_class, individual_name)
-        add_rel(graph, individual_name, "locatedIn", province_name)
+        add_relation(graph, individual_name, "locatedIn", province_name)
 
         # Link the provincial capital to this transportation node
         capital_name = CAPITAL_OF_PROVINCE.get(province_name)
         if capital_name and has_type(graph, capital_name, "City"):
-            add_rel(graph, capital_name, "hasTransportation", individual_name)
+            add_relation(graph, capital_name, "hasTransportation", individual_name)
 
         log.info("  + %s (%s, locatedIn: %s)", individual_name, owl_class, province_name)
         added_count += 1
@@ -960,16 +960,16 @@ def add_manual_food(graph: Graph) -> None:
 
         # Create the individual and link to province
         add_individual(graph, owl_class, individual_name)
-        add_rel(graph, individual_name, "locatedIn", province_name)
+        add_relation(graph, individual_name, "locatedIn", province_name)
 
         # Add originatesFrom if specified
         if origin_province:
-            add_rel(graph, individual_name, "originatesFrom", origin_province)
+            add_relation(graph, individual_name, "originatesFrom", origin_province)
 
         # Link the provincial capital to this food node
         capital_name = CAPITAL_OF_PROVINCE.get(province_name)
         if capital_name and has_type(graph, capital_name, "City"):
-            add_rel(graph, capital_name, "hasFood", individual_name)
+            add_relation(graph, capital_name, "hasFood", individual_name)
 
         log.info("  + %s (%s, originatesFrom: %s)", individual_name, owl_class, origin_province)
         added_count += 1
@@ -1003,11 +1003,11 @@ def add_manual_festivals(graph: Graph) -> None:
         province_name   = entry["locatedIn"]
 
         add_individual(graph, "Festival", individual_name)
-        add_rel(graph, individual_name, "locatedIn", province_name)
+        add_relation(graph, individual_name, "locatedIn", province_name)
 
         # Assign default activity directly — these won't be picked up by
         # add_activity_links() since they have no DBpedia URI
-        add_rel(graph, individual_name, "hasActivity", "Cultural_Tour")
+        add_relation(graph, individual_name, "hasActivity", "Cultural_Tour")
 
         log.info("  + %s (locatedIn: %s)", individual_name, province_name)
         added_count += 1
@@ -1016,99 +1016,45 @@ def add_manual_festivals(graph: Graph) -> None:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Step 15: Manual TraditionalDance individuals
+# Steps 15–16: Manual TraditionalDance and TraditionalHouse individuals
 # ─────────────────────────────────────────────────────────────────────────────
+def _add_cultural_individuals(
+    graph: Graph,
+    entries: list[dict],
+    owl_class: str,
+    label: str,
+) -> None:
+    """Shared helper for TraditionalDance and TraditionalHouse population.
+
+    Each entry gets rdf:type, locatedIn, hasActivity → Cultural_Tour, and a
+    hub link from the provincial capital. Hub links are wired manually here
+    because add_attraction_hubs() runs before these manual steps.
+    """
+    count = 0
+    for entry in entries:
+        name     = entry["name"]
+        province = entry["locatedIn"]
+        add_individual(graph, owl_class, name)
+        add_relation(graph, name, "locatedIn", province)
+        add_relation(graph, name, "hasActivity", "Cultural_Tour")
+        capital = CAPITAL_OF_PROVINCE.get(province)
+        if capital and has_type(graph, capital, "City"):
+            add_relation(graph, capital, "hasTouristAttraction", name)
+        log.info("  + %s (locatedIn: %s)", name, province)
+        count += 1
+    log.info("  Manual %s: %d individuals added", label, count)
+
+
 def add_manual_traditional_dances(graph: Graph) -> None:
-    """Add TraditionalDance individuals from curate_individuals.TRADITIONAL_DANCES.
-
-    Why manual:
-    - DBpedia has no structured dance-type triples for Bali, NTB, or NTT.
-    - Dance articles exist but are not consistently categorised under a shared
-      DBpedia class, making reliable SPARQL discovery impossible.
-
-    Each individual gets:
-        rdf:type        TraditionalDance
-        locatedIn    -> Province
-        hasActivity  -> Cultural_Tour   (direct fallback; no DBpedia categories)
-        (capital city) hasTouristAttraction -> individual
-                        (added here because add_attraction_hubs runs before
-                         manual population steps)
-
-    Example results:
-        Kecak        rdf:type TraditionalDance
-        Kecak        locatedIn Bali
-        Denpasar     hasTouristAttraction Kecak
-    """
-    added_count = 0
-
-    for entry in TRADITIONAL_DANCES:
-        individual_name = entry["name"]
-        province_name   = entry["locatedIn"]
-
-        add_individual(graph, "TraditionalDance", individual_name)
-        add_rel(graph, individual_name, "locatedIn", province_name)
-        add_rel(graph, individual_name, "hasActivity", "Cultural_Tour")
-
-        # Manually wire the hub link (hub step already ran)
-        capital_name = CAPITAL_OF_PROVINCE.get(province_name)
-        if capital_name and has_type(graph, capital_name, "City"):
-            add_rel(graph, capital_name, "hasTouristAttraction", individual_name)
-
-        log.info("  + %s (locatedIn: %s)", individual_name, province_name)
-        added_count += 1
-
-    log.info("  Manual traditional dances: %d individuals added", added_count)
+    """Add TraditionalDance individuals from curated_data.TRADITIONAL_DANCES."""
+    _add_cultural_individuals(graph, TRADITIONAL_DANCES, "TraditionalDance", "traditional dances")
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Step 16: Manual TraditionalHouse individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_manual_traditional_houses(graph: Graph) -> None:
-    """Add TraditionalHouse individuals from curate_individuals.TRADITIONAL_HOUSES.
-
-    Why manual:
-    - DBpedia lacks a consistent class or category for Indonesian vernacular
-      architecture; rumah adat articles are scattered and inconsistently typed.
-
-    Class notes:
-    - TraditionalHouse ⊑ CulturalAttraction ⊑ TouristAttraction
-    - TraditionalHouse ⊑ Establishments  (enables servesFood edge if needed)
-
-    Each individual gets:
-        rdf:type        TraditionalHouse
-        locatedIn    -> Province
-        hasActivity  -> Cultural_Tour   (direct fallback)
-        (capital city) hasTouristAttraction -> individual
-
-    Example results:
-        Mbaru_Niang  rdf:type TraditionalHouse
-        Mbaru_Niang  locatedIn East_Nusa_Tenggara
-        Kupang       hasTouristAttraction Mbaru_Niang
-    """
-    added_count = 0
-
-    for entry in TRADITIONAL_HOUSES:
-        individual_name = entry["name"]
-        province_name   = entry["locatedIn"]
-
-        add_individual(graph, "TraditionalHouse", individual_name)
-        add_rel(graph, individual_name, "locatedIn", province_name)
-        add_rel(graph, individual_name, "hasActivity", "Cultural_Tour")
-
-        # Manually wire the hub link (hub step already ran)
-        capital_name = CAPITAL_OF_PROVINCE.get(province_name)
-        if capital_name and has_type(graph, capital_name, "City"):
-            add_rel(graph, capital_name, "hasTouristAttraction", individual_name)
-
-        log.info("  + %s (locatedIn: %s)", individual_name, province_name)
-        added_count += 1
-
-    log.info("  Manual traditional houses: %d individuals added", added_count)
+    """Add TraditionalHouse individuals from curated_data.TRADITIONAL_HOUSES."""
+    _add_cultural_individuals(graph, TRADITIONAL_HOUSES, "TraditionalHouse", "traditional houses")
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Step 17: Load establishments from Manchester Syntax file + wire hub links
-# ─────────────────────────────────────────────────────────────────────────────
 # ─────────────────────────────────────────────────────────────────────────────
 # Public API
 # ─────────────────────────────────────────────────────────────────────────────
