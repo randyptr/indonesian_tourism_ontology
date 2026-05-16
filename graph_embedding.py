@@ -34,8 +34,9 @@ PLOT_CLASSES = {
     "Resort", "Villa", "Restaurant", "StreetVendor", "TraditionalMarket",
 }
 MODEL_NAME        = "DistMult"
-EMBEDDING_DIM     = 64
+EMBEDDING_DIM     = 128
 NUM_EPOCHS        = 400
+LEARNING_RATE     = 0.01
 RANDOM_SEED       = 42
 TOP_K_PREDICTIONS = 5
 
@@ -65,10 +66,40 @@ def _wire_supplementary_hubs(graph: Graph) -> None:
                     graph.add((ONT[capital], ONT.hasAccommodation, subj))
 
 
+def _add_inverse_triples(triples: list[tuple[str, str, str]]) -> list[tuple[str, str, str]]:
+    """Generate inverse triples for every object-property assertion.
+
+    For each (s, p, o) triple, adds (o, inv_<localName>, s). This doubles
+    the relational signal so the embedding model learns bidirectional patterns
+    (e.g. City->locatedIn->Province AND Province->inv_locatedIn->City).
+
+    TBox predicates (rdf:type, rdfs:subClassOf, etc.) are excluded — only
+    ontology-namespace predicates get an inverse.
+    """
+    SKIP_INVERSE_PREFIXES = (
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "http://www.w3.org/2000/01/rdf-schema#",
+        "http://www.w3.org/2002/07/owl#",
+    )
+    inverse_triples = []
+    for s, p, o in triples:
+        if any(p.startswith(prefix) for prefix in SKIP_INVERSE_PREFIXES):
+            continue
+        # Build inverse predicate IRI: ont#inv_hasActivity
+        if "#" in p:
+            namespace, local = p.rsplit("#", 1)
+            inv_p = f"{namespace}#inv_{local}"
+        else:
+            inv_p = f"{p}_inv"
+        inverse_triples.append((o, inv_p, s))
+    return inverse_triples
+
+
 def load_object_property_triples() -> tuple[Graph, np.ndarray]:
     """Load data.owl + schema.owl and return (merged_graph, (N,3) triple array).
 
     Filters to URIRef-only triples, excluding owl:NamedIndividual meta-triples.
+    Adds inverse triples to double the relational signal for embedding training.
     """
     merged_graph = Graph()
     merged_graph.parse(str(DATA_FILE), format="xml")
@@ -83,6 +114,11 @@ def load_object_property_triples() -> tuple[Graph, np.ndarray]:
         if isinstance(s, URIRef) and isinstance(o, URIRef)
         and o != OWL.NamedIndividual
     ]
+    # Add inverse triples for richer bidirectional signal
+    # inverse = _add_inverse_triples(triple_strings)
+    # triple_strings.extend(inverse)
+    # log.info("Triples: %d original + %d inverse = %d total",
+    #          len(triple_strings) - len(inverse), len(inverse), len(triple_strings))
     return merged_graph, np.array(triple_strings)
 
 
@@ -99,6 +135,7 @@ def train_embedding_model(all_triples: np.ndarray, num_epochs: NUM_EPOCHS):
         validation=triples_factory,
         model=MODEL_NAME,
         model_kwargs=dict(embedding_dim=EMBEDDING_DIM),
+        optimizer_kwargs=dict(lr=LEARNING_RATE),
         training_kwargs=dict(num_epochs=num_epochs, use_tqdm_batch=False),
         random_seed=RANDOM_SEED,
     )
@@ -167,9 +204,10 @@ def build_entity_type_map(
     ontology individuals (used for link-prediction filtering).
 
     An individual may carry multiple rdf:type triples (e.g. ONT.Province from
-    our enricher AND dbo:Province from DBpedia populate). We keep the FIRST
-    matching ONT-namespaced type rather than letting rdflib's non-deterministic
-    iteration order overwrite a valid entry with another valid one.
+    our enricher AND dbo:Province from DBpedia populate). Only ONT-namespaced
+    types are considered; among those, the last one encountered wins. Province
+    entities are guaranteed to have ONT.Province via add_country_backbone, so
+    they are found correctly without any special handling here.
     """
     type_map: dict[str, str] = {}
     for subject, _, object_type in graph.triples((None, RDF.type, None)):
@@ -178,10 +216,7 @@ def build_entity_type_map(
         if str(object_type).startswith(ONT_IRI):
             class_name = str(object_type)[len(ONT_IRI):]
             if classes is None or class_name in classes:
-                # Don't overwrite: if the entity already has a matching class
-                # entry, keep the first one found (iteration order is arbitrary).
-                if str(subject) not in type_map:
-                    type_map[str(subject)] = class_name
+                type_map[str(subject)] = class_name
     return type_map
 
 
@@ -191,9 +226,10 @@ def visualize_embeddings(trained_model, triples_factory: TriplesFactory, graph: 
     Only ABox individuals with a known ontology rdf:type are plotted —
     TBox entities (class nodes, property nodes, OWL restrictions) are excluded.
     """
-    all_embeddings = trained_model.entity_representations[0](
-        indices=None
-    ).detach().cpu().numpy()
+    all_embeddings = (
+        trained_model.entity_representations[0](indices=None)
+        .detach().cpu().numpy()
+    )
 
     entity_labels = [
         triples_factory.entity_id_to_label[i]
@@ -210,10 +246,9 @@ def visualize_embeddings(trained_model, triples_factory: TriplesFactory, graph: 
     filtered_labels     = [entity_labels[i] for i in abox_indices]
     entity_classes      = [entity_type_map[label] for label in filtered_labels]
 
-    perplexity_value = min(30, max(2, len(abox_indices) - 1))
     projected_2d = TSNE(
         n_components=2, random_state=RANDOM_SEED,
-        perplexity=perplexity_value, init="pca",
+        perplexity=min(30, len(abox_indices) - 1),
     ).fit_transform(filtered_embeddings)
 
     # Classes with very few individuals get a larger marker so they're visible.

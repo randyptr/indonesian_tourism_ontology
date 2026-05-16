@@ -53,7 +53,7 @@ from curated_data import (
     RATINGS, ENTRY_FEE, PARK_ESTABLISHED_YEAR,
     TRANSPORTATION, FESTIVALS,
     TRADITIONAL_DANCES, TRADITIONAL_HOUSES,
-    BEACHES_MANUAL, RELIGIOUS_CEREMONIES, TEMPLES,
+    PARKS_MANUAL, BEACHES_MANUAL, RELIGIOUS_CEREMONIES, TEMPLES,
 )
 
 log = logging.getLogger(__name__)
@@ -752,7 +752,7 @@ def add_visitor_counts(graph: Graph) -> None:
     (~4 entities in our region). The property is still useful for SPARQL queries
     like "find attractions with more than 10,000 annual visitors".
     """
-    log.info("[Visitor Counts]")
+    log.info("[Visitor Counts (DBpedia)]")
     _, local_to_dbpedia = get_dbpedia_mappings()
 
     # Collect all TouristAttraction entities with DBpedia URIs
@@ -800,28 +800,19 @@ def add_curated_ratings(graph: Graph) -> None:
     """Add manually curated hasRating (xsd:decimal, scale 1–5) triples.
 
     Reads from curate_properties.RATINGS — a dict of class -> {individual: score}.
-    Skips any individual that:
-        - Does not exist in the graph (not yet populated, or wrong local name)
-        - Is typed as Hotel: hasRating domain = TouristAttraction, and
-          Hotel ⊑ Accommodation ⊥ TouristAttraction — adding hasRating to a
-          hotel would cause HermiT to infer it is a TouristAttraction and
-          produce an INCONSISTENT ontology.
+    domain = TouristAttraction ⊔ Accommodation, so both attraction and hotel/resort
+    individuals are valid subjects. Skips only individuals missing from the graph.
 
     Example triple added:
         ont:Pandawa_Beach  ont:hasRating  "4.1"^^xsd:decimal
+        ont:Amankila       ont:hasRating  "4.7"^^xsd:decimal
     """
     log.info("[Ratings]")
     added_count = 0
     skipped_missing: list[str] = []
-    skipped_hotel: list[str] = []
 
     for class_name, ratings_dict in RATINGS.items():
         for individual_name, rating_value in ratings_dict.items():
-
-            # Hotels cannot have hasRating (domain violation → inconsistency)
-            if class_name == "Hotel":
-                skipped_hotel.append(individual_name)
-                continue
 
             # Skip if individual was not populated (e.g. name mismatch)
             if not has_type(graph, individual_name, class_name):
@@ -836,8 +827,6 @@ def add_curated_ratings(graph: Graph) -> None:
             added_count += 1
 
     log.info("  -> %d hasRating values added", added_count)
-    if skipped_hotel:
-        log.info("  - Hotel domain conflict: %s", ", ".join(skipped_hotel))
     if skipped_missing:
         log.info("  - not in graph: %s", ", ".join(skipped_missing))
 
@@ -946,7 +935,6 @@ def add_manual_transportation(graph: Graph) -> None:
         if capital_name and has_type(graph, capital_name, "City"):
             add_relation(graph, capital_name, "hasTransportation", individual_name)
 
-        log.info("  + %s (%s, %s)", individual_name, owl_class, province_name)
         added_count += 1
 
     log.info("  -> %d individuals added", added_count)
@@ -957,8 +945,8 @@ def add_manual_transportation(graph: Graph) -> None:
 # ─────────────────────────────────────────────────────────────────────────────
 def add_manual_festivals(graph: Graph) -> None:
     """Add Festival individuals for NTB and NTT from curate_individuals.FESTIVALS"""
-    
-    log.info("[Festivals (Manual — NTB/NTT)]")
+
+    log.info("[Festivals]")
     added_count = 0
 
     for entry in FESTIVALS:
@@ -972,7 +960,6 @@ def add_manual_festivals(graph: Graph) -> None:
         # add_activity_links() since they have no DBpedia URI
         add_relation(graph, individual_name, "hasActivity", "Cultural_Tour")
 
-        log.info("  + %s (locatedIn: %s)", individual_name, province_name)
         added_count += 1
 
     log.info("  -> %d individuals added", added_count)
@@ -1009,7 +996,6 @@ def _add_cultural_individuals(
         capital = CAPITAL_OF_PROVINCE.get(province)
         if capital and has_type(graph, capital, "City"):
             add_relation(graph, capital, "hasTouristAttraction", name)
-        log.info("  + %s (%s)", name, province)
         count += 1
     log.info("  -> %d individuals added", count)
 
@@ -1027,7 +1013,31 @@ def add_manual_traditional_houses(graph: Graph) -> None:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Step 16: Manual Beach individuals
+# Step 16: Manual Park individuals
+# ─────────────────────────────────────────────────────────────────────────────
+def add_manual_parks(graph: Graph) -> None:
+    """Add Park individuals from curated_data.PARKS_MANUAL.
+
+    These Bali parks are referenced in RATINGS, ENTRY_FEE, and PARK_ESTABLISHED_YEAR
+    but are not returned by DBpedia's populate step. Adding them here ensures the
+    property enrichers (add_curated_ratings, add_curated_entry_fees,
+    add_park_established_years) find them in the graph instead of logging ✗ skips.
+
+    Each entry gets:
+        rdf:type Park
+        locatedIn -> Province
+        hasActivity -> Sightseeing, Hiking
+        City -> hasTouristAttraction -> Park  (hub link)
+    """
+    log.info("[Parks (Manual)]")
+    _add_cultural_individuals(
+        graph, PARKS_MANUAL, "Park", "parks",
+        activities=["Sightseeing", "Hiking"],
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Step 17: Manual Beach individuals
 # ─────────────────────────────────────────────────────────────────────────────
 def add_manual_beaches(graph: Graph) -> None:
     """Add Beach individuals from curated_data.BEACHES_MANUAL.
@@ -1043,7 +1053,7 @@ def add_manual_beaches(graph: Graph) -> None:
         hasActivity -> Surfing, Snorkeling, Sailing, Kayaking
         City -> hasTouristAttraction -> Beach  (hub link)
     """
-    log.info("[Beaches (Manual)]")
+    log.info("[Beaches]")
     _add_cultural_individuals(
         graph, BEACHES_MANUAL, "Beach", "beaches",
         activities=["Surfing", "Snorkeling", "Sailing", "Kayaking"],
@@ -1087,34 +1097,54 @@ def add_manual_temples(graph: Graph) -> None:
         hasActivity -> Cultural_Tour
         City -> hasTouristAttraction -> Temple  (hub link)
     """
-    log.info("[Temples (Manual)]")
+    log.info("[Temples]")
     _add_cultural_individuals(
         graph, TEMPLES, "Temple", "temples",
     )
 
 
 ALL_ENRICHERS = [
+
+    # ── Backbone ──────────────────────────────────────────────────────
+    "backbone",
     add_country_backbone,
     add_bali_island,
+
+    # ── Relation Enrichment (DBpedia) ─────────────────────────────────
+    "relation",
     add_island_province,
-    add_location_links,             # adds locatedIn, locatedInIsland, locatedInCity
+    add_location_links,
     add_activity_individuals,
     add_activity_links,
     add_activity_fallbacks,
-    add_attraction_hubs,            # City -> hasTouristAttraction -> TouristAttraction
-    add_accommodation_hubs,         # City -> hasAccommodation -> Hotel
-    add_visitor_counts,             # TouristAttraction -> numberOfVisitors -> xsd:integer
-    add_curated_ratings,            # TouristAttraction -> hasRating -> xsd:decimal
-    add_curated_entry_fees,         # TouristAttraction -> hasEntryFee -> xsd:boolean
-    add_park_established_years,     # Park -> establishedYear -> xsd:integer
-    add_manual_transportation,      # Transportation individuals + City -> hasTransportation
-    add_manual_festivals,              # Festival individuals for NTB/NTT
-    add_manual_traditional_dances,     # TraditionalDance individuals + hub links
-    add_manual_traditional_houses,     # TraditionalHouse individuals + hub links
-    add_manual_beaches,                # Beach individuals for NTB/NTT + Bali gaps
-    add_manual_religious_ceremonies,   # ReligiousCeremony individuals (all 3 provinces)
-    add_manual_temples,                # Temple individuals (Bali supplements + NTB/NTT)
+    add_attraction_hubs,
+    add_accommodation_hubs,
+
+    # ── Property Enrichment (curated) ─────────────────────────────────
+    "property",
+    add_manual_parks,               # must run before property steps below
+    add_visitor_counts,
+    add_curated_ratings,
+    add_curated_entry_fees,
+    add_park_established_years,
+
+    # ── Manual Individuals (curated_data) ─────────────────────────────
+    "manual",
+    add_manual_transportation,
+    add_manual_festivals,
+    add_manual_traditional_dances,
+    add_manual_traditional_houses,
+    add_manual_beaches,
+    add_manual_religious_ceremonies,
+    add_manual_temples,
 ]
+
+_PHASE_LABELS = {
+    "backbone": "Backbone",
+    "relation": "Relation Enrichment  (DBpedia)",
+    "property": "Property Enrichment  (curated)",
+    "manual":   "Manual Individuals   (curated_data)",
+}
 
 
 def enrich_all(graph: Graph) -> None:
@@ -1125,6 +1155,11 @@ def enrich_all(graph: Graph) -> None:
         - add_activity_links must run before add_activity_fallbacks
         - add_location_links should run before add_attraction_hubs and
           add_accommodation_hubs (both hubs depend on locatedIn edges)
+        - add_manual_parks must run before the three property steps
     """
-    for enrichment_step in ALL_ENRICHERS:
-        enrichment_step(graph)
+    for step in ALL_ENRICHERS:
+        if isinstance(step, str):
+            log.info("")
+            log.info("── %s ──", _PHASE_LABELS.get(step, step))
+        else:
+            step(graph)

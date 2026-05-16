@@ -412,7 +412,14 @@
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasRating -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasRating">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     </owl:DatatypeProperty>
     

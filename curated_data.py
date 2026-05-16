@@ -12,6 +12,7 @@ Individuals (list[dict]):
     FOOD                 — TypicalFood / CeremonialFood / StapleFood / Beverage
     TRADITIONAL_DANCES   — TraditionalDance individuals (3 provinces)
     TRADITIONAL_HOUSES   — TraditionalHouse individuals (3 provinces)
+    PARKS_MANUAL         — Park individuals missing from DBpedia populate (Bali gaps)
     BEACHES_MANUAL       — Beach individuals not reliably returned by DBpedia (NTB/NTT focus)
     RELIGIOUS_CEREMONIES — ReligiousCeremony individuals (3 provinces)
     TEMPLES              — Temple individuals (3 provinces; Bali supplements DBpedia)
@@ -180,6 +181,20 @@ TRADITIONAL_HOUSES: list[dict] = [
     {"name": "Rumah_Adat_Sumba",      "locatedIn": "East_Nusa_Tenggara"},
     {"name": "Uma_Lulik",             "locatedIn": "East_Nusa_Tenggara"},
     {"name": "Sao_Ata_Mosa_Lakitana", "locatedIn": "East_Nusa_Tenggara"},
+]
+
+
+# ── Parks (Manual supplement)
+# Park ⊑ TouristAttraction
+# These Bali parks are referenced in RATINGS, ENTRY_FEE, and PARK_ESTABLISHED_YEAR
+# but are not returned by DBpedia's populate step for this region.
+
+PARKS_MANUAL: list[dict] = [
+
+    # Bali
+    {"name": "Bali_Bird_Park",                "locatedIn": "Bali"},
+    {"name": "Sacred_Monkey_Forest_Sanctuary", "locatedIn": "Bali"},
+    {"name": "Bali_Botanic_Garden",           "locatedIn": "Bali"},
 ]
 
 
@@ -470,16 +485,16 @@ RATINGS = {
         "Bajra_Sandhi_Monument":     4.6,
     },
     "Hotel": {
-        "Amankila":                  4.7,
-        "Tandjung_Sari":             4.7,
-        "Tjampuhan_Hotel":           4.6,
-        "InterContinental_Hotel_Bali":4.7,
-        "Belmond_Jimbaran_Puri":     4.7,
+        "Amankila":                          4.7,
+        "Tandjung_Sari":                     4.7,
+        "Tjampuhan_Hotel":                   4.6,
+        "InterContinental_Hotel_Bali":       4.7,
+        "Belmond_Jimbaran_Puri":             4.7,
     },
     "Volcano": {
-        "Mount_Agung":               4.5,
-        "Mount_Batur":               4.3,
-        "Mount_Tambora":             4.8,
+        "Mount_Agung":                       4.5,
+        "Mount_Batur":                       4.3,
+        "Mount_Tambora":                     4.8,
     },
     "Park": {
         "Komodo_National_Park":              4.6,
