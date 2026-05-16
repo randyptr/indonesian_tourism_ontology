@@ -200,7 +200,7 @@ ex:Tempeh a ex:Ingredient ;
 
 ex:Peanut a ex:Ingredient ;
     rdfs:label "Peanut" ;
-    ex:hasAllergens ex:Peanuts ;
+    ex:hasAllergens ex:Nuts ;
     ex:isVegan "true"^^xsd:boolean ;
     ex:isVegetarian "true"^^xsd:boolean ;
     ex:isLactoseFree "true"^^xsd:boolean .
@@ -376,9 +376,15 @@ ex:Sate_Lilit a ex:MainDish ;
                      ex:Candlenut ;
     ex:originatesFrom ex:Bali .
 
-# =========================================================
-# 3. EXPANDED DISHES FROM BALI & NUSA TENGGARA
-# =========================================================
+# Ayam Betutu 
+ex:Ayam_Betutu a ex:MainDish ;
+    rdfs:label "Ayam Betutu" ;
+    ex:hasIngredient ex:Chicken, 
+                     ex:Candlenut, 
+                     ex:Cassava_Leaves, 
+                     ex:Garlic,
+                     ex:Chili_Pepper ;
+    ex:originatesFrom ex:Bali .
 
 # Ayam Taliwang 
 ex:Ayam_Taliwang a ex:MainDish ;
@@ -399,21 +405,248 @@ ex:Plecing_Kangkung a ex:SideDish ;
                      ex:Chili_Pepper ;
     ex:originatesFrom ex:West_Nusa_Tenggara .
 
-# Sei Sapi 
+# Sei Sapi
 ex:Sei_Sapi a ex:MainDish ;
     rdfs:label "Sei Sapi" ;
-    ex:hasIngredient ex:Beef, 
-                     ex:Cassava_Leaves, 
-                     ex:Chili_Pepper, 
+    ex:hasIngredient ex:Beef,
+                     ex:Cassava_Leaves,
+                     ex:Chili_Pepper,
                      ex:Onion ;
     ex:originatesFrom ex:East_Nusa_Tenggara .
 
-# Ayam Betutu 
-ex:Ayam_Betutu a ex:MainDish ;
-    rdfs:label "Ayam Betutu" ;
-    ex:hasIngredient ex:Chicken, 
-                     ex:Candlenut, 
-                     ex:Cassava_Leaves, 
+
+# ---------------------------------------------------------
+# 3. BUG FIXES — ingredients referenced above but never defined
+# ---------------------------------------------------------
+
+ex:Cabbage a ex:Ingredient ;
+    rdfs:label "Cabbage" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Sweet_Soy_Sauce a ex:Ingredient ;
+    rdfs:label "Sweet Soy Sauce" ;
+    ex:hasAllergens ex:Soybeans, ex:Gluten ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+
+# ---------------------------------------------------------
+# 4. NEW INGREDIENTS
+# ---------------------------------------------------------
+
+# --- Aromatics ---
+ex:Lemongrass a ex:Ingredient ;
+    rdfs:label "Lemongrass" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Galangal a ex:Ingredient ;
+    rdfs:label "Galangal" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Turmeric a ex:Ingredient ;
+    rdfs:label "Turmeric" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Tamarind a ex:Ingredient ;
+    rdfs:label "Tamarind" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# --- Produce ---
+ex:Pumpkin a ex:Ingredient ;
+    rdfs:label "Pumpkin" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Long_Beans a ex:Ingredient ;
+    rdfs:label "Long Beans" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# --- Sweetener ---
+ex:Palm_Sugar a ex:Ingredient ;
+    rdfs:label "Palm Sugar" ;
+    ex:isVegan "true"^^xsd:boolean ;
+    ex:isVegetarian "true"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+# --- Seafood ---
+ex:Tuna a ex:Ingredient ;
+    rdfs:label "Tuna" ;
+    ex:hasAllergens ex:Fish ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+ex:Shrimp a ex:Ingredient ;
+    rdfs:label "Shrimp" ;
+    ex:hasAllergens ex:Crustaceans ;
+    ex:isVegan "false"^^xsd:boolean ;
+    ex:isVegetarian "false"^^xsd:boolean ;
+    ex:isLactoseFree "true"^^xsd:boolean .
+
+
+# ---------------------------------------------------------
+# 5. NEW DISHES — Bali
+# ---------------------------------------------------------
+
+ex:Bebek_Betutu a ex:MainDish ;
+    rdfs:label "Bebek Betutu" ;
+    ex:hasIngredient ex:Duck,
+                     ex:Candlenut,
+                     ex:Cassava_Leaves,
                      ex:Garlic,
-                     ex:Chili_Pepper ;
+                     ex:Chili_Pepper,
+                     ex:Galangal,
+                     ex:Lemongrass,
+                     ex:Turmeric ;
     ex:originatesFrom ex:Bali .
+
+ex:Nasi_Campur a ex:MainDish ;
+    rdfs:label "Nasi Campur" ;
+    ex:hasIngredient ex:White_Rice,
+                     ex:Pork,
+                     ex:Chicken,
+                     ex:Egg,
+                     ex:Tempeh,
+                     ex:Water_Spinach ;
+    ex:originatesFrom ex:Bali .
+
+ex:Tum_Ayam a ex:MainDish ;
+    rdfs:label "Tum Ayam" ;
+    ex:hasIngredient ex:Chicken,
+                     ex:Garlic,
+                     ex:Chili_Pepper,
+                     ex:Shrimp_Paste,
+                     ex:Galangal,
+                     ex:Turmeric ;
+    ex:originatesFrom ex:Bali .
+
+ex:Rujak_Kuah_Pindang a ex:SideDish ;
+    rdfs:label "Rujak Kuah Pindang" ;
+    ex:hasIngredient ex:Tamarind,
+                     ex:Palm_Sugar,
+                     ex:Chili_Pepper,
+                     ex:Shrimp_Paste ;
+    ex:originatesFrom ex:Bali .
+
+ex:Jaje_Bali a ex:SideDish ;
+    rdfs:label "Jaje Bali" ;
+    ex:hasIngredient ex:White_Rice,
+                     ex:Grated_Coconut,
+                     ex:Palm_Sugar ;
+    ex:originatesFrom ex:Bali .
+
+ex:Es_Daluman a ex:Beverage ;
+    rdfs:label "Es Daluman" ;
+    ex:hasIngredient ex:Coconut_Milk,
+                     ex:Palm_Sugar ;
+    ex:originatesFrom ex:Bali .
+
+
+# ---------------------------------------------------------
+# 6. NEW DISHES — West Nusa Tenggara (NTB)
+# ---------------------------------------------------------
+
+ex:Bebalung a ex:MainDish ;
+    rdfs:label "Bebalung" ;
+    ex:hasIngredient ex:Beef,
+                     ex:Garlic,
+                     ex:Onion,
+                     ex:Chili_Pepper,
+                     ex:Galangal,
+                     ex:Lemongrass ;
+    ex:originatesFrom ex:West_Nusa_Tenggara .
+
+ex:Nasi_Balap_Puyung a ex:MainDish ;
+    rdfs:label "Nasi Balap Puyung" ;
+    ex:hasIngredient ex:White_Rice,
+                     ex:Chicken,
+                     ex:Corn,
+                     ex:Chili_Pepper,
+                     ex:Garlic,
+                     ex:Onion ;
+    ex:originatesFrom ex:West_Nusa_Tenggara .
+
+ex:Sate_Rembiga a ex:MainDish ;
+    rdfs:label "Sate Rembiga" ;
+    ex:hasIngredient ex:Beef,
+                     ex:Garlic,
+                     ex:Chili_Pepper,
+                     ex:Onion,
+                     ex:Soy_Sauce,
+                     ex:Palm_Sugar ;
+    ex:originatesFrom ex:West_Nusa_Tenggara .
+
+ex:Ares a ex:MainDish ;
+    rdfs:label "Ares" ;
+    ex:hasIngredient ex:Coconut_Milk,
+                     ex:Chili_Pepper,
+                     ex:Garlic,
+                     ex:Lemongrass,
+                     ex:Galangal ;
+    ex:originatesFrom ex:West_Nusa_Tenggara .
+
+
+# ---------------------------------------------------------
+# 7. NEW DISHES — East Nusa Tenggara (NTT)
+# ---------------------------------------------------------
+
+ex:Catemak_Jagung a ex:MainDish ;
+    rdfs:label "Catemak Jagung" ;
+    ex:hasIngredient ex:Corn,
+                     ex:Pumpkin,
+                     ex:Long_Beans,
+                     ex:Cassava_Leaves ;
+    ex:originatesFrom ex:East_Nusa_Tenggara .
+
+ex:Jagung_Bose a ex:MainDish ;
+    rdfs:label "Jagung Bose" ;
+    ex:hasIngredient ex:Corn,
+                     ex:Long_Beans,
+                     ex:Coconut_Milk ;
+    ex:originatesFrom ex:East_Nusa_Tenggara .
+
+ex:Jawada a ex:SideDish ;
+    rdfs:label "Jawada" ;
+    ex:hasIngredient ex:Wheat_Flour,
+                     ex:Coconut_Milk,
+                     ex:Palm_Sugar ;
+    ex:originatesFrom ex:East_Nusa_Tenggara .
+
+ex:Kolo a ex:MainDish ;
+    rdfs:label "Kolo" ;
+    ex:hasIngredient ex:White_Rice,
+                     ex:Chicken,
+                     ex:Galangal,
+                     ex:Lemongrass ;
+    ex:originatesFrom ex:East_Nusa_Tenggara .
+
+ex:Se_i_Babi a ex:MainDish ;
+    rdfs:label "Se i Babi" ;
+    ex:hasIngredient ex:Pork,
+                     ex:Chili_Pepper,
+                     ex:Onion,
+                     ex:Garlic ;
+    ex:originatesFrom ex:East_Nusa_Tenggara .
+
+ex:Ikan_Bakar_Sambal_Dabu a ex:MainDish ;
+    rdfs:label "Ikan Bakar Sambal Dabu" ;
+    ex:hasIngredient ex:Tuna,
+                     ex:Tomato,
+                     ex:Chili_Pepper,
+                     ex:Onion,
+                     ex:Garlic ;
+    ex:originatesFrom ex:East_Nusa_Tenggara .

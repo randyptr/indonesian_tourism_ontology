@@ -7,20 +7,26 @@ then supports manual link prediction queries and t-SNE visualisation.
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 
+import torch
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
-from rdflib import Graph, URIRef, RDF, OWL
+from rdflib import Graph, URIRef, RDF, RDFS, OWL
 from pykeen.triples import TriplesFactory
 from pykeen.pipeline import pipeline
+from pykeen.models import DistMult
 
-from config import DATA_FILE, SCHEMA_FILE, ONT_IRI, ONTOLOGY_DIR
+from config import DATA_FILE, SCHEMA_FILE, ONT_IRI, ONTOLOGY_DIR, ONT
+from graph_utils import local_name
+from enrich import CAPITAL_OF_PROVINCE
 from reasoning import _graph_from_ttl, _build_establishments_graph
 
 log = logging.getLogger(__name__)
 
-PLOT_OUTPUT_FILE  = "./graph_vis/embedding_clusters.png"
+PLOT_OUTPUT_FILE   = "./graph_vis/embedding_clusters.png"
+MODEL_DIR          = Path("embedding_model")
 PLOT_CLASSES = {
     "Beach", "Park", "Volcano", "MainDish", "SideDish",
     "ReligiousCeremony", "Festival", "City", "Island", "Province",
@@ -34,6 +40,31 @@ RANDOM_SEED       = 42
 TOP_K_PREDICTIONS = 5
 
 
+def _wire_supplementary_hubs(graph: Graph) -> None:
+    """Add City → hasFood and City → hasAccommodation hub edges for supplementary ABox files.
+
+    Food individuals (alergy_ingredients_dishes.ttl) carry originatesFrom → Province.
+    Establishment individuals (Resort, Villa, Guesthouse, Hostel) carry locatedIn → Province.
+    Neither file goes through enrich_all, so their hub edges are wired here, after merging,
+    so the embedding model sees the full City–Food and City–Accommodation relations.
+    """
+    # Food hubs: City → hasFood → Food
+    for food_subj, _, province_obj in graph.triples((None, ONT.originatesFrom, None)):
+        if not isinstance(province_obj, URIRef):
+            continue
+        capital = CAPITAL_OF_PROVINCE.get(local_name(province_obj))
+        if capital:
+            graph.add((ONT[capital], ONT.hasFood, food_subj))
+
+    # Accommodation hubs: City → hasAccommodation → Resort / Villa / Guesthouse / Hostel
+    # (Hotel is already handled by add_accommodation_hubs in enrich_all)
+    for accom_class in ("Resort", "Villa", "Guesthouse", "Hostel"):
+        for subj, _, _ in graph.triples((None, RDF.type, ONT[accom_class])):
+            for province, capital in CAPITAL_OF_PROVINCE.items():
+                if (subj, ONT.locatedIn, ONT[province]) in graph:
+                    graph.add((ONT[capital], ONT.hasAccommodation, subj))
+
+
 def load_object_property_triples() -> tuple[Graph, np.ndarray]:
     """Load data.owl + schema.owl and return (merged_graph, (N,3) triple array).
 
@@ -44,6 +75,7 @@ def load_object_property_triples() -> tuple[Graph, np.ndarray]:
     merged_graph.parse(str(SCHEMA_FILE), format="xml")
     merged_graph += _graph_from_ttl(ONTOLOGY_DIR / "alergy_ingredients_dishes.ttl")
     merged_graph += _build_establishments_graph()
+    _wire_supplementary_hubs(merged_graph)
 
     triple_strings = [
         (str(s), str(p), str(o))
@@ -54,7 +86,7 @@ def load_object_property_triples() -> tuple[Graph, np.ndarray]:
     return merged_graph, np.array(triple_strings)
 
 
-def train_embedding_model(all_triples: np.ndarray):
+def train_embedding_model(all_triples: np.ndarray, num_epochs: NUM_EPOCHS):
     """Train DistMult on the given triples and return (PipelineResult, TriplesFactory).
 
     Uses the full triple set for training, validation, and testing — the goal
@@ -67,17 +99,77 @@ def train_embedding_model(all_triples: np.ndarray):
         validation=triples_factory,
         model=MODEL_NAME,
         model_kwargs=dict(embedding_dim=EMBEDDING_DIM),
-        training_kwargs=dict(num_epochs=NUM_EPOCHS, use_tqdm_batch=False),
+        training_kwargs=dict(num_epochs=num_epochs, use_tqdm_batch=False),
         random_seed=RANDOM_SEED,
     )
     return training_result, triples_factory
 
 
-def build_entity_type_map(graph: Graph) -> dict[str, str]:
+def save_embedding_model(training_result, triples_factory: TriplesFactory) -> None:
+    """Save model weights and triples factory to MODEL_DIR for later reuse."""
+    MODEL_DIR.mkdir(exist_ok=True)
+    torch.save(training_result.model.state_dict(), MODEL_DIR / "weights.pt")
+    triples_factory.to_path_binary(MODEL_DIR / "triples")
+    log.info("Saved embedding model → %s/", MODEL_DIR)
+
+
+def load_embedding_model() -> tuple:
+    """Load a previously saved model from MODEL_DIR.
+
+    Returns (model, triples_factory) ready for predict_target calls.
+    Raises FileNotFoundError if MODEL_DIR doesn't exist yet.
+    """
+    if not MODEL_DIR.exists():
+        raise FileNotFoundError(
+            f"No saved model at '{MODEL_DIR}/' — run the training cell first."
+        )
+    triples_factory = TriplesFactory.from_path_binary(MODEL_DIR / "triples")
+    model = DistMult(triples_factory=triples_factory, embedding_dim=EMBEDDING_DIM)
+    model.load_state_dict(torch.load(MODEL_DIR / "weights.pt", weights_only=True))
+    model.eval()
+    log.info("Loaded embedding model ← %s/", MODEL_DIR)
+    return model, triples_factory
+
+
+def build_subclass_ancestors(graph: Graph) -> dict[str, set[str]]:
+    """Return {class_name: {all ancestor class names}} by walking rdfs:subClassOf chains.
+
+    Reads the TBox from the already-loaded graph, so no extra file I/O needed.
+    Example: "Surfing" -> {"WaterSport", "Activities"}, "Hiking" -> {"MountainSport", "Activities"}
+    """
+    direct_parents: dict[str, set[str]] = {}
+    for sub, _, sup in graph.triples((None, RDFS.subClassOf, None)):
+        if isinstance(sub, URIRef) and isinstance(sup, URIRef):
+            if str(sub).startswith(ONT_IRI) and str(sup).startswith(ONT_IRI):
+                sub_name = str(sub)[len(ONT_IRI):]
+                sup_name = str(sup)[len(ONT_IRI):]
+                direct_parents.setdefault(sub_name, set()).add(sup_name)
+
+    def _ancestors(cls: str, seen: set[str]) -> set[str]:
+        if cls in seen:
+            return seen
+        seen.add(cls)
+        for parent in direct_parents.get(cls, set()):
+            _ancestors(parent, seen)
+        return seen
+
+    return {cls: _ancestors(cls, set()) - {cls} for cls in direct_parents}
+
+
+def build_entity_type_map(
+    graph: Graph,
+    classes: set[str] | None = None,
+) -> dict[str, str]:
     """Map each individual's IRI to its ontology class local name.
 
-    Only includes entities in our namespace whose class is in PLOT_CLASSES.
-    Used for filtering predictions and colouring the t-SNE plot.
+    If classes is given, only includes entities whose direct type is in that set
+    (used to filter the t-SNE plot to PLOT_CLASSES). Pass None to include all
+    ontology individuals (used for link-prediction filtering).
+
+    An individual may carry multiple rdf:type triples (e.g. ONT.Province from
+    our enricher AND dbo:Province from DBpedia populate). We keep the FIRST
+    matching ONT-namespaced type rather than letting rdflib's non-deterministic
+    iteration order overwrite a valid entry with another valid one.
     """
     type_map: dict[str, str] = {}
     for subject, _, object_type in graph.triples((None, RDF.type, None)):
@@ -85,8 +177,11 @@ def build_entity_type_map(graph: Graph) -> dict[str, str]:
             continue
         if str(object_type).startswith(ONT_IRI):
             class_name = str(object_type)[len(ONT_IRI):]
-            if class_name in PLOT_CLASSES:
-                type_map[str(subject)] = class_name
+            if classes is None or class_name in classes:
+                # Don't overwrite: if the entity already has a matching class
+                # entry, keep the first one found (iteration order is arbitrary).
+                if str(subject) not in type_map:
+                    type_map[str(subject)] = class_name
     return type_map
 
 
@@ -104,7 +199,7 @@ def visualize_embeddings(trained_model, triples_factory: TriplesFactory, graph: 
         triples_factory.entity_id_to_label[i]
         for i in range(all_embeddings.shape[0])
     ]
-    entity_type_map = build_entity_type_map(graph)
+    entity_type_map = build_entity_type_map(graph, classes=PLOT_CLASSES)
 
     abox_indices = [i for i, label in enumerate(entity_labels) if label in entity_type_map]
     if not abox_indices:
@@ -121,19 +216,26 @@ def visualize_embeddings(trained_model, triples_factory: TriplesFactory, graph: 
         perplexity=perplexity_value, init="pca",
     ).fit_transform(filtered_embeddings)
 
+    # Classes with very few individuals get a larger marker so they're visible.
+    # _LARGE_MARKER_CLASSES = {"Province", "Island", "Country"}
+
     plt.figure(figsize=(14, 8))
     colour_palette = plt.get_cmap("tab20")
     for idx, class_name in enumerate(sorted(set(entity_classes))):
         pts = [j for j, c in enumerate(entity_classes) if c == class_name]
+        marker_size = 60 # bullet size
         plt.scatter(
             projected_2d[pts, 0], projected_2d[pts, 1],
-            s=28, color=colour_palette(idx % colour_palette.N),
-            label=class_name, alpha=0.8,
+            s=marker_size, color=colour_palette(idx % colour_palette.N),
+            label=class_name, alpha=0.9,
+            edgecolors="black",
+            linewidths=0.6,
         )
 
     plt.legend(fontsize=8, loc="upper left", markerscale=1.2, bbox_to_anchor=(1.01, 1))
     plt.title(f"{MODEL_NAME} entity embeddings (t-SNE projection)")
     plt.tight_layout()
+    Path(PLOT_OUTPUT_FILE).parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(PLOT_OUTPUT_FILE, dpi=140, bbox_inches="tight")
     plt.close()
     log.info("Saved cluster plot -> %s", PLOT_OUTPUT_FILE)
@@ -143,10 +245,19 @@ def filter_predictions_by_class(
     predictions_dataframe,
     expected_class: str,
     entity_type_map: dict[str, str],
+    ancestors_map: dict[str, set[str]] | None = None,
 ):
-    """Keep only candidate tails whose rdf:type matches expected_class."""
-    return predictions_dataframe[
-        predictions_dataframe["tail_label"].apply(
-            lambda iri: entity_type_map.get(iri) == expected_class
-        )
-    ]
+    """Keep only candidate tails whose type matches or is a subclass of expected_class.
+
+    With ancestors_map, a query for "Activities" will also match candidates typed
+    as "Surfing", "Diving", "Hiking", etc., since those are subclasses of Activities.
+    """
+    def _matches(iri: str) -> bool:
+        cls = entity_type_map.get(iri)
+        if cls is None:
+            return False
+        if cls == expected_class:
+            return True
+        return ancestors_map is not None and expected_class in ancestors_map.get(cls, set())
+
+    return predictions_dataframe[predictions_dataframe["tail_label"].apply(_matches)]

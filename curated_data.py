@@ -7,18 +7,21 @@ curate_properties.py split.
 Contents
 --------
 Individuals (list[dict]):
-    TRANSPORTATION      — AirTransport / LandTransport / WaterTransport nodes
-    FESTIVALS           — Festival individuals for NTB / NTT (poor DBpedia coverage)
-    FOOD                — TypicalFood / CeremonialFood / StapleFood / Beverage
-    TRADITIONAL_DANCES  — TraditionalDance individuals (3 provinces)
-    TRADITIONAL_HOUSES  — TraditionalHouse individuals (3 provinces)
-    RESTAURANTS         — Restaurant ⊑ Establishments
-    STREET_VENDORS      — StreetVendor ⊑ Establishments
-    TRADITIONAL_MARKETS — TraditionalMarket ⊑ Establishments
-    RESORTS             — Resort ⊑ Accommodation
-    VILLAS              — Villa ⊑ Accommodation
-    GUESTHOUSES         — Guesthouse ⊑ Accommodation
-    HOSTELS             — Hostel ⊑ Accommodation
+    TRANSPORTATION       — AirTransport / LandTransport / WaterTransport nodes
+    FESTIVALS            — Festival individuals for NTB / NTT (poor DBpedia coverage)
+    FOOD                 — TypicalFood / CeremonialFood / StapleFood / Beverage
+    TRADITIONAL_DANCES   — TraditionalDance individuals (3 provinces)
+    TRADITIONAL_HOUSES   — TraditionalHouse individuals (3 provinces)
+    BEACHES_MANUAL       — Beach individuals not reliably returned by DBpedia (NTB/NTT focus)
+    RELIGIOUS_CEREMONIES — ReligiousCeremony individuals (3 provinces)
+    TEMPLES              — Temple individuals (3 provinces; Bali supplements DBpedia)
+    RESTAURANTS          — Restaurant ⊑ Establishments
+    STREET_VENDORS       — StreetVendor ⊑ Establishments
+    TRADITIONAL_MARKETS  — TraditionalMarket ⊑ Establishments
+    RESORTS              — Resort ⊑ Accommodation
+    VILLAS               — Villa ⊑ Accommodation
+    GUESTHOUSES          — Guesthouse ⊑ Accommodation
+    HOSTELS              — Hostel ⊑ Accommodation
 
 Properties (dict):
     RATINGS             — hasRating (xsd:decimal, scale 1-5) per class → {name: score}
@@ -59,7 +62,7 @@ Accommodation (top-level class)
 # INDIVIDUALS
 # =============================================================================
 
-# ── Transportation 
+# ── Transportation
 # Domain of hasTransportation: City -> Transportation
 # Populated here because DBpedia lacks structured airport/port data for this region.
 
@@ -75,12 +78,17 @@ TRANSPORTATION: list[dict] = [
     {"name": "Lombok_International_Airport",     "type": "AirTransport",   "locatedIn": "West_Nusa_Tenggara"},
     {"name": "Lembar_Ferry_Port",                "type": "WaterTransport", "locatedIn": "West_Nusa_Tenggara"},
     {"name": "Mataram_Bus_Terminal",             "type": "LandTransport",  "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Bima_Airport",                     "type": "AirTransport",   "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Sape_Port",                        "type": "WaterTransport", "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
     {"name": "El_Tari_International_Airport",    "type": "AirTransport",   "locatedIn": "East_Nusa_Tenggara"},
     {"name": "Komodo_Airport",                   "type": "AirTransport",   "locatedIn": "East_Nusa_Tenggara"},
     {"name": "Tenau_Port",                       "type": "WaterTransport", "locatedIn": "East_Nusa_Tenggara"},
     {"name": "Kupang_Bus_Terminal",              "type": "LandTransport",  "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Frans_Seda_Airport",               "type": "AirTransport",   "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Frans_Sales_Lega_Airport",         "type": "AirTransport",   "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "H_Hasan_Aroeboesman_Airport",      "type": "AirTransport",   "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
@@ -93,77 +101,61 @@ TRANSPORTATION: list[dict] = [
 FESTIVALS: list[dict] = [
 
     # West Nusa Tenggara (NTB)
-    {"name": "Bau_Nyale_Festival",          "locatedIn": "West_Nusa_Tenggara"},  # Sasak sea worm harvest ceremony
-    {"name": "Lombok_Sumbawa_Pearl_Festival","locatedIn": "West_Nusa_Tenggara"},  # annual pearl & culture expo
+    {"name": "Bau_Nyale_Festival",          "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Lombok_Sumbawa_Pearl_Festival","locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Perang_Topat",                "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Tambora_Festival",            "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Festival_Pesona_Moyo",        "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Komodo_Festival",  "locatedIn": "East_Nusa_Tenggara"},  # annual tourism & culture festival, Labuan Bajo
-    {"name": "Sail_Komodo",      "locatedIn": "East_Nusa_Tenggara"},  # international yacht rally & marine festival
-    {"name": "Ende_Jazz_Festival","locatedIn": "East_Nusa_Tenggara"},  # annual jazz music festival in Ende
-    {"name": "Tenun_Festival_NTT","locatedIn": "East_Nusa_Tenggara"},  # traditional ikat weaving showcase
+    {"name": "Komodo_Festival",   "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Sail_Komodo",       "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Ende_Jazz_Festival", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Tenun_Festival_NTT", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Pasola_Festival",   "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Reba_Festival",     "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Penti_Festival",    "locatedIn": "East_Nusa_Tenggara"},
+
+    # Bali
+    {"name": "Festival_Seni_Bali_Jani", "locatedIn": "Bali"},
+    {"name": "Bali_Kite_Festival",      "locatedIn": "Bali"},
 ]
 
 
-# ── Food 
-# Domain of hasFood:        City -> Food
-# Domain of originatesFrom: Food -> Province
-
-FOOD: list[dict] = [
-    # Bali — TypicalFood (savory dishes)
-    {"name": "Babi_Guling",  "type": "TypicalFood",    "locatedIn": "Bali", "originatesFrom": "Bali"},
-    {"name": "Bebek_Betutu", "type": "TypicalFood",    "locatedIn": "Bali", "originatesFrom": "Bali"},
-    {"name": "Lawar",        "type": "TypicalFood",    "locatedIn": "Bali", "originatesFrom": "Bali"},
-    {"name": "Sate_Lilit",   "type": "TypicalFood",    "locatedIn": "Bali", "originatesFrom": "Bali"},
-    {"name": "Nasi_Campur",  "type": "StapleFood",     "locatedIn": "Bali", "originatesFrom": "Bali"},
-
-    # Bali — CeremonialFood (used in Hindu religious rituals)
-    {"name": "Jaje_Bali",    "type": "CeremonialFood", "locatedIn": "Bali", "originatesFrom": "Bali"},
-    {"name": "Tumpeng",      "type": "CeremonialFood", "locatedIn": "Bali", "originatesFrom": "Bali"},
-
-    # Bali — Beverage
-    {"name": "Tuak",         "type": "Beverage",       "locatedIn": "Bali", "originatesFrom": "Bali"},
-
-    # West Nusa Tenggara (NTB)
-    {"name": "Ayam_Taliwang",    "type": "TypicalFood", "locatedIn": "West_Nusa_Tenggara", "originatesFrom": "West_Nusa_Tenggara"},
-    {"name": "Plecing_Kangkung", "type": "TypicalFood", "locatedIn": "West_Nusa_Tenggara", "originatesFrom": "West_Nusa_Tenggara"},
-    {"name": "Nasi_Balap_Puyung","type": "StapleFood",  "locatedIn": "West_Nusa_Tenggara", "originatesFrom": "West_Nusa_Tenggara"},
-    {"name": "Bebalung",         "type": "TypicalFood", "locatedIn": "West_Nusa_Tenggara", "originatesFrom": "West_Nusa_Tenggara"},
-
-    # East Nusa Tenggara (NTT)
-    {"name": "Catemak_Jagung", "type": "StapleFood",  "locatedIn": "East_Nusa_Tenggara", "originatesFrom": "East_Nusa_Tenggara"},
-    {"name": "Se_i",           "type": "TypicalFood", "locatedIn": "East_Nusa_Tenggara", "originatesFrom": "East_Nusa_Tenggara"},
-    {"name": "Jawada",         "type": "TypicalFood", "locatedIn": "East_Nusa_Tenggara", "originatesFrom": "East_Nusa_Tenggara"},
-    {"name": "Kolo",           "type": "StapleFood",  "locatedIn": "East_Nusa_Tenggara", "originatesFrom": "East_Nusa_Tenggara"},
-]
-
-
-# ── Traditional Dances 
+# ── Traditional Dances
 # TraditionalDance ⊑ CulturalAttraction ⊑ TouristAttraction
 # DBpedia returns no structured dance data for this region; all entries are manual.
 
 TRADITIONAL_DANCES: list[dict] = [
 
     # Bali
-    {"name": "Kecak",        "locatedIn": "Bali"},  # fire & trance dance; performed at Uluwatu/Ubud
-    {"name": "Legong",       "locatedIn": "Bali"},  # classical female court dance
-    {"name": "Barong_Dance", "locatedIn": "Bali"},  # mythical lion-creature dance (good vs. evil)
-    {"name": "Pendet",       "locatedIn": "Bali"},  # flower-offering welcome dance
-    {"name": "Baris_Dance",  "locatedIn": "Bali"},  # warrior dance performed by males
-    {"name": "Topeng_Dance", "locatedIn": "Bali"},  # sacred mask dance; part of temple ceremonies
+    {"name": "Kecak",         "locatedIn": "Bali"},
+    {"name": "Legong",        "locatedIn": "Bali"},
+    {"name": "Barong_Dance",  "locatedIn": "Bali"},
+    {"name": "Pendet",        "locatedIn": "Bali"},
+    {"name": "Baris_Dance",   "locatedIn": "Bali"},
+    {"name": "Topeng_Dance",  "locatedIn": "Bali"},
+    {"name": "Tari_Rejang",   "locatedIn": "Bali"},
+    {"name": "Tari_Gambuh",   "locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Tari_Oncer", "locatedIn": "West_Nusa_Tenggara"},  # Lombok fan dance; performed at weddings
-    {"name": "Rudat",      "locatedIn": "West_Nusa_Tenggara"},  # Islamic-influenced Lombok dance
-    {"name": "Kayak_Sando","locatedIn": "West_Nusa_Tenggara"},  # Sumbawa horse-riding ceremonial dance
+    {"name": "Tari_Oncer",         "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Rudat",              "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Kayak_Sando",        "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Tari_Gendang_Beleq", "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Tari_Mpaa_Lenggogo", "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Hegong",  "locatedIn": "East_Nusa_Tenggara"},  # Manggarai ceremonial dance, Flores
-    {"name": "Ja_i",    "locatedIn": "East_Nusa_Tenggara"},  # Ngada/Flores communal group dance
-    {"name": "Likurai", "locatedIn": "East_Nusa_Tenggara"},  # Timor war & welcome drum dance
+    {"name": "Hegong",        "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Ja_i",          "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Likurai",       "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Tari_Caci",     "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Tari_Lego_Lego","locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Tari_Bonet",    "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
-# ── Traditional Houses 
+# ── Traditional Houses
 # TraditionalHouse ⊑ CulturalAttraction ⊑ TouristAttraction
 #                  ⊑ Establishments  (can have servesFood edge)
 # DBpedia does not reliably classify Indonesian vernacular architecture; all manual.
@@ -171,18 +163,106 @@ TRADITIONAL_DANCES: list[dict] = [
 TRADITIONAL_HOUSES: list[dict] = [
 
     # Bali
-    {"name": "Bale_Banjar", "locatedIn": "Bali"},  # communal village meeting pavilion
-    {"name": "Jineng",      "locatedIn": "Bali"},  # traditional Balinese rice granary/barn
+    {"name": "Bale_Banjar", "locatedIn": "Bali"},
+    {"name": "Jineng",      "locatedIn": "Bali"},
+    {"name": "Bale_Daja",   "locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Bale_Lumbung",     "locatedIn": "West_Nusa_Tenggara"},  # iconic rice-barn shaped Sasak house, Lombok
-    {"name": "Rumah_Adat_Bayan", "locatedIn": "West_Nusa_Tenggara"},  # traditional Bayan Wetu Telu house, N. Lombok
-    {"name": "Dalam_Loka",       "locatedIn": "West_Nusa_Tenggara"},  # Sumbawa royal palace; traditional timber architecture
+    {"name": "Bale_Lumbung",     "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Rumah_Adat_Bayan", "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Dalam_Loka",       "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Bale_Jajar",       "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Bencingah",        "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Mbaru_Niang",      "locatedIn": "East_Nusa_Tenggara"},  # iconic cone-shaped Manggarai house, Ruteng/Flores
-    {"name": "Sa_o",             "locatedIn": "East_Nusa_Tenggara"},  # traditional communal house of Lio people, Ende
-    {"name": "Rumah_Adat_Sumba", "locatedIn": "East_Nusa_Tenggara"},  # high-peaked ancestral Marapu house, Sumba
+    {"name": "Mbaru_Niang",           "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Sa_o",                  "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Rumah_Adat_Sumba",      "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Uma_Lulik",             "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Sao_Ata_Mosa_Lakitana", "locatedIn": "East_Nusa_Tenggara"},
+]
+
+
+# ── Beaches (Manual supplement)
+# Beach ⊑ TouristAttraction
+# DBpedia covers Bali beaches well; NTB and NTT coverage is sparse or absent.
+# Bali entries here fill gaps not returned by the DBpedia populate step.
+
+BEACHES_MANUAL: list[dict] = [
+
+    # Bali
+    {"name": "Balangan_Beach",   "locatedIn": "Bali"},
+    {"name": "Amed_Beach",       "locatedIn": "Bali"},
+    {"name": "Pemuteran_Beach",  "locatedIn": "Bali"},
+    {"name": "Bias_Tugel_Beach", "locatedIn": "Bali"},
+
+    # West Nusa Tenggara (NTB)
+    {"name": "Kuta_Lombok",      "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Selong_Belanak",   "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Tanjung_Aan",      "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Senggigi_Beach",   "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Lakey_Beach",      "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Maluk_Beach",      "locatedIn": "West_Nusa_Tenggara"},
+
+    # East Nusa Tenggara (NTT)
+    {"name": "Nihiwatu_Beach",  "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Pink_Beach",      "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Koka_Beach",      "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Lasiana_Beach",   "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Kolbano_Beach",   "locatedIn": "East_Nusa_Tenggara"},
+]
+
+
+# ── Religious Ceremonies
+# ReligiousCeremony ⊑ TouristAttraction
+# DBpedia returns near-zero structured results for all 3 provinces; all manual.
+
+RELIGIOUS_CEREMONIES: list[dict] = [
+
+    # Bali
+    {"name": "Nyepi",    "locatedIn": "Bali"},
+    {"name": "Galungan", "locatedIn": "Bali"},
+    {"name": "Kuningan", "locatedIn": "Bali"},
+    {"name": "Melasti",  "locatedIn": "Bali"},
+    {"name": "Odalan",   "locatedIn": "Bali"},
+    {"name": "Ngaben",   "locatedIn": "Bali"},
+
+    # West Nusa Tenggara (NTB)
+    {"name": "Lebaran_Topat",      "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Maulid_Adat_Bayan",  "locatedIn": "West_Nusa_Tenggara"},
+
+    # East Nusa Tenggara (NTT)
+    {"name": "Semana_Santa_Larantuka", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Wula_Podhu",             "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Pati_Ka",                "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Etu",                    "locatedIn": "East_Nusa_Tenggara"},
+]
+
+
+# ── Temples
+# Temple ⊑ TouristAttraction
+# DBpedia covers some Bali temples; NTB/NTT coverage is sparse.
+# Bali entries here supplement DBpedia output; duplicates are harmless (rdflib is idempotent).
+
+TEMPLES: list[dict] = [
+
+    # Bali
+    {"name": "Tanah_Lot",             "locatedIn": "Bali"},
+    {"name": "Uluwatu_Temple",        "locatedIn": "Bali"},
+    {"name": "Besakih",               "locatedIn": "Bali"},
+    {"name": "Pura_Tirta_Empul",      "locatedIn": "Bali"},
+    {"name": "Goa_Gajah",             "locatedIn": "Bali"},
+    {"name": "Pura_Ulun_Danu_Bratan", "locatedIn": "Bali"},
+    {"name": "Pura_Luhur_Batukaru",   "locatedIn": "Bali"},
+    {"name": "Pura_Taman_Ayun",       "locatedIn": "Bali"},
+    {"name": "Pura_Goa_Lawah",        "locatedIn": "Bali"},
+
+    # West Nusa Tenggara (NTB)
+    {"name": "Pura_Meru",    "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Pura_Lingsar", "locatedIn": "West_Nusa_Tenggara"},
+
+    # East Nusa Tenggara (NTT)
+    {"name": "Pura_Segara_Rupek", "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
@@ -193,20 +273,30 @@ TRADITIONAL_HOUSES: list[dict] = [
 RESTAURANTS: list[dict] = [
 
     # Bali
-    {"name": "Locavore",               "locatedIn": "Bali"},  # award-winning farm-to-table, Ubud
-    {"name": "Merah_Putih_Restaurant", "locatedIn": "Bali"},  # modern Indonesian fine dining, Seminyak
-    {"name": "Mozaic_Restaurant",      "locatedIn": "Bali"},  # French-Indonesian fine dining, Ubud
-    {"name": "Sardine_Restaurant",     "locatedIn": "Bali"},  # organic Balinese cuisine, Seminyak
-    {"name": "Wahaha_Restaurant",      "locatedIn": "Bali"},  # traditional Balinese, Sanur
+    {"name": "Locavore",                  "locatedIn": "Bali"},
+    {"name": "Merah_Putih_Restaurant",    "locatedIn": "Bali"},
+    {"name": "Mozaic_Restaurant",         "locatedIn": "Bali"},
+    {"name": "Sardine_Restaurant",        "locatedIn": "Bali"},
+    {"name": "Wahaha_Restaurant",         "locatedIn": "Bali"},
+    {"name": "Naughty_Nuris_Warung",      "locatedIn": "Bali"},
+    {"name": "Hujan_Locale",              "locatedIn": "Bali"},
+    {"name": "Cuca_Restaurant",           "locatedIn": "Bali"},
+    {"name": "Bambu_Restaurant",          "locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Ashtari_Restaurant",     "locatedIn": "West_Nusa_Tenggara"},  # hilltop panoramic views, Kuta Lombok
-    {"name": "Bale_Lombok_Restaurant", "locatedIn": "West_Nusa_Tenggara"},  # traditional Sasak cuisine, Mataram
-    {"name": "Square_Restaurant",      "locatedIn": "West_Nusa_Tenggara"},  # contemporary cuisine, Senggigi
+    {"name": "Ashtari_Restaurant",           "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Bale_Lombok_Restaurant",       "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Square_Restaurant",            "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Tanjung_Restaurant_Senggigi",  "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Bale_Sari_Mataram",            "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Mandalika_Restaurant_Lombok",  "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Kampung_Ujung_Restaurant", "locatedIn": "East_Nusa_Tenggara"},  # local seafood, Labuan Bajo
-    {"name": "Tree_Top_Restaurant",      "locatedIn": "East_Nusa_Tenggara"},  # eco restaurant near Ruteng, Flores
+    {"name": "Kampung_Ujung_Restaurant",     "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Tree_Top_Restaurant",          "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Bajo_Seafood_House",           "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Rumah_Makan_Sederhana_Kupang", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Sari_Restaurant_Ende",         "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
@@ -215,19 +305,24 @@ RESTAURANTS: list[dict] = [
 # Includes warungs (small local eateries) and night markets.
 
 STREET_VENDORS: list[dict] = [
-
     # Bali
-    {"name": "Warung_Ibu_Oka",          "locatedIn": "Bali"},  # iconic babi guling warung, Ubud
-    {"name": "Warung_Nasi_Ayam_Bu_Mus", "locatedIn": "Bali"},  # famous nasi ayam, Kedewatan/Ubud
-    {"name": "Kreneng_Night_Market",    "locatedIn": "Bali"},  # street food night market, Denpasar
+    {"name": "Warung_Ibu_Oka",               "locatedIn": "Bali"},
+    {"name": "Warung_Nasi_Ayam_Bu_Mus",      "locatedIn": "Bali"},
+    {"name": "Kreneng_Night_Market",         "locatedIn": "Bali"},
+    {"name": "Warung_Babi_Guling_Chandra",   "locatedIn": "Bali"},
+    {"name": "Sanur_Night_Market",           "locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Warung_Taliwang_Irama", "locatedIn": "West_Nusa_Tenggara"},  # famous ayam taliwang, Mataram
-    {"name": "Pasar_Malam_Sindu",     "locatedIn": "West_Nusa_Tenggara"},  # Mataram night market
+    {"name": "Warung_Taliwang_Irama",   "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Pasar_Malam_Sindu",       "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Warung_Pelecing_Bu_Nini", "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Pasar_Malam_Senggigi",    "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Warung_Seafood_Kupang",   "locatedIn": "East_Nusa_Tenggara"},  # local seafood stalls, Kupang
-    {"name": "Pasar_Malam_Labuan_Bajo", "locatedIn": "East_Nusa_Tenggara"},  # night market, Labuan Bajo
+    {"name": "Warung_Seafood_Kupang",   "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Pasar_Malam_Labuan_Bajo", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Warung_Se_i_Babi_Kupang", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Pasar_Malam_Ende",        "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
@@ -236,19 +331,24 @@ STREET_VENDORS: list[dict] = [
 # Local pasar (traditional open-air markets).
 
 TRADITIONAL_MARKETS: list[dict] = [
-
     # Bali
-    {"name": "Pasar_Badung",   "locatedIn": "Bali"},  # central market, Denpasar (largest in Bali)
-    {"name": "Pasar_Ubud",     "locatedIn": "Bali"},  # Ubud traditional market
-    {"name": "Pasar_Sukawati", "locatedIn": "Bali"},  # art & handicraft market, Gianyar
+    {"name": "Pasar_Badung",   "locatedIn": "Bali"},
+    {"name": "Pasar_Ubud",     "locatedIn": "Bali"},
+    {"name": "Pasar_Sukawati", "locatedIn": "Bali"},
+    {"name": "Pasar_Kumbasari","locatedIn": "Bali"},
+    {"name": "Pasar_Sanur",    "locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Pasar_Cakranegara", "locatedIn": "West_Nusa_Tenggara"},  # main market, Mataram
-    {"name": "Pasar_Bertais",     "locatedIn": "West_Nusa_Tenggara"},  # largest traditional market, Mataram
+    {"name": "Pasar_Cakranegara", "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Pasar_Bertais",     "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Pasar_Ampenan",     "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Pasar_Praya",       "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Pasar_Inpres_Labuan_Bajo", "locatedIn": "East_Nusa_Tenggara"},  # local market, Labuan Bajo
-    {"name": "Pasar_Oebobo",             "locatedIn": "East_Nusa_Tenggara"},  # traditional market, Kupang
+    {"name": "Pasar_Inpres_Labuan_Bajo", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Pasar_Oebobo",             "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Pasar_Kasih_Naikoten",     "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Pasar_Ende",               "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
@@ -257,21 +357,26 @@ TRADITIONAL_MARKETS: list[dict] = [
 # City -> hasAccommodation -> Resort
 
 RESORTS: list[dict] = [
-
     # Bali
-    {"name": "Four_Seasons_Resort_Sayan", "locatedIn": "Bali"},  # iconic Ayung river valley resort, Ubud
-    {"name": "Alila_Villas_Uluwatu",      "locatedIn": "Bali"},  # cliffside eco resort, Uluwatu
-    {"name": "COMO_Shambhala_Estate",     "locatedIn": "Bali"},  # wellness & yoga retreat, Ubud
-    {"name": "Amanusa",                   "locatedIn": "Bali"},  # luxury resort, Nusa Dua
+    {"name": "Four_Seasons_Resort_Sayan", "locatedIn": "Bali"},
+    {"name": "Alila_Villas_Uluwatu",      "locatedIn": "Bali"},
+    {"name": "COMO_Shambhala_Estate",     "locatedIn": "Bali"},
+    {"name": "Amanusa",                   "locatedIn": "Bali"},
+    {"name": "Bulgari_Resort_Bali",       "locatedIn": "Bali"},
+    {"name": "Capella_Ubud",              "locatedIn": "Bali"},
+    {"name": "Hanging_Gardens_Resort",    "locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Katamaran_Resort_Lombok", "locatedIn": "West_Nusa_Tenggara"},  # beachfront, Senggigi
-    {"name": "Qunci_Villas_Hotel",      "locatedIn": "West_Nusa_Tenggara"},  # boutique resort, Senggigi
-    {"name": "Jeeva_Klui_Resort",       "locatedIn": "West_Nusa_Tenggara"},  # beachfront, Mangsit/Senggigi
+    {"name": "Katamaran_Resort_Lombok", "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Qunci_Villas_Hotel",      "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Jeeva_Klui_Resort",       "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Oberoi_Lombok",           "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Plataran_Komodo_Resort",  "locatedIn": "East_Nusa_Tenggara"},  # eco resort, Labuan Bajo
-    {"name": "Sudamala_Resort_Komodo",  "locatedIn": "East_Nusa_Tenggara"},  # luxury resort, Labuan Bajo
+    {"name": "Plataran_Komodo_Resort", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Sudamala_Resort_Komodo", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Ayana_Komodo",           "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Meruorah_Komodo_Resort", "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
@@ -279,54 +384,69 @@ RESORTS: list[dict] = [
 # Villa ⊑ Accommodation
 
 VILLAS: list[dict] = [
-
     # Bali
-    {"name": "Alila_Villas_Soori", "locatedIn": "Bali"},  # volcanic black-sand coast, Tabanan
-    {"name": "Karma_Kandara",      "locatedIn": "Bali"},  # cliffside private villas, Uluwatu
-    {"name": "The_Royal_Purnama",  "locatedIn": "Bali"},  # beachfront boutique villas, Gianyar
+    {"name": "Alila_Villas_Soori",   "locatedIn": "Bali"},
+    {"name": "Karma_Kandara",        "locatedIn": "Bali"},
+    {"name": "The_Royal_Purnama",    "locatedIn": "Bali"},
+    {"name": "Puri_Wulandari_Villa", "locatedIn": "Bali"},
+    {"name": "Shanti_Villa",         "locatedIn": "Bali"},
+    {"name": "Villa_Mathis",         "locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Selong_Selo_Villas", "locatedIn": "West_Nusa_Tenggara"},  # hillside villas, South Lombok
-    {"name": "Jeeva_Beloam",       "locatedIn": "West_Nusa_Tenggara"},  # beach camp villas, Southeast Lombok
+    {"name": "Selong_Selo_Villas", "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Jeeva_Beloam",       "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "The_Lombok_Lodge",   "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Sudamala_Surya_Djiwa", "locatedIn": "East_Nusa_Tenggara"},  # private villas, Labuan Bajo
+    {"name": "Sudamala_Surya_Djiwa", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Golo_Hilltop_Escape",  "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
-# ── Guesthouses ───────
+# ── Guesthouses 
 # Guesthouse ⊑ Accommodation
 # Includes homestays and budget boutique lodging.
 
 GUESTHOUSES: list[dict] = [
-
     # Bali
-    {"name": "Pondok_Pitaya",            "locatedIn": "Bali"},  # garden guesthouse, Ubud
-    {"name": "Sanur_Sunrise_Guesthouse", "locatedIn": "Bali"},  # beachside guesthouse, Sanur
+    {"name": "Pondok_Pitaya",            "locatedIn": "Bali"},
+    {"name": "Sanur_Sunrise_Guesthouse", "locatedIn": "Bali"},
+    {"name": "Pondok_Indah_Ubud",        "locatedIn": "Bali"},
+    {"name": "Kuta_Beach_Guesthouse",    "locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Kuta_Indah_Guesthouse", "locatedIn": "West_Nusa_Tenggara"},  # budget stay, Kuta Lombok
+    {"name": "Kuta_Indah_Guesthouse",    "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Senggigi_Beach_Guesthouse","locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Medana_Homestay",          "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Gili_Trawangan_Guesthouse","locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Gardena_Guesthouse", "locatedIn": "East_Nusa_Tenggara"},  # local guesthouse, Kupang
-    {"name": "Wae_Rebo_Homestay",  "locatedIn": "East_Nusa_Tenggara"},  # traditional village homestay, Manggarai
+    {"name": "Gardena_Guesthouse",     "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Wae_Rebo_Homestay",      "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Bajo_Divers_Guesthouse", "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Soe_Guesthouse",         "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
-# ── Hostels ───────────
+# ── Hostels
 # Hostel ⊑ Accommodation
 
 HOSTELS: list[dict] = [
 
     # Bali
-    {"name": "Puri_Garden_Hostel", "locatedIn": "Bali"},  # backpacker hostel, Kuta
-    {"name": "Tribal_Hostel",      "locatedIn": "Bali"},  # social hostel, Canggu
+    {"name": "Puri_Garden_Hostel",     "locatedIn": "Bali"},
+    {"name": "Tribal_Hostel",          "locatedIn": "Bali"},
+    {"name": "Canggu_Social_Hostel",   "locatedIn": "Bali"},
+    {"name": "Kuta_Backpackers_Hostel","locatedIn": "Bali"},
 
     # West Nusa Tenggara (NTB)
-    {"name": "Shady_Shack_Hostel", "locatedIn": "West_Nusa_Tenggara"},  # surf hostel, Kuta Lombok
+    {"name": "Shady_Shack_Hostel",      "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Kuta_Lombok_Surf_Hostel", "locatedIn": "West_Nusa_Tenggara"},
 
     # East Nusa Tenggara (NTT)
-    {"name": "Bajo_Komodo_Hostel", "locatedIn": "East_Nusa_Tenggara"},  # budget hostel, Labuan Bajo
+    {"name": "Bajo_Komodo_Hostel",      "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Flores_Backpacker_Hostel","locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Kupang_Youth_Hostel",     "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 
@@ -345,7 +465,7 @@ RATINGS = {
         "Museum_Pasifika":           4.1,
         "Le_Mayeur_Museum":          4.1,
         "Semarajaya_Museum":         4.6,
-        "Gedong_Arca_Museum__Bedulu":3.7,
+        "Gedong_Arca_Museum_Bedulu": 3.7,
         "Gedong_Kirtya":             4.5,
         "Bajra_Sandhi_Monument":     4.6,
     },
@@ -363,8 +483,8 @@ RATINGS = {
     },
     "Park": {
         "Komodo_National_Park":              4.6,
-        "Kelimutu_National_Park":            4.6,  # was: Kelimutu
-        "Mount_Rinjani_National_Park":       4.5,  # was: Mount_Rinjani (Volcano)
+        "Kelimutu_National_Park":            4.6,
+        "Mount_Rinjani_National_Park":       4.5,
         "West_Bali_National_Park":           4.3,
         "Manupeu_Tanah_Daru_National_Park":  4.7,
         "Laiwangi_Wanggameti_National_Park": 4.9,
@@ -392,7 +512,7 @@ ENTRY_FEE = {
     "Museum_Pasifika":                True,
     "Le_Mayeur_Museum":               True,
     "Semarajaya_Museum":              True,
-    "Gedong_Arca_Museum__Bedulu":     True,
+    "Gedong_Arca_Museum_Bedulu":      True,
     "Gedong_Kirtya":                  False,
     "Bajra_Sandhi_Monument":          False,
     "Komodo_National_Park":           True,

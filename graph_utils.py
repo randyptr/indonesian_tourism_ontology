@@ -3,19 +3,21 @@
 import re
 import logging
 from rdflib import Graph, URIRef, RDF, OWL
-
+from config import DATA_FILE, BLANK_DATA_OWL
 from config import ONT
 
 
 def slugify(dbpedia_uri: str) -> str:
-    """Last path segment of a DBpedia URI with non-alphanumeric chars replaced by '_'."""
+    """Last path segment of a DBpedia URI converted to a safe OWL local name."""
     last_segment = dbpedia_uri.rsplit("/", 1)[-1]
-    return re.sub(r"[^A-Za-z0-9_]", "_", last_segment)
+    cleaned = re.sub(r"[^A-Za-z0-9]+", "_", last_segment)
+    return cleaned.strip("_")
 
 
 def label_to_local(english_label: str) -> str:
-    """Strip and sanitise an English rdfs:label into a safe OWL local name."""
-    return re.sub(r"[^A-Za-z0-9_]", "_", english_label.strip())
+    """Sanitise an English rdfs:label into a safe OWL local name."""
+    cleaned = re.sub(r"[^A-Za-z0-9]+", "_", english_label.strip())
+    return cleaned.strip("_")
 
 
 def add_individual(graph: Graph, class_local_name: str, individual_name: str) -> URIRef:
@@ -43,6 +45,18 @@ def local_name(iri: URIRef | str) -> str:
         return iri_string.rsplit("#", 1)[-1]
     return iri_string.rsplit("/", 1)[-1]
 
+
+def reset_data_file() -> Graph:
+    """Wipe data.owl to the blank skeleton and return a fresh graph."""
+    DATA_FILE.write_text(BLANK_DATA_OWL, encoding="utf-8")
+    graph = Graph()
+    graph.parse(str(DATA_FILE), format="xml")
+    return graph
+
+
+def save_graph(graph: Graph) -> None:
+    """Serialize the graph to data.owl in RDF/XML format."""
+    graph.serialize(destination=str(DATA_FILE), format="xml")
 
 class NeatFormatter(logging.Formatter):
     """Logging formatter for notebook display.

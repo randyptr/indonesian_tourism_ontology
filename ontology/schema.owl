@@ -81,21 +81,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasReview -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasReview">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTargetAudience -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTargetAudience">
@@ -242,15 +227,6 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#writtenBy -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#writtenBy">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
-    </owl:ObjectProperty>
-    
 
 
     <!-- 
@@ -273,6 +249,19 @@
     </owl:DatatypeProperty>
     
 
+    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasReview -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasReview">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasAreaSqKm -->
 
@@ -523,7 +512,6 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#numberOfVisitors">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <rdfs:comment>Annual number of visitors to a tourist attraction, sourced from DBpedia (dbo:numberOfVisitors).</rdfs:comment>
     </owl:DatatypeProperty>
     
 

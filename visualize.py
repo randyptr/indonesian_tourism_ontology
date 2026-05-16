@@ -14,6 +14,7 @@ Run:
 """
 
 import logging
+from pathlib import Path
 from rdflib import Graph, URIRef, RDF, RDFS, OWL
 from pyvis.network import Network
 
@@ -23,7 +24,7 @@ from graph_utils import local_name
 log = logging.getLogger(__name__)
 
 # Output file name for the interactive HTML visualization
-OUTPUT_HTML_FILE = "./graph_viz/ontology_graph.html"
+OUTPUT_HTML_FILE = "./graph_vis/ontology_graph.html"
 
 # ── Colour Palette ───────────────────────────────────────────────────────────
 # Each ontology class gets a distinct colour for visual differentiation.
@@ -191,6 +192,7 @@ def main() -> None:
     network = _build_network_graph(combined_graph, individual_type_map)
 
     log.info("Nodes: %d  Edges: %d", len(network.nodes), len(network.edges))
+    Path(OUTPUT_HTML_FILE).parent.mkdir(parents=True, exist_ok=True)
     network.write_html(OUTPUT_HTML_FILE, notebook=False, open_browser=False)
     log.info("Saved -> %s", OUTPUT_HTML_FILE)
 

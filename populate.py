@@ -35,7 +35,6 @@ from graph_utils import slugify, label_to_local, add_individual
 
 log = logging.getLogger(__name__)
 
-# ── SPARQL Client (single shared instance) ───────────────────────────────────
 _sparql_client = SPARQLWrapper(DBPEDIA_ENDPOINT)
 _sparql_client.setReturnFormat(JSON)
 _sparql_client.setTimeout(DBPEDIA_TIMEOUT_S)

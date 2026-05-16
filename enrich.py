@@ -16,13 +16,17 @@ Enrichment pipeline (in order):
     9. add_accommodation_hubs   — City -> hasAccommodation -> Hotels in same province
     10. add_visitor_counts      — TouristAttraction -> numberOfVisitors -> xsd:integer (from DBpedia)
     11. add_curated_ratings     — TouristAttraction -> hasRating -> xsd:decimal (from curate_properties.py)
-    12. add_manual_transportation — Transportation individuals + City -> hasTransportation links
-    13. add_manual_food           — Food individuals + originatesFrom + City -> hasFood links
-    14. add_manual_festivals      — Festival individuals for NTB/NTT (DBpedia coverage is poor)
+    12. add_manual_transportation       — Transportation individuals + City -> hasTransportation links
+    13. add_manual_festivals            — Festival individuals for NTB/NTT (DBpedia coverage is poor)
+    14. add_manual_traditional_dances   — TraditionalDance individuals + hub links
+    15. add_manual_traditional_houses   — TraditionalHouse individuals + hub links
+    16. add_manual_beaches              — Beach individuals for NTB/NTT + Bali gaps
+    17. add_manual_religious_ceremonies — ReligiousCeremony individuals (all 3 provinces)
+    18. add_manual_temples              — Temple individuals (Bali supplements + NTB/NTT)
 
 Schema constraints we must respect:
-    - locatedInIsland:   domain = City                     (only City can use this property)
-    - locatedInProvince: domain = Island                   (only Island can use this property)
+    - locatedInIsland:   domain = City (only City can use this property)
+    - locatedInProvince: domain = Island (only Island can use this property)
     - locatedInCity:     domain = TouristAttraction | Accommodation (attractions and hotels)
     - hasActivity:       domain = TouristAttraction, range = Activities
     - hasAccommodation:  domain = City, range = Accommodation
@@ -47,8 +51,9 @@ from graph_utils import add_individual, add_relation, has_type, local_name
 from populate import get_dbpedia_mappings
 from curated_data import (
     RATINGS, ENTRY_FEE, PARK_ESTABLISHED_YEAR,
-    TRANSPORTATION, FOOD, FESTIVALS,
+    TRANSPORTATION, FESTIVALS,
     TRADITIONAL_DANCES, TRADITIONAL_HOUSES,
+    BEACHES_MANUAL, RELIGIOUS_CEREMONIES, TEMPLES,
 )
 
 log = logging.getLogger(__name__)
@@ -237,17 +242,23 @@ def _collect_entities_by_class(
 def add_country_backbone(graph: Graph) -> None:
     """Create Indonesia as Country and link the 3 provinces to it.
 
-    Provinces are already created by populate_provinces() in populate.py.
-    This step only adds:
-        Indonesia  rdf:type         Country
-        Bali       locatedInCountry Indonesia
-        West_NTB   locatedInCountry Indonesia
-        East_NTT   locatedInCountry Indonesia
+    Also explicitly re-asserts rdf:type ONT.Province for each province.
+    populate_provinces() may type them with dbo:Province (DBpedia namespace)
+    rather than ONT.Province — without this re-assertion, build_entity_type_map
+    in graph_embedding.py won't find them (it filters by ONT_IRI prefix), so
+    Province entities are invisible in the t-SNE plot and link predictions.
+
+    Triples added (per province):
+        Indonesia            rdf:type         Country
+        <Province>           rdf:type         Province   ← guaranteed ONT namespace
+        <Province>           locatedInCountry Indonesia
     """
+    log.info("[Country Backbone]")
     add_individual(graph, "Country", "Indonesia")
     for province_name in PROVINCES.values():
+        add_individual(graph, "Province", province_name)   # ensures ONT.Province type
         add_relation(graph, province_name, "locatedInCountry", "Indonesia")
-    log.info("  Country backbone: 3 provinces -> Indonesia")
+    log.info("  -> 3 provinces typed as ONT.Province and linked to Indonesia")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -260,9 +271,10 @@ def add_bali_island(graph: Graph) -> None:
     But our ontology needs an Island entity for Bali so that City individuals
     in Bali can use locatedInIsland -> Bali_Island (domain = City).
     """
+    log.info("[Bali Island Fix]")
     add_individual(graph, "Island", "Bali_Island")
     add_relation(graph, "Bali_Island", "locatedInProvince", "Bali")
-    log.info("  Added Bali_Island (manual — DBpedia has Bali as Province)")
+    log.info("  + Bali_Island (DBpedia types Bali as Province, not Island)")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -278,6 +290,7 @@ def add_island_province(graph: Graph) -> None:
         Flores  locatedInProvince  East_Nusa_Tenggara
         Lombok  locatedInProvince  West_Nusa_Tenggara
     """
+    log.info("[Island → Province Links]")
     dbpedia_to_local, local_to_dbpedia = get_dbpedia_mappings()
     all_names = _get_all_individual_names(graph)
 
@@ -323,7 +336,7 @@ def add_island_province(graph: Graph) -> None:
             add_relation(graph, island_name, "locatedInProvince", province_name)
             link_count += 1
 
-    log.info("  Island -> Province: %d links (auto from DBpedia)", link_count)
+    log.info("  -> %d links (DBpedia isPartOf + wikiLink)", link_count)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -413,6 +426,7 @@ def add_location_links(graph: Graph) -> None:
         Pandawa_Beach  locatedIn       Bali_Island    (Beach -> Island, via Badung)
         Badung_Regency locatedInIsland Bali_Island    (City -> Island)
     """
+    log.info("[Location Links]")
     dbpedia_to_local, local_to_dbpedia = get_dbpedia_mappings()
 
     # Build source set: all entities with DBpedia URIs
@@ -463,7 +477,7 @@ def add_location_links(graph: Graph) -> None:
                 add_relation(graph, source_name, property_name, target_name)
                 link_count += 1
 
-    log.info("  wikiPageWikiLink -> locatedIn: %d links (auto)", link_count)
+    log.info("  -> %d links (wikiPageWikiLink)", link_count)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -484,10 +498,11 @@ def add_activity_individuals(graph: Graph) -> None:
     Creates: Surfing, Snorkeling, Diving, Sailing, Kayaking,
              Hiking, Sightseeing, Cultural_Tour
     """
+    log.info("[Activity Individuals]")
     for activity_name in ACTIVITIES:
         owl_class = ACTIVITY_OWL_CLASS.get(activity_name, "Activities")
         add_individual(graph, owl_class, activity_name)
-    log.info("  Created %d Activity individuals", len(ACTIVITIES))
+    log.info("  -> %d created: %s", len(ACTIVITIES), ", ".join(ACTIVITIES))
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -571,6 +586,7 @@ def add_activity_links(graph: Graph) -> None:
         Dreamland_Beach  hasActivity  Surfing     (from category keyword)
         Komodo_NP        hasActivity  Diving      (from wikiLink to dbr:Scuba_diving)
     """
+    log.info("[Activity Links]")
     _, local_to_dbpedia = get_dbpedia_mappings()
 
     # Collect TouristAttraction entities that have DBpedia URIs
@@ -579,7 +595,7 @@ def add_activity_links(graph: Graph) -> None:
     )
 
     if not attraction_uri_to_name:
-        log.info("  hasActivity: no tourist attractions with DBpedia URIs")
+        log.info("  - no tourist attractions with DBpedia URIs")
         return
 
     attraction_values = _make_values_clause(attraction_uri_to_name.keys())
@@ -616,10 +632,7 @@ def add_activity_links(graph: Graph) -> None:
     for entity_name, activity_name in activity_pairs:
         add_relation(graph, entity_name, "hasActivity", activity_name)
 
-    log.info(
-        "  hasActivity: %d links (auto from categories + wikiLinks)",
-        len(activity_pairs),
-    )
+    log.info("  -> %d links (DBpedia categories + wikiLinks)", len(activity_pairs))
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -636,6 +649,7 @@ def add_activity_fallbacks(graph: Graph) -> None:
 
     Example: a Temple with no DBpedia activity info gets Cultural_Tour.
     """
+    log.info("[Activity Fallbacks]")
     link_count = 0
 
     for class_name, default_activities in DEFAULT_ACTIVITIES_BY_CLASS.items():
@@ -652,7 +666,7 @@ def add_activity_fallbacks(graph: Graph) -> None:
                 add_relation(graph, entity_name, "hasActivity", activity_name)
                 link_count += 1
 
-    log.info("  Default activities (fallback): %d links", link_count)
+    log.info("  -> %d links assigned to entities with no DBpedia coverage", link_count)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -670,6 +684,7 @@ def add_attraction_hubs(graph: Graph) -> None:
 
     Only links attractions that have locatedIn -> the same province as the city.
     """
+    log.info("[Tourist Attraction Hubs]")
     link_count = 0
 
     for province_name, capital_name in CAPITAL_OF_PROVINCE.items():
@@ -686,7 +701,7 @@ def add_attraction_hubs(graph: Graph) -> None:
                     graph.add((ONT[capital_name], ONT.hasTouristAttraction, subject))
                     link_count += 1
 
-    log.info("  hasTouristAttraction (hub): %d links", link_count)
+    log.info("  -> %d hub edges (City → hasTouristAttraction)", link_count)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -706,6 +721,7 @@ def add_accommodation_hubs(graph: Graph) -> None:
     Only links hotels that have locatedIn -> the same province as the city.
     Hotels that have no locatedIn edge are skipped (can't determine province).
     """
+    log.info("[Accommodation Hubs]")
     link_count = 0
 
     for province_name, capital_name in CAPITAL_OF_PROVINCE.items():
@@ -719,7 +735,7 @@ def add_accommodation_hubs(graph: Graph) -> None:
                 graph.add((ONT[capital_name], ONT.hasAccommodation, subject))
                 link_count += 1
 
-    log.info("  hasAccommodation (hub): %d links", link_count)
+    log.info("  -> %d hub edges (City → hasAccommodation)", link_count)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -736,6 +752,7 @@ def add_visitor_counts(graph: Graph) -> None:
     (~4 entities in our region). The property is still useful for SPARQL queries
     like "find attractions with more than 10,000 annual visitors".
     """
+    log.info("[Visitor Counts]")
     _, local_to_dbpedia = get_dbpedia_mappings()
 
     # Collect all TouristAttraction entities with DBpedia URIs
@@ -770,10 +787,10 @@ def add_visitor_counts(graph: Graph) -> None:
             ONT.numberOfVisitors,
             Literal(visitor_count, datatype=XSD.integer),
         ))
-        log.info("  %s -> numberOfVisitors: %d", entity_name, visitor_count)
+        log.info("  + %s: %s visitors", entity_name, f"{visitor_count:,}")
         added_count += 1
 
-    log.info("  numberOfVisitors: %d values added", added_count)
+    log.info("  -> %d values added", added_count)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -793,6 +810,7 @@ def add_curated_ratings(graph: Graph) -> None:
     Example triple added:
         ont:Pandawa_Beach  ont:hasRating  "4.1"^^xsd:decimal
     """
+    log.info("[Ratings]")
     added_count = 0
     skipped_missing: list[str] = []
     skipped_hotel: list[str] = []
@@ -817,11 +835,11 @@ def add_curated_ratings(graph: Graph) -> None:
             ))
             added_count += 1
 
-    log.info("  hasRating: %d values added", added_count)
-    if skipped_missing:
-        log.info("  hasRating skipped (not in graph): %s", ", ".join(skipped_missing))
+    log.info("  -> %d hasRating values added", added_count)
     if skipped_hotel:
-        log.info("  hasRating skipped (Hotel domain conflict): %s", ", ".join(skipped_hotel))
+        log.info("  - Hotel domain conflict: %s", ", ".join(skipped_hotel))
+    if skipped_missing:
+        log.info("  - not in graph: %s", ", ".join(skipped_missing))
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -837,6 +855,7 @@ def add_curated_entry_fees(graph: Graph) -> None:
     Example triple added:
         ont:Komodo_National_Park  ont:hasEntryFee  "true"^^xsd:boolean
     """
+    log.info("[Entry Fees]")
     added_count = 0
     skipped_missing: list[str] = []
 
@@ -854,9 +873,9 @@ def add_curated_entry_fees(graph: Graph) -> None:
         ))
         added_count += 1
 
-    log.info("  hasEntryFee: %d values added", added_count)
+    log.info("  -> %d hasEntryFee values added", added_count)
     if skipped_missing:
-        log.info("  hasEntryFee skipped (not in graph): %s", ", ".join(skipped_missing))
+        log.info("  - not in graph: %s", ", ".join(skipped_missing))
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -872,6 +891,7 @@ def add_park_established_years(graph: Graph) -> None:
     Example triple added:
         ont:Komodo_National_Park  ont:establishedYear  "1980"^^xsd:integer
     """
+    log.info("[Established Years]")
     added_count = 0
     skipped_missing: list[str] = []
 
@@ -887,9 +907,9 @@ def add_park_established_years(graph: Graph) -> None:
         ))
         added_count += 1
 
-    log.info("  establishedYear: %d values added", added_count)
+    log.info("  -> %d establishedYear values added", added_count)
     if skipped_missing:
-        log.info("  establishedYear skipped (not in graph as Park): %s", ", ".join(skipped_missing))
+        log.info("  - not in graph as Park: %s", ", ".join(skipped_missing))
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -909,6 +929,7 @@ def add_manual_transportation(graph: Graph) -> None:
         ont:Ngurah_Rai_International_Airport  ont:locatedIn  ont:Bali
         ont:Denpasar  ont:hasTransportation  ont:Ngurah_Rai_International_Airport
     """
+    log.info("[Transportation]")
     added_count = 0
 
     for entry in TRANSPORTATION:
@@ -925,77 +946,19 @@ def add_manual_transportation(graph: Graph) -> None:
         if capital_name and has_type(graph, capital_name, "City"):
             add_relation(graph, capital_name, "hasTransportation", individual_name)
 
-        log.info("  + %s (%s, locatedIn: %s)", individual_name, owl_class, province_name)
+        log.info("  + %s (%s, %s)", individual_name, owl_class, province_name)
         added_count += 1
 
-    log.info("  Manual transportation: %d individuals added", added_count)
+    log.info("  -> %d individuals added", added_count)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Step 13: Manual Food individuals
-# ─────────────────────────────────────────────────────────────────────────────
-def add_manual_food(graph: Graph) -> None:
-    """Add Food individuals from curate_individuals.FOOD.
-
-    For each entry:
-        1. Creates the individual with its specific subclass (TypicalFood,
-           CeremonialFood, StapleFood, or Beverage).
-        2. Adds locatedIn -> Province.
-        3. Adds originatesFrom -> Province (Food -> Province).
-        4. Links the provincial capital via City -> hasFood.
-
-    Example triples added:
-        ont:Babi_Guling  rdf:type         ont:TypicalFood
-        ont:Babi_Guling  ont:locatedIn    ont:Bali
-        ont:Babi_Guling  ont:originatesFrom  ont:Bali
-        ont:Denpasar     ont:hasFood      ont:Babi_Guling
-    """
-    added_count = 0
-
-    for entry in FOOD:
-        individual_name  = entry["name"]
-        owl_class        = entry["type"]
-        province_name    = entry["locatedIn"]
-        origin_province  = entry.get("originatesFrom")
-
-        # Create the individual and link to province
-        add_individual(graph, owl_class, individual_name)
-        add_relation(graph, individual_name, "locatedIn", province_name)
-
-        # Add originatesFrom if specified
-        if origin_province:
-            add_relation(graph, individual_name, "originatesFrom", origin_province)
-
-        # Link the provincial capital to this food node
-        capital_name = CAPITAL_OF_PROVINCE.get(province_name)
-        if capital_name and has_type(graph, capital_name, "City"):
-            add_relation(graph, capital_name, "hasFood", individual_name)
-
-        log.info("  + %s (%s, originatesFrom: %s)", individual_name, owl_class, origin_province)
-        added_count += 1
-
-    log.info("  Manual food: %d individuals added", added_count)
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Step 14: Manual Festival individuals
+# Step 13: Manual Festival individuals
 # ─────────────────────────────────────────────────────────────────────────────
 def add_manual_festivals(graph: Graph) -> None:
-    """Add Festival individuals for NTB and NTT from curate_individuals.FESTIVALS.
-
-    Why manual:
-    - NTB: DBpedia returns 0 Festival results for West Nusa Tenggara.
-    - NTT: DBpedia incorrectly tags a gubernatorial election as a SocietalEvent
-      under Category:Tourist_attractions_in_East_Nusa_Tenggara.
-    - Bali festivals are already correctly populated by DBpedia (not added here).
-
-    Each festival gets:
-        rdf:type Festival
-        locatedIn -> Province
-        hasActivity -> Cultural_Tour  (via add_activity_fallbacks, or added here
-                                       as a direct fallback since DBpedia won't
-                                       have categories for these manual entries)
-    """
+    """Add Festival individuals for NTB and NTT from curate_individuals.FESTIVALS"""
+    
+    log.info("[Festivals (Manual — NTB/NTT)]")
     added_count = 0
 
     for entry in FESTIVALS:
@@ -1012,7 +975,7 @@ def add_manual_festivals(graph: Graph) -> None:
         log.info("  + %s (locatedIn: %s)", individual_name, province_name)
         added_count += 1
 
-    log.info("  Manual festivals: %d individuals added", added_count)
+    log.info("  -> %d individuals added", added_count)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1023,66 +986,134 @@ def _add_cultural_individuals(
     entries: list[dict],
     owl_class: str,
     label: str,
+    activities: list[str] | None = None,
 ) -> None:
-    """Shared helper for TraditionalDance and TraditionalHouse population.
+    """Shared helper for TouristAttraction subclass population.
 
-    Each entry gets rdf:type, locatedIn, hasActivity → Cultural_Tour, and a
+    Each entry gets rdf:type, locatedIn, one or more hasActivity links, and a
     hub link from the provincial capital. Hub links are wired manually here
     because add_attraction_hubs() runs before these manual steps.
+
+    activities defaults to ["Cultural_Tour"] if not specified.
     """
+    if activities is None:
+        activities = ["Cultural_Tour"]
     count = 0
     for entry in entries:
         name     = entry["name"]
         province = entry["locatedIn"]
         add_individual(graph, owl_class, name)
         add_relation(graph, name, "locatedIn", province)
-        add_relation(graph, name, "hasActivity", "Cultural_Tour")
+        for activity in activities:
+            add_relation(graph, name, "hasActivity", activity)
         capital = CAPITAL_OF_PROVINCE.get(province)
         if capital and has_type(graph, capital, "City"):
             add_relation(graph, capital, "hasTouristAttraction", name)
-        log.info("  + %s (locatedIn: %s)", name, province)
+        log.info("  + %s (%s)", name, province)
         count += 1
-    log.info("  Manual %s: %d individuals added", label, count)
+    log.info("  -> %d individuals added", count)
 
 
 def add_manual_traditional_dances(graph: Graph) -> None:
     """Add TraditionalDance individuals from curated_data.TRADITIONAL_DANCES."""
+    log.info("[Traditional Dances]")
     _add_cultural_individuals(graph, TRADITIONAL_DANCES, "TraditionalDance", "traditional dances")
 
 
 def add_manual_traditional_houses(graph: Graph) -> None:
     """Add TraditionalHouse individuals from curated_data.TRADITIONAL_HOUSES."""
+    log.info("[Traditional Houses]")
     _add_cultural_individuals(graph, TRADITIONAL_HOUSES, "TraditionalHouse", "traditional houses")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Public API
+# Step 16: Manual Beach individuals
 # ─────────────────────────────────────────────────────────────────────────────
-# NOTE: Establishments & Accommodation individuals (Restaurant, StreetVendor,
-# TraditionalMarket, Resort, Villa, Guesthouse, Hostel) are declared in:
-#   ontology/populate_establishments.omn  (Manchester Syntax — Protégé source)
-#   ontology/populate_establishments.ttl  (Turtle twin — import into Protégé)
-# Both files are imported manually into Protégé, not loaded by this pipeline.
+def add_manual_beaches(graph: Graph) -> None:
+    """Add Beach individuals from curated_data.BEACHES_MANUAL.
+
+    Supplements DBpedia output: NTB and NTT beaches are rarely returned by the
+    DBpedia populate step; Bali entries fill specific gaps. Each beach receives
+    the full set of water-sport activity links so the embedding model sees
+    meaningful hasActivity edges for these nodes.
+
+    Each entry gets:
+        rdf:type Beach
+        locatedIn -> Province
+        hasActivity -> Surfing, Snorkeling, Sailing, Kayaking
+        City -> hasTouristAttraction -> Beach  (hub link)
+    """
+    log.info("[Beaches (Manual)]")
+    _add_cultural_individuals(
+        graph, BEACHES_MANUAL, "Beach", "beaches",
+        activities=["Surfing", "Snorkeling", "Sailing", "Kayaking"],
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Step 17: Manual ReligiousCeremony individuals
+# ─────────────────────────────────────────────────────────────────────────────
+def add_manual_religious_ceremonies(graph: Graph) -> None:
+    """Add ReligiousCeremony individuals from curated_data.RELIGIOUS_CEREMONIES.
+
+    DBpedia returns near-zero structured results for ReligiousCeremony across
+    all three provinces. All entries are therefore manual.
+
+    Each entry gets:
+        rdf:type ReligiousCeremony
+        locatedIn -> Province
+        hasActivity -> Cultural_Tour
+        City -> hasTouristAttraction -> ReligiousCeremony  (hub link)
+    """
+    log.info("[Religious Ceremonies]")
+    _add_cultural_individuals(
+        graph, RELIGIOUS_CEREMONIES, "ReligiousCeremony", "religious ceremonies",
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Step 18: Manual Temple individuals
+# ─────────────────────────────────────────────────────────────────────────────
+def add_manual_temples(graph: Graph) -> None:
+    """Add Temple individuals from curated_data.TEMPLES.
+
+    DBpedia covers some famous Bali temples; NTB and NTT have no structured
+    Temple results. Bali entries here supplement DBpedia output — rdflib triples
+    are idempotent so adding an existing individual's type/locatedIn is safe.
+
+    Each entry gets:
+        rdf:type Temple
+        locatedIn -> Province
+        hasActivity -> Cultural_Tour
+        City -> hasTouristAttraction -> Temple  (hub link)
+    """
+    log.info("[Temples (Manual)]")
+    _add_cultural_individuals(
+        graph, TEMPLES, "Temple", "temples",
+    )
+
+
 ALL_ENRICHERS = [
     add_country_backbone,
     add_bali_island,
     add_island_province,
-    add_location_links,        # adds locatedIn, locatedInIsland, locatedInCity
+    add_location_links,             # adds locatedIn, locatedInIsland, locatedInCity
     add_activity_individuals,
     add_activity_links,
     add_activity_fallbacks,
-    add_attraction_hubs,       # City -> hasTouristAttraction -> TouristAttraction
-    add_accommodation_hubs,    # City -> hasAccommodation -> Hotel
-    add_visitor_counts,        # TouristAttraction -> numberOfVisitors -> xsd:integer
-    add_curated_ratings,       # TouristAttraction -> hasRating -> xsd:decimal
-    add_curated_entry_fees,    # TouristAttraction -> hasEntryFee -> xsd:boolean
-    add_park_established_years,# Park -> establishedYear -> xsd:integer
+    add_attraction_hubs,            # City -> hasTouristAttraction -> TouristAttraction
+    add_accommodation_hubs,         # City -> hasAccommodation -> Hotel
+    add_visitor_counts,             # TouristAttraction -> numberOfVisitors -> xsd:integer
+    add_curated_ratings,            # TouristAttraction -> hasRating -> xsd:decimal
+    add_curated_entry_fees,         # TouristAttraction -> hasEntryFee -> xsd:boolean
+    add_park_established_years,     # Park -> establishedYear -> xsd:integer
     add_manual_transportation,      # Transportation individuals + City -> hasTransportation
-    # add_manual_food,                # Food individuals + originatesFrom + City -> hasFood
-    add_manual_festivals,           # Festival individuals for NTB/NTT
-    add_manual_traditional_dances,  # TraditionalDance individuals + hub links
-    add_manual_traditional_houses,  # TraditionalHouse individuals + hub links
-    # Establishments loaded via Protégé import (populate_establishments.omn/.ttl)
+    add_manual_festivals,              # Festival individuals for NTB/NTT
+    add_manual_traditional_dances,     # TraditionalDance individuals + hub links
+    add_manual_traditional_houses,     # TraditionalHouse individuals + hub links
+    add_manual_beaches,                # Beach individuals for NTB/NTT + Bali gaps
+    add_manual_religious_ceremonies,   # ReligiousCeremony individuals (all 3 provinces)
+    add_manual_temples,                # Temple individuals (Bali supplements + NTB/NTT)
 ]
 
 
