@@ -617,9 +617,21 @@ EXTRA_CITIES: list[dict[str, str]] = [
     },
 ]
 
+# Annual visitor counts (data property). Previously fetched from DBpedia's
+# dbo:numberOfVisitors; values verified at time of curation.
+VISITOR_COUNTS: dict[str, int] = {
+    "Komodo_National_Park":         45000,
+    "Mount_Rinjani_National_Park":  117715,
+    "West_Bali_National_Park":      5592,
+    "Kelimutu_National_Park":       12507,
+}
+
 # Additional curated triples applied after the rest of enrichment has run.
-# Each entry is (subject, predicate, object). Used for patching sparse
-# entities and adding semantically known links that DBpedia doesn't expose.
+# Each entry is (subject, predicate, object). Used for:
+#   - patching sparse entities (Pink Beach in Komodo NP),
+#   - asserting semantic facts DBpedia doesn't expose (Komodo also has hiking),
+#   - locatedInCity / locatedInIsland for attractions whose city/island
+#     containment is well known.
 EXTRA_LINKS: list[tuple[str, str, str]] = [
     # Pink Beach (in Komodo NP) — anchor it to the NTT cluster
     ("Pink_Beach",            "locatedInIsland",        "Komodo_island"),
@@ -630,6 +642,49 @@ EXTRA_LINKS: list[tuple[str, str, str]] = [
     ("Komodo_National_Park",  "hasActivity",            "Snorkeling"),
     ("Komodo_National_Park",  "hasActivity",            "Hiking"),
     ("Komodo_National_Park",  "hasActivity",            "Sightseeing"),
+    # Bali attractions -> regency (locatedInCity)
+    ("Bali_Museum",                       "locatedInCity",  "Denpasar"),
+    ("Bajra_Sandhi_Monument",             "locatedInCity",  "Denpasar"),
+    ("Omed_omedan",                       "locatedInCity",  "Denpasar"),
+    ("Tandjung_Sari",                     "locatedInCity",  "Denpasar"),
+    ("Pandawa_Beach",                     "locatedInCity",  "Badung_Regency"),
+    ("Legian",                            "locatedInCity",  "Badung_Regency"),
+    ("Pura_Taman_Ayun",                   "locatedInCity",  "Badung_Regency"),
+    ("Lovina_Beach",                      "locatedInCity",  "Buleleng_Regency"),
+    ("Gedong_Kirtya",                     "locatedInCity",  "Buleleng_Regency"),
+    ("West_Bali_National_Park",           "locatedInCity",  "Buleleng_Regency"),
+    ("Mount_Batur",                       "locatedInCity",  "Bangli_Regency"),
+    ("Pura_Goa_Lawah",                    "locatedInCity",  "Klungkung_Regency"),
+    ("Semarajaya_Museum",                 "locatedInCity",  "Klungkung_Regency"),
+    ("Pura_Penataran_Agung_Lempuyang",    "locatedInCity",  "Karangasem_Regency"),
+    ("Amankila",                          "locatedInCity",  "Karangasem_Regency"),
+    ("Museum_Rudana",                     "locatedInCity",  "Gianyar_Regency"),
+    # NTB/NTT attractions -> regency
+    ("Mount_Tambora",                     "locatedInCity",  "Bima_Regency"),
+    ("Cepi_Watu_Beach",                   "locatedInCity",  "East_Manggarai_Regency"),
+    # Bali regency -> island (regencies on Nusa islands)
+    ("Klungkung_Regency",                 "locatedInIsland", "Nusa_Penida"),
+    # NTB regency -> island
+    ("Central_Lombok_Regency",            "locatedInIsland", "Lombok"),
+    ("East_Lombok_Regency",               "locatedInIsland", "Lombok"),
+    ("West_Lombok_Regency",               "locatedInIsland", "Lombok"),
+    ("North_Lombok_Regency",              "locatedInIsland", "Lombok"),
+    ("Sumbawa_Regency",                   "locatedInIsland", "Sumbawa"),
+    ("West_Sumbawa_Regency",              "locatedInIsland", "Sumbawa"),
+    # NTT regency -> island
+    ("Manggarai_Regency",                 "locatedInIsland", "Flores"),
+    ("West_Manggarai_Regency",            "locatedInIsland", "Flores"),
+    ("East_Manggarai_Regency",            "locatedInIsland", "Flores"),
+    ("Ngada_Regency",                     "locatedInIsland", "Flores"),
+    ("Nagekeo_Regency",                   "locatedInIsland", "Flores"),
+    ("Ende_Regency",                      "locatedInIsland", "Flores"),
+    ("Sikka_Regency",                     "locatedInIsland", "Flores"),
+    ("East_Flores_Regency",               "locatedInIsland", "Flores"),
+    ("Central_Sumba_Regency",             "locatedInIsland", "Sumba"),
+    ("East_Sumba_Regency",                "locatedInIsland", "Sumba"),
+    ("West_Sumba_Regency",                "locatedInIsland", "Sumba"),
+    ("Southwest_Sumba_Regency",           "locatedInIsland", "Sumba"),
+    ("Rote_Ndao_Regency",                 "locatedInIsland", "Rote_Island"),
 ]
 
 
@@ -704,6 +759,7 @@ __all__ = [
     "ISLAND_TO_PROVINCE",
     "EXTRA_CITIES",
     "EXTRA_LINKS",
+    "VISITOR_COUNTS",
     # Validation
     "validate",
 ]
