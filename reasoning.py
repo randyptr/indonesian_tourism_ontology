@@ -40,8 +40,7 @@ EXTRA_ABOX_TTL_FILES = [
 # from cache and no HTTP fetch is attempted.
 # Derived from ONT_IRI base: strip the fragment identifier and replace the
 # final path segment with the establishments ontology name.
-_ONT_BASE = ONT_IRI.rstrip("#").rsplit("/", 1)[0]  # "…/2026/3"
-ESTABLISHMENTS_IRI = f"{_ONT_BASE}/populate_Establishments"
+ESTABLISHMENTS_IRI = ONT_IRI.rstrip("#") + "/establishments"
 
 # Establishment class → which curated list it sources from, and which superclass
 # it subclasses (used to build the same hierarchy as establishments.omn).

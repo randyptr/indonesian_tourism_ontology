@@ -17,8 +17,8 @@ DATA_FILE    = ONTOLOGY_DIR / "data.owl"     # ABox — individuals and assertio
 
 # The ontology IRI is used as the namespace for all classes, properties,
 # and individuals defined in this project.
-ONT_IRI  = "http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#"
-DATA_IRI = "http://www.semanticweb.org/emmaa/ontologies/2026/3/tourism-data"
+ONT_IRI  = "http://www.semanticweb.org/indonesian_tourism_ontology#"
+DATA_IRI = "http://www.semanticweb.org/indonesian_tourism_ontology/data"
 
 # rdflib Namespace object — used as ONT["ClassName"] or ONT.propertyName
 ONT = Namespace(ONT_IRI)

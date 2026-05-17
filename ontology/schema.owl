@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#"
-     xml:base="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9"
+<rdf:RDF xmlns="http://www.semanticweb.org/indonesian_tourism_ontology#"
+     xml:base="http://www.semanticweb.org/indonesian_tourism_ontology"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:untitled-ontology-9="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9">
-        <owl:imports rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/alergy-ingredients-dishes"/>
-        <owl:imports rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_Establishments"/>
+     xmlns:ito="http://www.semanticweb.org/indonesian_tourism_ontology#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology">
+        <owl:imports rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology/food"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology/establishments"/>
     </owl:Ontology>
     
 
@@ -25,164 +25,164 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#availableAt -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#availableAt -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#availableAt">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#availableAt">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Location"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasAccommodation -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasAccommodation -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasAccommodation">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasAccommodation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasActivity -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasActivity -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasActivity">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasActivity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Activities"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasFood -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasFood -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasFood">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasFood">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasIngredient -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasIngredient -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasIngredient">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ingredient"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasIngredient">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Ingredient"/>
     </owl:ObjectProperty>
     
 
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTheme -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasTheme -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTheme">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasTheme">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Festival"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Activities"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Festival"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Museum"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Theme"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTouristAttraction -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasTouristAttraction -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTouristAttraction">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasTouristAttraction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTransportation -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasTransportation -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTransportation">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasTransportation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Transportation"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#locatedIn -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#locatedIn">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInCity -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#locatedInCity -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInCity">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#locatedInCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#locatedIn"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Events"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Transportation"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInCountry -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#locatedInCountry -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInCountry">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#locatedInCountry">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#locatedIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Province"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Country"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInIsland -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#locatedInIsland -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInIsland">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#locatedInIsland">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#locatedIn"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInProvince -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#locatedInProvince -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedInProvince">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#locatedInProvince">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#locatedIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Province"/>
     </owl:ObjectProperty>
     
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#originatesFrom -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#originatesFrom -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#originatesFrom">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#originatesFrom">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Province"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -190,13 +190,13 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#servesFood -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#servesFood -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#servesFood">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#servesFood">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
     </owl:ObjectProperty>
 
 
@@ -211,40 +211,40 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#establishedYear -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#establishedYear -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#establishedYear">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#establishedYear">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Park"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </owl:DatatypeProperty>
     
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasReview -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasReview -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasReview">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasReview">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
     </owl:DatatypeProperty>
     
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasAreaSqKm -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasAreaSqKm -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasAreaSqKm">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasAreaSqKm">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Country"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Province"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -253,14 +253,14 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasContactWebSite -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasContactWebSite -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasContactWebSite">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasContactWebSite">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -269,50 +269,50 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasEndDate -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasEndDate -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasEndDate">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasEndDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Events"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasEntryFee -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasEntryFee -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasEntryFee">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasEntryFee">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasGlutenFreeFood -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasGlutenFreeFood -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasGlutenFreeFood">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasGlutenFreeFood">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasLactoseFreeFood -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasLactoseFreeFood -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasLactoseFreeFood">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasLactoseFreeFood">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMaxCapacity -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasMaxCapacity -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMaxCapacity">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasMaxCapacity">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -321,14 +321,14 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMinimumAge -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasMinimumAge -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMinimumAge">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasMinimumAge">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Activities"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Events"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -337,22 +337,22 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasName -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasName -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasName">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasOperatingHours -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasOperatingHours -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasOperatingHours">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasOperatingHours">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -361,25 +361,25 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasPrice -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasPrice -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasPrice">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasPrice">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasRating -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasRating -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasRating">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasRating">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -388,87 +388,87 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasStartDate -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasStartDate -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasStartDate">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasStartDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Events"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTicket -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasTicket -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTicket">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasTicket">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasVegetarianFood -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#hasVegetarianFood -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasVegetarianFood">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#hasVegetarianFood">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isGlutenFree -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#isGlutenFree -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isGlutenFree">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#isGlutenFree">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isHalal -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#isHalal -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isHalal">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#isHalal">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isLactoseFree -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#isLactoseFree -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isLactoseFree">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#isLactoseFree">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isVegan -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#isVegan -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isVegan">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#isVegan">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isVegetarian -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#isVegetarian -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isVegetarian">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#isVegetarian">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isWheelchairAccessible -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#isWheelchairAccessible -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#isWheelchairAccessible">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#isWheelchairAccessible">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Transportation"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -477,10 +477,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#numberOfVisitors -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#numberOfVisitors -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#numberOfVisitors">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#numberOfVisitors">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </owl:DatatypeProperty>
     
@@ -500,8 +500,8 @@
     <!-- http://dbpedia.org/ontology/Hotel -->
 
     <owl:Class rdf:about="http://dbpedia.org/ontology/Hotel">
-        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Hotel"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
     </owl:Class>
     
 
@@ -509,8 +509,8 @@
     <!-- http://dbpedia.org/ontology/Island -->
 
     <owl:Class rdf:about="http://dbpedia.org/ontology/Island">
-        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Location"/>
     </owl:Class>
     
 
@@ -518,8 +518,8 @@
     <!-- http://dbpedia.org/ontology/Museum -->
 
     <owl:Class rdf:about="http://dbpedia.org/ontology/Museum">
-        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Museum"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction"/>
     </owl:Class>
     
 
@@ -527,8 +527,8 @@
     <!-- http://dbpedia.org/ontology/bus -->
 
     <owl:Class rdf:about="http://dbpedia.org/ontology/bus">
-        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bus"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#LandTransport"/>
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Bus"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#LandTransport"/>
     </owl:Class>
     
 
@@ -536,15 +536,15 @@
     <!-- http://www.owl-ontologies.com/travel.owl#NationalPark -->
 
     <owl:Class rdf:about="http://www.owl-ontologies.com/travel.owl#NationalPark">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Park"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation">
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
         <rdfs:comment xml:lang="es">Diferentes lugares en los que quedarse durante las vacaciones en Indonesia</rdfs:comment>
         <rdfs:comment xml:lang="en">Different places to stay during holidays in Indonesia</rdfs:comment>
         <rdfs:label xml:lang="en">Accommodation</rdfs:label>
@@ -553,14 +553,14 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Activities -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Activities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CityLifeAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Events"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions"/>
         <rdfs:comment xml:lang="es">Actividades que los turistas pueden realizar durante su viaje (deportes, turismo, tours culturales).</rdfs:comment>
         <rdfs:comment xml:lang="en">Things tourists can do during their trip (sports, sightseeing, cultural tours).</rdfs:comment>
         <rdfs:label xml:lang="es">Actividades</rdfs:label>
@@ -570,12 +570,12 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#AirTransport -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#AirTransport -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#AirTransport">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#LandTransport"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#AirTransport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Transportation"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#LandTransport"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterTransport"/>
         <rdfs:comment xml:lang="en">Transport by aircraft (airports, airlines).</rdfs:comment>
         <rdfs:comment xml:lang="es">Transporte mediante aeronaves (aeropuertos, aerolíneas).</rdfs:comment>
         <rdfs:label xml:lang="en">AirTransport</rdfs:label>
@@ -584,9 +584,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Allergens -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Allergens">
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Allergens">
         <rdfs:comment xml:lang="en">A grouping class for known food allergens.</rdfs:comment>
         <rdfs:comment xml:lang="es">Clase agrupadora de alérgenos alimentarios conocidos.</rdfs:comment>
         <rdfs:label xml:lang="en">Allergens</rdfs:label>
@@ -595,10 +595,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bar -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Bar -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bar">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Bar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CityLifeAttraction"/>
         <rdfs:comment xml:lang="en">A venue primarily serving alcoholic drinks.</rdfs:comment>
         <rdfs:comment xml:lang="es">Local que sirve principalmente bebidas alcohólicas.</rdfs:comment>
         <rdfs:label xml:lang="en">Bar</rdfs:label>
@@ -607,10 +607,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Beach -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beach">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Beach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions"/>
         <rdfs:comment xml:lang="en">A coastal area along the sea or ocean suitable for tourism.</rdfs:comment>
         <rdfs:comment xml:lang="es">Zona costera junto al mar u océano adecuada para el turismo.</rdfs:comment>
         <rdfs:label xml:lang="en">Beach</rdfs:label>
@@ -619,10 +619,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beverage -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Beverage -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Beverage">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Beverage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:comment xml:lang="en">A drink, alcoholic or non-alcoholic.</rdfs:comment>
         <rdfs:comment xml:lang="es">Bebida, alcohólica o no alcohólica.</rdfs:comment>
         <rdfs:label xml:lang="es">Bebida</rdfs:label>
@@ -631,10 +631,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bus -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Bus -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bus">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#LandTransport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Bus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#LandTransport"/>
         <rdfs:comment xml:lang="en">A road vehicle for passenger transport over fixed routes.</rdfs:comment>
         <rdfs:comment xml:lang="es">Vehículo terrestre para transporte de pasajeros en rutas fijas.</rdfs:comment>
         <rdfs:label xml:lang="en">Bus</rdfs:label>
@@ -643,10 +643,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Camping -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Camping -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Camping">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Camping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#MountainSport"/>
         <rdfs:comment xml:lang="es">Estancia nocturna al aire libre en tiendas o refugios.</rdfs:comment>
         <rdfs:comment xml:lang="en">Outdoor overnight stay in tents or shelters.</rdfs:comment>
         <rdfs:label xml:lang="en">Camping</rdfs:label>
@@ -655,13 +655,13 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#City -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Location"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Country"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Province"/>
         <rdfs:comment xml:lang="en">An urban settlement; municipality or regency.</rdfs:comment>
         <rdfs:comment xml:lang="es">Asentamiento urbano; municipio o regencia.</rdfs:comment>
         <rdfs:label xml:lang="en">City</rdfs:label>
@@ -670,12 +670,12 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#CityLifeAttraction -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#CityLifeAttraction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions"/>
         <rdfs:comment xml:lang="es">Lugares de entretenimiento urbano como bares, discotecas, pubs y espectáculos.</rdfs:comment>
         <rdfs:comment xml:lang="en">Urban entertainment venues such as bars, clubs, pubs, and shows.</rdfs:comment>
         <rdfs:label xml:lang="en">City Life Attraction</rdfs:label>
@@ -684,10 +684,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Climbing -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Climbing -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Climbing">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Climbing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#MountainSport"/>
         <rdfs:comment xml:lang="es">Escalar rocas, montañas o paredes por deporte.</rdfs:comment>
         <rdfs:comment xml:lang="en">Scaling rocks, mountains or walls for sport.</rdfs:comment>
         <rdfs:label xml:lang="en">Climbing</rdfs:label>
@@ -696,10 +696,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Club -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Club -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Club">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Club">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CityLifeAttraction"/>
         <rdfs:comment xml:lang="en">A nightclub featuring music and dancing.</rdfs:comment>
         <rdfs:comment xml:lang="es">Discoteca con música y baile.</rdfs:comment>
         <rdfs:label xml:lang="en">Club</rdfs:label>
@@ -708,10 +708,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Condiment -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Condiment -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Condiment">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Condiment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:comment xml:lang="en">A sauce or seasoning used to flavour food.</rdfs:comment>
         <rdfs:comment xml:lang="es">Salsa o condimento usado para sazonar la comida.</rdfs:comment>
         <rdfs:label xml:lang="en">Condiment</rdfs:label>
@@ -720,10 +720,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Country -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Country">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Location"/>
         <rdfs:comment xml:lang="en">A sovereign nation.</rdfs:comment>
         <rdfs:comment xml:lang="es">Nación soberana.</rdfs:comment>
         <rdfs:label xml:lang="en">Country</rdfs:label>
@@ -732,11 +732,11 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions"/>
         <rdfs:comment xml:lang="en">Sites of cultural or historical significance such as museums, temples, ceremonies.</rdfs:comment>
         <rdfs:comment xml:lang="es">Sitios de relevancia cultural o histórica como museos, templos o ceremonias.</rdfs:comment>
         <rdfs:label xml:lang="es">Atracción Cultural</rdfs:label>
@@ -745,10 +745,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Dessert -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Dessert -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Dessert">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Dessert">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:comment xml:lang="en">A sweet course eaten at the end of a meal.</rdfs:comment>
         <rdfs:comment xml:lang="es">Plato dulce que se toma al final de una comida.</rdfs:comment>
         <rdfs:label xml:lang="en">Dessert</rdfs:label>
@@ -757,10 +757,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Diving -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Diving -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Diving">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Diving">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterSport"/>
         <rdfs:comment xml:lang="es">Deporte de natación submarina, con o sin equipo de buceo.</rdfs:comment>
         <rdfs:comment xml:lang="en">Underwater swimming sport, with or without scuba gear.</rdfs:comment>
         <rdfs:label xml:lang="es">Buceo</rdfs:label>
@@ -769,9 +769,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Establishments -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments">
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments">
         <rdfs:comment xml:lang="en">Commercial or public venues where services are offered (markets, restaurants, vendors).</rdfs:comment>
         <rdfs:comment xml:lang="es">Lugares comerciales o públicos donde se ofrecen servicios (mercados, restaurantes, vendedores).</rdfs:comment>
         <rdfs:label xml:lang="es">Establecimiento</rdfs:label>
@@ -780,10 +780,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Events -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Events">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
         <rdfs:comment xml:lang="es">Acontecimientos programados como festivales, ceremonias o espectáculos.</rdfs:comment>
         <rdfs:comment xml:lang="en">Scheduled occurrences such as festivals, ceremonies or shows.</rdfs:comment>
         <rdfs:label xml:lang="es">Eventos</rdfs:label>
@@ -793,15 +793,15 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ferry -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Ferry -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ferry">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Ferry">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterTransport"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#connectsTo"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#connectsTo"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A boat carrying passengers and vehicles across water.</rdfs:comment>
@@ -812,18 +812,18 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Festival -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Festival -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Festival">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Festival">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Events"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#locatedIn"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#locatedIn"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Province"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -838,10 +838,10 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Guesthouse -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Guesthouse -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Guesthouse">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Guesthouse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
         <rdfs:comment xml:lang="en">A small lodging facility, often family-run.</rdfs:comment>
         <rdfs:comment xml:lang="es">Establecimiento pequeño de alojamiento, frecuentemente familiar.</rdfs:comment>
         <rdfs:label xml:lang="es">Casa de huéspedes</rdfs:label>
@@ -850,10 +850,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hiking -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Hiking -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hiking">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Hiking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#MountainSport"/>
         <rdfs:comment xml:lang="es">Caminar por senderos, generalmente en la naturaleza.</rdfs:comment>
         <rdfs:comment xml:lang="en">Walking on trails, usually in nature.</rdfs:comment>
         <rdfs:label xml:lang="en">Hiking</rdfs:label>
@@ -863,10 +863,10 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hostel -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Hostel -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hostel">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Hostel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
         <rdfs:comment xml:lang="es">Alojamiento compartido económico popular entre mochileros.</rdfs:comment>
         <rdfs:comment xml:lang="en">Budget shared lodging popular with backpackers.</rdfs:comment>
         <rdfs:label xml:lang="es">Hostal</rdfs:label>
@@ -875,10 +875,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Hotel -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hotel">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Hotel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
         <rdfs:comment xml:lang="en">A commercial lodging establishment offering rooms and services.</rdfs:comment>
         <rdfs:comment xml:lang="es">Establecimiento comercial de alojamiento que ofrece habitaciones y servicios.</rdfs:comment>
         <rdfs:label xml:lang="en">Hotel</rdfs:label>
@@ -887,10 +887,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Household -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Household -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Household">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Household">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
         <rdfs:comment xml:lang="en">A family or co-resident unit travelling together.</rdfs:comment>
         <rdfs:comment xml:lang="es">Unidad familiar o de convivientes que viaja junta.</rdfs:comment>
         <rdfs:label xml:lang="es">Hogar</rdfs:label>
@@ -899,9 +899,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ingredient -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Ingredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ingredient">
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Ingredient">
         <rdfs:comment xml:lang="en">A component used in preparing a dish.</rdfs:comment>
         <rdfs:comment xml:lang="es">Componente utilizado para preparar un plato.</rdfs:comment>
         <rdfs:label xml:lang="en">Ingredient</rdfs:label>
@@ -910,10 +910,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Island -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Island">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Location"/>
         <rdfs:comment xml:lang="en">A landmass surrounded by water.</rdfs:comment>
         <rdfs:comment xml:lang="es">Masa de tierra rodeada de agua.</rdfs:comment>
         <rdfs:label xml:lang="es">Isla</rdfs:label>
@@ -922,10 +922,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kayaking -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Kayaking -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kayaking">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Kayaking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterSport"/>
         <rdfs:comment xml:lang="en">Paddling a small narrow boat through water.</rdfs:comment>
         <rdfs:comment xml:lang="es">Remar en una pequeña embarcación estrecha por el agua.</rdfs:comment>
         <rdfs:label xml:lang="es">Kayak</rdfs:label>
@@ -934,11 +934,11 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#LandTransport -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#LandTransport -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#LandTransport">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#LandTransport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Transportation"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterTransport"/>
         <rdfs:comment xml:lang="en">Transport by road (buses, terminals, taxis).</rdfs:comment>
         <rdfs:comment xml:lang="es">Transporte por carretera (autobuses, terminales, taxis).</rdfs:comment>
         <rdfs:label xml:lang="en">LandTransport</rdfs:label>
@@ -948,9 +948,9 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Location -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location">
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Location">
         <rdfs:comment xml:lang="en">A geographic entity (country, province, island, or city).</rdfs:comment>
         <rdfs:comment xml:lang="es">Entidad geográfica (país, provincia, isla o ciudad).</rdfs:comment>
         <rdfs:label xml:lang="es">Localización</rdfs:label>
@@ -959,10 +959,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MainDish -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#MainDish -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MainDish">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#MainDish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:comment xml:lang="es">Plato principal de una comida.</rdfs:comment>
         <rdfs:comment xml:lang="en">The principal course of a meal.</rdfs:comment>
         <rdfs:label xml:lang="en">Main Dish</rdfs:label>
@@ -972,10 +972,10 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#MountainSport -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#MountainSport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Activities"/>
         <rdfs:comment xml:lang="es">Actividades recreativas en terreno montañoso (senderismo, escalada).</rdfs:comment>
         <rdfs:comment xml:lang="en">Recreational activities in mountainous terrain (hiking, climbing).</rdfs:comment>
         <rdfs:label xml:lang="es">Deporte de montaña</rdfs:label>
@@ -984,13 +984,13 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Museum -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Museum">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Temple"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalDance"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Museum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Temple"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalDance"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalHouse"/>
         <rdfs:comment xml:lang="en">A building exhibiting cultural, historical or artistic collections.</rdfs:comment>
         <rdfs:comment xml:lang="es">Edificio que exhibe colecciones culturales, históricas o artísticas.</rdfs:comment>
         <rdfs:label xml:lang="es">Museo</rdfs:label>
@@ -999,10 +999,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
         <rdfs:comment xml:lang="en">Natural sites including beaches, volcanoes, parks, and other outdoor landmarks.</rdfs:comment>
         <rdfs:comment xml:lang="es">Sitios naturales que incluyen playas, volcanes, parques y otros lugares al aire libre.</rdfs:comment>
         <rdfs:label xml:lang="es">Atracciones Naturales</rdfs:label>
@@ -1012,10 +1012,10 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Park -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Park">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions"/>
         <rdfs:comment xml:lang="en">A protected natural area such as a national or botanic park.</rdfs:comment>
         <rdfs:comment xml:lang="es">Área natural protegida como un parque nacional o botánico.</rdfs:comment>
         <rdfs:label xml:lang="en">Park</rdfs:label>
@@ -1025,10 +1025,10 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Plane -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Plane -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Plane">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#AirTransport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Plane">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#AirTransport"/>
         <rdfs:comment xml:lang="es">Aeronave utilizada para viajes comerciales o chárter.</rdfs:comment>
         <rdfs:comment xml:lang="en">An aircraft used for commercial or chartered travel.</rdfs:comment>
         <rdfs:label xml:lang="es">Avión</rdfs:label>
@@ -1037,10 +1037,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Port -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Port -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Port">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Port">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterTransport"/>
         <rdfs:comment xml:lang="en">A coastal facility for ships and ferries.</rdfs:comment>
         <rdfs:comment xml:lang="es">Instalación costera para barcos y ferries.</rdfs:comment>
         <rdfs:label xml:lang="en">Port</rdfs:label>
@@ -1049,10 +1049,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Province -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Province">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Location"/>
         <rdfs:comment xml:lang="en">A first-level administrative subdivision of a country.</rdfs:comment>
         <rdfs:comment xml:lang="es">Subdivisión administrativa de primer nivel de un país.</rdfs:comment>
         <rdfs:label xml:lang="en">Province</rdfs:label>
@@ -1061,10 +1061,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Pub -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Pub -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Pub">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CityLifeAttraction"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Pub">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CityLifeAttraction"/>
         <rdfs:comment xml:lang="en">A casual drinking establishment, often serving food.</rdfs:comment>
         <rdfs:comment xml:lang="es">Establecimiento informal de bebidas, frecuentemente con comida.</rdfs:comment>
         <rdfs:label xml:lang="en">Pub</rdfs:label>
@@ -1073,10 +1073,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#ReligiousCeremony -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#ReligiousCeremony">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#ReligiousCeremony">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Events"/>
         <rdfs:comment xml:lang="en">A ritual performance with religious meaning.</rdfs:comment>
         <rdfs:comment xml:lang="es">Acto ritual con significado religioso.</rdfs:comment>
         <rdfs:label xml:lang="es">Ceremonia Religiosa</rdfs:label>
@@ -1085,10 +1085,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Resort -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Resort -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Resort">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Resort">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
         <rdfs:comment xml:lang="en">A vacation-oriented lodging with extensive amenities.</rdfs:comment>
         <rdfs:comment xml:lang="es">Alojamiento orientado a vacaciones con amplios servicios.</rdfs:comment>
         <rdfs:label xml:lang="en">Resort</rdfs:label>
@@ -1097,10 +1097,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Restaurant -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Restaurant -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Restaurant">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Restaurant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
         <rdfs:comment xml:lang="en">A venue serving prepared food and drinks to customers.</rdfs:comment>
         <rdfs:comment xml:lang="es">Lugar que sirve alimentos y bebidas preparados a los clientes.</rdfs:comment>
         <rdfs:label xml:lang="en">Restaurant</rdfs:label>
@@ -1109,10 +1109,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sailing -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Sailing -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sailing">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Sailing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterSport"/>
         <rdfs:comment xml:lang="en">Travelling on water using wind-powered boats.</rdfs:comment>
         <rdfs:comment xml:lang="es">Viajar sobre el agua en embarcaciones propulsadas por el viento.</rdfs:comment>
         <rdfs:label xml:lang="en">Sailing</rdfs:label>
@@ -1121,10 +1121,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Show -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Show -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Show">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Events"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Show">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Events"/>
         <rdfs:comment xml:lang="en">A staged performance such as a play, concert, or cultural exhibition.</rdfs:comment>
         <rdfs:comment xml:lang="es">Representación en escena como una obra, concierto o exhibición cultural.</rdfs:comment>
         <rdfs:label xml:lang="es">Espectáculo</rdfs:label>
@@ -1133,10 +1133,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#SideDish -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#SideDish -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#SideDish">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#SideDish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:comment xml:lang="en">A complementary dish accompanying a main course.</rdfs:comment>
         <rdfs:comment xml:lang="es">Plato complementario que acompaña al principal.</rdfs:comment>
         <rdfs:label xml:lang="es">Guarnición</rdfs:label>
@@ -1145,10 +1145,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Snorkeling -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Snorkeling -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Snorkeling">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Snorkeling">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterSport"/>
         <rdfs:comment xml:lang="es">Nadar cerca de la superficie respirando con un tubo snorkel.</rdfs:comment>
         <rdfs:comment xml:lang="en">Swimming near the surface while breathing through a snorkel tube.</rdfs:comment>
         <rdfs:label xml:lang="es">Esnórquel</rdfs:label>
@@ -1157,10 +1157,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Soup -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Soup -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Soup">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Soup">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood"/>
         <rdfs:comment xml:lang="en">A liquid dish, often served warm as a starter or main.</rdfs:comment>
         <rdfs:comment xml:lang="es">Plato líquido, frecuentemente servido caliente como entrante o principal.</rdfs:comment>
         <rdfs:label xml:lang="es">Sopa</rdfs:label>
@@ -1169,10 +1169,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#StreetVendor -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#StreetVendor -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#StreetVendor">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#StreetVendor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
         <rdfs:comment xml:lang="en">A small informal vendor or warung selling food in the street.</rdfs:comment>
         <rdfs:comment xml:lang="es">Pequeño vendedor informal o warung que vende comida en la calle.</rdfs:comment>
         <rdfs:label xml:lang="en">Street Vendor</rdfs:label>
@@ -1181,10 +1181,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Surfing -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Surfing -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Surfing">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Surfing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#WaterSport"/>
         <rdfs:comment xml:lang="es">Deslizarse sobre las olas del mar en una tabla.</rdfs:comment>
         <rdfs:comment xml:lang="en">Riding ocean waves on a board.</rdfs:comment>
         <rdfs:label xml:lang="es">Surf</rdfs:label>
@@ -1193,12 +1193,12 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Temple -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Temple -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Temple">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalDance"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Temple">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalDance"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalHouse"/>
         <rdfs:comment xml:lang="en">A religious building used for worship or ritual.</rdfs:comment>
         <rdfs:comment xml:lang="es">Edificio religioso usado para el culto o el ritual.</rdfs:comment>
         <rdfs:label xml:lang="en">Temple</rdfs:label>
@@ -1207,9 +1207,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Theme -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme">
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Theme">
         <rdfs:comment xml:lang="en">A travel theme that characterises the style of a trip (adventure, culture, wellness, etc.).</rdfs:comment>
         <rdfs:comment xml:lang="es">Tema de viaje que caracteriza el estilo de un viaje (aventura, cultura, bienestar, etc.).</rdfs:comment>
         <rdfs:label xml:lang="es">Tema</rdfs:label>
@@ -1218,59 +1218,59 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Adventure -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Adventure -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Adventure">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Adventure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Theme"/>
         <rdfs:comment xml:lang="en">Outdoor and physical activities such as hiking, surfing, and diving.</rdfs:comment>
         <rdfs:label xml:lang="en">Adventure</rdfs:label>
     </owl:Class>
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Art -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Art -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Art">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Art">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Theme"/>
         <rdfs:comment xml:lang="en">Visual arts, performances, crafts, and creative expressions.</rdfs:comment>
         <rdfs:label xml:lang="en">Art</rdfs:label>
     </owl:Class>
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nature -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Nature -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Nature">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Nature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Theme"/>
         <rdfs:comment xml:lang="en">Natural landscapes, wildlife, and eco-tourism experiences.</rdfs:comment>
         <rdfs:label xml:lang="en">Nature</rdfs:label>
     </owl:Class>
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Religion -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Religion -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Religion">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Religion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Theme"/>
         <rdfs:comment xml:lang="en">Spiritual and religious sites, ceremonies, and cultural practices.</rdfs:comment>
         <rdfs:label xml:lang="en">Religion</rdfs:label>
     </owl:Class>
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Wellness -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Wellness -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Wellness">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Theme"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Wellness">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Theme"/>
         <rdfs:comment xml:lang="en">Spa, yoga, meditation, and health-focused experiences.</rdfs:comment>
         <rdfs:label xml:lang="en">Wellness</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction">
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction">
         <rdfs:comment xml:lang="es">Lugares, sitios o eventos de interés visitados por turistas.</rdfs:comment>
         <rdfs:comment xml:lang="en">Places, sites or events of interest visited by tourists.</rdfs:comment>
         <rdfs:label xml:lang="es">Atracción Turística</rdfs:label>
@@ -1280,11 +1280,11 @@
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalDance -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalDance -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalDance">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalDance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalHouse"/>
         <rdfs:comment xml:lang="en">A regional dance form expressing local culture.</rdfs:comment>
         <rdfs:comment xml:lang="es">Forma de baile regional que expresa la cultura local.</rdfs:comment>
         <rdfs:label xml:lang="es">Baile Tradicional</rdfs:label>
@@ -1293,10 +1293,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalHouse -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalHouse">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#CulturalAttraction"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalHouse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#CulturalAttraction"/>
         <rdfs:comment xml:lang="es">Arquitectura vernácula que representa las tradiciones constructivas locales.</rdfs:comment>
         <rdfs:comment xml:lang="en">Vernacular architecture representing local building traditions.</rdfs:comment>
         <rdfs:label xml:lang="es">Casa Tradicional</rdfs:label>
@@ -1305,10 +1305,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalMarket -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalMarket -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalMarket">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Establishments"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TraditionalMarket">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Establishments"/>
         <rdfs:comment xml:lang="en">A local open-air market selling food, crafts, or goods.</rdfs:comment>
         <rdfs:comment xml:lang="es">Mercado local al aire libre que vende alimentos, artesanías o productos.</rdfs:comment>
         <rdfs:label xml:lang="es">Mercado Tradicional</rdfs:label>
@@ -1317,9 +1317,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Transportation -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation">
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Transportation">
         <rdfs:comment xml:lang="en">Means by which people travel to and within destinations.</rdfs:comment>
         <rdfs:comment xml:lang="es">Medios por los que las personas viajan a y dentro de los destinos.</rdfs:comment>
         <rdfs:label xml:lang="en">Transportation</rdfs:label>
@@ -1328,9 +1328,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TypicalFood">
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#TypicalFood">
         <rdfs:comment xml:lang="es">Platos tradicionales regionales típicos de un lugar.</rdfs:comment>
         <rdfs:comment xml:lang="en">Regional traditional dishes typical of a place.</rdfs:comment>
         <rdfs:label xml:lang="es">Comida Típica</rdfs:label>
@@ -1339,10 +1339,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Villa -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Villa -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Villa">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Accommodation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Villa">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Accommodation"/>
         <rdfs:comment xml:lang="en">A private rental property, often a standalone house.</rdfs:comment>
         <rdfs:comment xml:lang="es">Propiedad privada de alquiler, frecuentemente una casa independiente.</rdfs:comment>
         <rdfs:label xml:lang="en">Villa</rdfs:label>
@@ -1351,10 +1351,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Volcano -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Volcano -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Volcano">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#NaturalAttractions"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Volcano">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#NaturalAttractions"/>
         <rdfs:comment xml:lang="en">A natural volcanic mountain, often a hiking or sightseeing destination.</rdfs:comment>
         <rdfs:comment xml:lang="es">Montaña volcánica natural, frecuentemente destino de senderismo o turismo.</rdfs:comment>
         <rdfs:label xml:lang="en">Volcano</rdfs:label>
@@ -1363,10 +1363,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#WaterSport -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterSport">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#WaterSport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Activities"/>
         <rdfs:comment xml:lang="es">Actividades recreativas acuáticas (surf, snorkel, etc.).</rdfs:comment>
         <rdfs:comment xml:lang="en">Aquatic recreational activities (surfing, snorkeling, etc.).</rdfs:comment>
         <rdfs:label xml:lang="es">Deporte de agua</rdfs:label>
@@ -1375,10 +1375,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#WaterTransport -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#WaterTransport">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Transportation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#WaterTransport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Transportation"/>
         <rdfs:comment xml:lang="en">Transport by water (ferries, ports, boats).</rdfs:comment>
         <rdfs:comment xml:lang="es">Transporte por agua (ferries, puertos, barcos).</rdfs:comment>
         <rdfs:label xml:lang="es">Transporte Marítimo</rdfs:label>
@@ -1400,252 +1400,252 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Bali -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Bali">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Bali">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Besar_Island__Flores -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Besar_Island__Flores -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Besar_Island__Flores">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Besar_Island__Flores">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Central_Lombok_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Central_Lombok_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Central_Lombok_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Central_Lombok_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Central_Sumba_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Central_Sumba_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Central_Sumba_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Central_Sumba_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Flores_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#East_Flores_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Flores_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#East_Flores_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Lombok_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#East_Lombok_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Lombok_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#East_Lombok_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#East_Nusa_Tenggara -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Nusa_Tenggara">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#East_Nusa_Tenggara">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Sumba_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#East_Sumba_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#East_Sumba_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#East_Sumba_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Flores -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Flores">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Flores">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kintamani__Bali -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Kintamani__Bali -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kintamani__Bali">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Kintamani__Bali">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kuta__Bali -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Kuta__Bali -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Kuta__Bali">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Kuta__Bali">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Labuhan_Lombok -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Labuhan_Lombok -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Labuhan_Lombok">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Labuhan_Lombok">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Lombok -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Lombok">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Lombok">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Narmada__West_Lombok__Narmada__1 -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Narmada__West_Lombok__Narmada__1 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Narmada__West_Lombok__Narmada__1">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Narmada__West_Lombok__Narmada__1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#North_Lombok_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#North_Lombok_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#North_Lombok_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#North_Lombok_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Praya__Lombok -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Praya__Lombok -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Praya__Lombok">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Praya__Lombok">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Raifatus__East_Nusa_Tenggara -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Raifatus__East_Nusa_Tenggara -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Raifatus__East_Nusa_Tenggara">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Raifatus__East_Nusa_Tenggara">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sanur__Bali -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Sanur__Bali -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sanur__Bali">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Sanur__Bali">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Southwest_Sumba_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Southwest_Sumba_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Southwest_Sumba_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Southwest_Sumba_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Sumba -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumba">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Sumba">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Sumbawa -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Island"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Sumbawa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Island"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Sumbawa_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Sumbawa_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Sumbawa_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tanjung__Lombok -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Tanjung__Lombok -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tanjung__Lombok">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Tanjung__Lombok">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Wainyapu__Sumba -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Wainyapu__Sumba -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Wainyapu__Sumba">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Wainyapu__Sumba">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Lombok_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#West_Lombok_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Lombok_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#West_Lombok_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#West_Nusa_Tenggara -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Nusa_Tenggara">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#West_Nusa_Tenggara">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Sumba_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#West_Sumba_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Sumba_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#West_Sumba_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Sumbawa_Regency -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#West_Sumbawa_Regency -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#West_Sumbawa_Regency">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#West_Sumbawa_Regency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Woha__Sumbawa -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#Woha__Sumbawa -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Woha__Sumbawa">
-        <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#Woha__Sumbawa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
     </owl:NamedIndividual>
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#connectsTo -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#connectsTo -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#connectsTo">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ferry"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#connectsTo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#Ferry"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#City"/>
         <rdfs:comment xml:lang="en">Links a ferry service to the cities it connects (origin and destination).</rdfs:comment>
         <rdfs:label xml:lang="en">connectsTo</rdfs:label>
     </owl:ObjectProperty>
 
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#suitableFor -->
+    <!-- http://www.semanticweb.org/indonesian_tourism_ontology#suitableFor -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#suitableFor">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/indonesian_tourism_ontology#suitableFor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/indonesian_tourism_ontology#TouristAttraction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Describes the type of visitor this attraction is suitable for (e.g., families, solo travellers, adventurers).</rdfs:comment>
         <rdfs:label xml:lang="en">suitableFor</rdfs:label>

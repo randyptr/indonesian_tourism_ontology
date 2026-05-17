@@ -14,13 +14,13 @@ exposed as an interactive Jupyter notebook.
 
 ```
 .
-├── pipeline.ipynb      # End-to-end notebook: populate → enrich → reason → embed → visualize
+├── pipeline.ipynb      # End-to-end notebook: populate -> enrich -> reason -> embed -> visualize
 │
 ├── main.py             # CLI orchestrator (same steps as notebook)
 ├── config.py           # Constants, IRIs, file paths, domain mappings
 ├── graph_utils.py      # RDF helpers (add_individual, add_relation, NeatFormatter, …)
 ├── curated_data.py     # All manually curated individuals and property values
-├── populate.py         # DBpedia SPARQL queries → individuals (rdf:type + locatedIn)
+├── populate.py         # DBpedia SPARQL queries -> individuals (rdf:type + locatedIn)
 ├── reasoning.py        # HermiT consistency check via owlready2
 ├── graph_embedding.py  # DistMult embeddings + link prediction (PyKEEN)
 ├── visualize.py        # Interactive HTML graph (PyVis)
@@ -64,7 +64,7 @@ Open `pipeline.ipynb` in Jupyter and run cells top to bottom:
 | Cell | What it does |
 |---|---|
 | 1 | Imports + logging setup |
-| 2 | Reset `data.owl` → populate from DBpedia |
+| 2 | Reset `data.owl` -> populate from DBpedia |
 | 3 | Enrich + save + HermiT consistency check |
 | 4 | Train DistMult embeddings (t-SNE plot) |
 | 5 | Manual link prediction queries |
@@ -73,7 +73,7 @@ Open `pipeline.ipynb` in Jupyter and run cells top to bottom:
 ### Command line
 
 ```bash
-# Full pipeline: reset → populate → enrich → save → reason
+# Full pipeline: reset -> populate -> enrich -> save -> reason
 python main.py
 
 # Render ontology as interactive HTML graph
@@ -100,14 +100,14 @@ open ontology_graph.html
 | Ingredient | 52 | Turtle |
 | City | 39 | DBpedia |
 | Island | 28 | DBpedia |
-| Beach | 23 | DBpedia + Manual |
-| ReligiousCeremony | 23 | DBpedia + Manual |
+| Beach | 23 | DBpedia + curated_data |
+| ReligiousCeremony | 23 | DBpedia + curated_data |
 | Restaurant | 20 | Manchester |
 | TraditionalDance | 19 | curated_data |
 | MainDish | 19 | Turtle |
-| Festival | 16 | DBpedia + Manual |
+| Festival | 16 | DBpedia + curated_data |
 | Resort | 15 | Manchester |
-| Temple | 14 | DBpedia + Manual |
+| Temple | 14 | DBpedia + curated_data |
 | TraditionalHouse | 13 | curated_data |
 | StreetVendor | 13 | Manchester |
 | TraditionalMarket | 13 | Manchester |
@@ -115,7 +115,7 @@ open ontology_graph.html
 | Guesthouse | 12 | Manchester |
 | Museum | 11 | DBpedia |
 | Villa | 11 | Manchester |
-| Park | 9 | DBpedia + Manual |
+| Park | 9 | DBpedia + curated_data |
 | Hostel | 9 | Manchester |
 | AirTransport | 8 | curated_data |
 | Hotel | 5 | DBpedia |
@@ -133,31 +133,31 @@ open ontology_graph.html
 
 Queries DBpedia for each class and adds `rdf:type` + `locatedIn` triples.
 
-| Class | Coverage |
+| Class | Count |
 |---|---|
-| Province | 3 (Bali, NTB, NTT) |
-| Island | ~27 |
-| City / Regency | ~39 |
-| Beach | ~8 |
+| Province | 3 |
+| Island | 28 |
+| City | 39 |
+| Beach | 8 |
+| ReligiousCeremony | 11 |
+| Museum | 11 |
+| Festival | 2 |
+| Temple | 2 |
 | Park | 6 |
 | Volcano | 4 |
-| Museum | ~11 |
-| Temple | ~5 |
-| Festival | ~2 (DBpedia) + 6 manual |
-| ReligiousCeremony | ~15 |
-| Hotel | ~5 |
+| Hotel | 5 |
 
 ### Enrich (17 steps)
 
-1. Country backbone — Province → `locatedInCountry` → Indonesia  
+1. Country backbone — Province -> `locatedInCountry` -> Indonesia  
 2. Bali Island — manual fix (DBpedia types Bali as Province, not Island)  
-3. Island → Province links via `isPartOf` / `wikiPageWikiLink`  
-4. Location links — `wikiPageWikiLink` → `locatedIn / locatedInIsland / locatedInCity`  
+3. Island -> Province links via `isPartOf` / `wikiPageWikiLink`  
+4. Location links — `wikiPageWikiLink` -> `locatedIn / locatedInIsland / locatedInCity`  
 5. Activity individuals — Surfing, Diving, Hiking, Cultural_Tour, …  
-6. Activity links — DBpedia categories + `wikiPageWikiLink` → `hasActivity`  
+6. Activity links — DBpedia categories + `wikiPageWikiLink` -> `hasActivity`  
 7. Activity fallbacks — default activities for entities DBpedia didn't cover  
-8. Attraction hubs — capital city → `hasTouristAttraction` → attractions in province  
-9. Accommodation hubs — capital city → `hasAccommodation` → hotels in province  
+8. Attraction hubs — capital city -> `hasTouristAttraction` -> attractions in province  
+9. Accommodation hubs — capital city -> `hasAccommodation` -> hotels in province  
 10. Visitor counts — `numberOfVisitors` from DBpedia (parks)  
 11. Ratings — manually curated `hasRating` (xsd:decimal, scale 1–5)  
 12. Entry fees — manually curated `hasEntryFee` (xsd:boolean)  

@@ -1,9 +1,9 @@
-@prefix ex:   <http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#> .
+@prefix ex:   <http://www.semanticweb.org/indonesian_tourism_ontology#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 
-<http://www.semanticweb.org/emmaa/ontologies/2026/3/alergy-ingredients-dishes>
+<http://www.semanticweb.org/indonesian_tourism_ontology/food>
     a owl:Ontology .
 
 # ---------------------------------------------------------
