@@ -87,21 +87,19 @@ open ontology_graph.html
 
 | Metric | Count |
 |---|---|
-| Classes defined (TBox) | 74 |
-| Object properties defined | 19 |
-| Datatype properties defined | 24 |
-| **Total individuals (ABox)** | **430** |
-| **Total triples** | **2,826** |
-| Object properties used in ABox | 12 |
-| Datatype properties used in ABox | 8 |
+| Classes defined (TBox) | 68 |
+| Object properties defined | 16 |
+| Datatype properties defined | 25 |
+| **Total individuals (ABox)** | **424** |
+| **Total triples** | **1,354** |
 
 ### Individuals by class
 
 | Class | Count | Source |
 |---|---|---|
-| City | 52 | DBpedia |
 | Ingredient | 52 | Turtle |
-| Island | 30 | DBpedia |
+| City | 39 | DBpedia |
+| Island | 28 | DBpedia |
 | Beach | 23 | DBpedia + Manual |
 | ReligiousCeremony | 23 | DBpedia + Manual |
 | Restaurant | 20 | Manchester |
@@ -110,9 +108,9 @@ open ontology_graph.html
 | Festival | 16 | DBpedia + Manual |
 | Resort | 15 | Manchester |
 | Temple | 14 | DBpedia + Manual |
+| TraditionalHouse | 13 | curated_data |
 | StreetVendor | 13 | Manchester |
 | TraditionalMarket | 13 | Manchester |
-| TraditionalHouse | 13 | curated_data |
 | Allergens | 12 | Turtle |
 | Guesthouse | 12 | Manchester |
 | Museum | 11 | DBpedia |
@@ -120,14 +118,14 @@ open ontology_graph.html
 | Park | 9 | DBpedia + Manual |
 | Hostel | 9 | Manchester |
 | AirTransport | 8 | curated_data |
-| SideDish | 5 | Turtle |
-| WaterSport | 5 | curated_data |
 | Hotel | 5 | DBpedia |
+| WaterTransport | 5 | curated_data |
+| SideDish | 5 | Turtle |
 | Volcano | 4 | DBpedia |
-| LandTransport | 3 | curated_data |
 | Province | 3 | DBpedia |
-| Beverage | 1 | Turtle |
+| LandTransport | 3 | curated_data |
 | Country | 1 | enrich |
+| Beverage | 1 | Turtle |
 
 ## Pipeline detail
 
