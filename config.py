@@ -4,14 +4,6 @@ This module holds *no* logic — only declarative data. Every other module
 imports from here so that paths, namespaces, and domain mappings live in
 exactly one place. Changing a file path or namespace here propagates
 everywhere automatically.
-
-Sections
---------
-File Paths          Where schema.owl, data.owl, and travel.owl live on disk.
-Namespaces          The ontology IRI and rdflib Namespace object.
-DBpedia Config      Endpoint URL and polite throttling parameters.
-Domain Mappings     Province short-name registry and activity vocabulary.
-Blank Skeleton      The XML template written to data.owl on every fresh run.
 """
 
 from pathlib import Path
@@ -33,8 +25,8 @@ ONT = Namespace(ONT_IRI)
 
 # All SPARQL queries in populate.py and enrich.py hit this endpoint.
 DBPEDIA_ENDPOINT = "https://dbpedia.org/sparql"
-DBPEDIA_TIMEOUT_S = 30          # seconds before a single query is abandoned
-DBPEDIA_THROTTLE_S = 1.0       # polite delay (seconds) between consecutive queries
+DBPEDIA_TIMEOUT_S = 30         
+DBPEDIA_THROTTLE_S = 1.0      
 
 # Province registry: short name -> OWL individual local name.
 # Used to iterate over the three target provinces and to resolve locatedIn targets.
@@ -47,13 +39,13 @@ PROVINCES = {
 # Activity vocabulary: individuals of class :Activities (plural class name in schema).
 # These are the only valid objects for the hasActivity property.
 ACTIVITIES = [
-    # WaterSport subclasses (schema: Surfing/Snorkeling/Diving/Sailing/Kayaking ⊑ WaterSport)
+    # WaterSport subclasses (schema: Surfing/Snorkeling/Diving/Sailing/Kayaking is WaterSport)
     "Surfing",
     "Snorkeling",
     "Diving",
     "Sailing",
     "Kayaking",
-    # MountainSport subclasses (schema: Hiking ⊑ MountainSport)
+    # MountainSport subclasses (schema: Hiking is MountainSport)
     "Hiking",
     # Direct Activities individuals (no dedicated leaf class in schema)
     "Sightseeing",

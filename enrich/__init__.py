@@ -28,7 +28,7 @@ Enrichment pipeline (in order):
 # Re-export public API so all existing imports work unchanged:
 #   from enrich import enrich_all, CAPITAL_OF_PROVINCE, ALL_ENRICHERS
 
-from enrich.pipeline import enrich_all, ALL_ENRICHERS, _PHASE_LABELS  # noqa: F401
+from enrich.main import enrich_all, ALL_ENRICHERS, _PHASE_LABELS  # noqa: F401
 from enrich.utils import CAPITAL_OF_PROVINCE  # noqa: F401
 
 __all__ = [

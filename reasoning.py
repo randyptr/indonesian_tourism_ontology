@@ -35,7 +35,7 @@ EXTRA_ABOX_TTL_FILES = [
 ]
 
 # schema.owl uses owl:imports for these two IRIs. owlready2 doesn't read
-# Protégé's catalog-v001.xml, so we must pre-load them into the World under
+# Protege's catalog-v001.xml, so we must pre-load them into the World under
 # their declared IRI before loading schema.owl. Then the import resolves
 # from cache and no HTTP fetch is attempted.
 # Derived from ONT_IRI base: strip the fragment identifier and replace the

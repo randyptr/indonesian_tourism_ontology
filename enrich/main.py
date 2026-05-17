@@ -52,7 +52,7 @@ ALL_ENRICHERS = [
 
     # Property enrichment (curated)
     "property",
-    add_manual_parks,               # must run before property steps below
+    add_manual_parks,               
     add_visitor_counts,
     add_curated_ratings,
     add_curated_entry_fees,
