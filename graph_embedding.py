@@ -34,7 +34,7 @@ PLOT_CLASSES = {
     "Resort", "Villa", "Restaurant", "StreetVendor", "TraditionalMarket",
 }
 MODEL_NAME        = "DistMult"
-EMBEDDING_DIM     = 128
+EMBEDDING_DIM     = 64
 NUM_EPOCHS        = 400
 LEARNING_RATE     = 0.01
 RANDOM_SEED       = 42
@@ -233,6 +233,10 @@ def visualize_embeddings(trained_model, triples_factory: TriplesFactory, graph: 
         trained_model.entity_representations[0](indices=None)
         .detach().cpu().numpy()
     )
+    if np.iscomplexobj(all_embeddings):
+        all_embeddings = np.concatenate(
+            [all_embeddings.real, all_embeddings.imag], axis=1
+        )
 
     entity_labels = [
         triples_factory.entity_id_to_label[i]

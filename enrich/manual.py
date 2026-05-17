@@ -1,20 +1,21 @@
-"""Steps 12–18: Manual individual population from curated_data."""
+"""Manual individual population from curated_data."""
 
 import logging
 
 from rdflib import Graph
 
-from graph_utils import add_individual, add_relation, has_type
+from graph_utils import add_individual, add_relation, has_type, local_name
 from curated_data import (
     TRANSPORTATION, FESTIVALS,
     TRADITIONAL_DANCES, TRADITIONAL_HOUSES,
     BEACHES_MANUAL, RELIGIOUS_CEREMONIES, TEMPLES,
+    EXTRA_CITIES, EXTRA_LINKS,
 )
 from enrich.utils import CAPITAL_OF_PROVINCE, _add_cultural_individuals
 
 log = logging.getLogger(__name__)
 
-# Step 12: Manual Transportation individuals
+# Manual Transportation individuals
 def add_manual_transportation(graph: Graph) -> None:
     """Add Transportation individuals from curated_data.TRANSPORTATION.
 
@@ -50,7 +51,7 @@ def add_manual_transportation(graph: Graph) -> None:
 
     log.info("  -> %d individuals added", added_count)
 
-# Step 13: Manual Festival individuals
+# Manual Festival individuals
 def add_manual_festivals(graph: Graph) -> None:
     """Add Festival individuals for NTB and NTT from curated_data.FESTIVALS."""
     log.info("[Festivals]")
@@ -71,7 +72,7 @@ def add_manual_festivals(graph: Graph) -> None:
 
     log.info("  -> %d individuals added", added_count)
 
-# Steps 14–15: Manual TraditionalDance and TraditionalHouse individuals
+# Manual TraditionalDance and TraditionalHouse individuals
 def add_manual_traditional_dances(graph: Graph) -> None:
     """Add TraditionalDance individuals from curated_data.TRADITIONAL_DANCES."""
     log.info("[Traditional Dances]")
@@ -82,7 +83,7 @@ def add_manual_traditional_houses(graph: Graph) -> None:
     log.info("[Traditional Houses]")
     _add_cultural_individuals(graph, TRADITIONAL_HOUSES, "TraditionalHouse", "traditional houses")
 
-# Step 16: Manual Beach individuals
+# Manual Beach individuals
 def add_manual_beaches(graph: Graph) -> None:
     """Add Beach individuals from curated_data.BEACHES_MANUAL.
 
@@ -102,7 +103,7 @@ def add_manual_beaches(graph: Graph) -> None:
         activities=["Surfing", "Snorkeling", "Sailing", "Kayaking"],
     )
 
-# Step 17: Manual ReligiousCeremony individuals
+# Manual ReligiousCeremony individuals
 def add_manual_religious_ceremonies(graph: Graph) -> None:
     """Add ReligiousCeremony individuals from curated_data.RELIGIOUS_CEREMONIES.
 
@@ -120,7 +121,7 @@ def add_manual_religious_ceremonies(graph: Graph) -> None:
         graph, RELIGIOUS_CEREMONIES, "ReligiousCeremony", "religious ceremonies",
     )
 
-# Step 18: Manual Temple individuals
+# Manual Temple individuals
 def add_manual_temples(graph: Graph) -> None:
     """Add Temple individuals from curated_data.TEMPLES.
 
@@ -138,3 +139,37 @@ def add_manual_temples(graph: Graph) -> None:
     _add_cultural_individuals(
         graph, TEMPLES, "Temple", "temples",
     )
+
+
+def add_extra_cities(graph: Graph) -> None:
+    """Add City individuals not returned by DBpedia's populate step.
+
+    Each EXTRA_CITIES entry provides locatedIn / locatedInIsland /
+    locatedInProvince in one place, so the data lives in curated_data.py
+    rather than being hardcoded here.
+    """
+    log.info("[Extra Cities]")
+    count = 0
+    for entry in EXTRA_CITIES:
+        name = entry["name"]
+        if has_type(graph, name, "City"):
+            continue
+        add_individual(graph, "City", name)
+        add_relation(graph, name, "locatedIn",         entry["locatedIn"])
+        add_relation(graph, name, "locatedInIsland",   entry["locatedInIsland"])
+        add_relation(graph, name, "locatedInProvince", entry["locatedInProvince"])
+        count += 1
+    log.info("  -> %d cities added", count)
+
+
+def add_extra_links(graph: Graph) -> None:
+    """Apply curated (subject, predicate, object) triples from EXTRA_LINKS.
+
+    Used for sparse entities where DBpedia provides no useful connections and
+    for known semantic facts (e.g. Komodo NP supports more activities than
+    just diving) that the automated enrichers can't infer.
+    """
+    log.info("[Extra Links]")
+    for s, p, o in EXTRA_LINKS:
+        add_relation(graph, s, p, o)
+    log.info("  -> %d triples added", len(EXTRA_LINKS))

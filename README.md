@@ -87,18 +87,19 @@ open ontology_graph.html
 
 | Metric | Count |
 |---|---|
-| Classes defined (TBox) | 72 |
-| Object properties defined | 16 |
+| Classes defined (TBox) | 73 |
+| Object properties defined | 19 |
 | Datatype properties defined | 25 |
-| **Total individuals (ABox)** | **424** |
-| **Total triples** | **1,354** |
+| **Total individuals (ABox)** | **435** |
+| **Total triples** | **3,024** |
 
 ### Individuals by class
 
 | Class | Count | Source |
 |---|---|---|
 | Ingredient | 52 | Turtle |
-| City | 39 | DBpedia |
+| City | 40 | DBpedia + curated_data |
+| Park | 29 | DBpedia + curated_data |
 | Island | 28 | DBpedia |
 | Beach | 23 | DBpedia + curated_data |
 | ReligiousCeremony | 23 | DBpedia + curated_data |
@@ -115,16 +116,18 @@ open ontology_graph.html
 | Guesthouse | 12 | Manchester |
 | Museum | 11 | DBpedia |
 | Villa | 11 | Manchester |
-| Park | 9 | DBpedia + curated_data |
 | Hostel | 9 | Manchester |
 | AirTransport | 8 | curated_data |
 | Hotel | 5 | DBpedia |
 | WaterTransport | 5 | curated_data |
+| WaterSport | 5 | curated_data |
 | SideDish | 5 | Turtle |
 | Volcano | 4 | DBpedia |
 | Province | 3 | DBpedia |
 | LandTransport | 3 | curated_data |
+| Activities | 2 | curated_data |
 | Country | 1 | enrich |
+| MountainSport | 1 | curated_data |
 | Beverage | 1 | Turtle |
 
 ## Pipeline detail

@@ -149,10 +149,34 @@ TRADITIONAL_HOUSES: list[dict[str, str]] = [
 
 PARKS_MANUAL: list[dict[str, str]] = [
 
-    # Bali
-    {"name": "Bali_Bird_Park",                "locatedIn": "Bali"},
-    {"name": "Sacred_Monkey_Forest_Sanctuary", "locatedIn": "Bali"},
-    {"name": "Bali_Botanic_Garden",           "locatedIn": "Bali"},
+    # Bali (total 10: 4 from DBpedia + 6 here)
+    {"name": "Bali_Bird_Park",                  "locatedIn": "Bali"},
+    {"name": "Sacred_Monkey_Forest_Sanctuary",  "locatedIn": "Bali"},
+    {"name": "Bali_Botanic_Garden",             "locatedIn": "Bali"},
+    {"name": "GWK_Cultural_Park",               "locatedIn": "Bali"},
+    {"name": "Bali_Safari_and_Marine_Park",     "locatedIn": "Bali"},
+    {"name": "Sangeh_Monkey_Forest",            "locatedIn": "Bali"},
+    {"name": "Bali_Reptile_Park",               "locatedIn": "Bali"},
+    {"name": "Tegallalang_Rice_Terrace_Park",   "locatedIn": "Bali"},
+    {"name": "Taman_Ujung_Water_Palace",        "locatedIn": "Bali"},
+
+    # West Nusa Tenggara / NTB (total 10: 2 from DBpedia + 8 here)
+    {"name": "Moyo_Island_Wildlife_Reserve",    "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Gili_Matra_Marine_Park",          "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Suranadi_Nature_Park",            "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Kerandangan_Nature_Reserve",      "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Narmada_Park",                    "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Tambora_National_Park",           "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Gunung_Tunak_Nature_Reserve",     "locatedIn": "West_Nusa_Tenggara"},
+    {"name": "Semongkat_Nature_Reserve",        "locatedIn": "West_Nusa_Tenggara"},
+
+    # East Nusa Tenggara / NTT (total 10: 4 from DBpedia + 6 here)
+    {"name": "Seventeen_Islands_Marine_Park",   "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Ruteng_Nature_Recreation_Park",   "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Matalawa_National_Park",          "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Teluk_Kupang_Marine_Park",        "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Watu_Ata_Nature_Reserve",         "locatedIn": "East_Nusa_Tenggara"},
+    {"name": "Menipo_Nature_Reserve",           "locatedIn": "East_Nusa_Tenggara"},
 ]
 
 # Beach ⊑ TouristAttraction
@@ -439,6 +463,29 @@ RATINGS = {
         "West_Bali_National_Park":           4.3,
         "Manupeu_Tanah_Daru_National_Park":  4.7,
         "Laiwangi_Wanggameti_National_Park": 4.9,
+        # Bali
+        "GWK_Cultural_Park":                 4.5,
+        "Bali_Safari_and_Marine_Park":       4.4,
+        "Sangeh_Monkey_Forest":              4.1,
+        "Bali_Reptile_Park":                 4.0,
+        "Tegallalang_Rice_Terrace_Park":     4.3,
+        "Taman_Ujung_Water_Palace":          4.2,
+        # NTB
+        "Moyo_Island_Wildlife_Reserve":      4.5,
+        "Gili_Matra_Marine_Park":            4.6,
+        "Suranadi_Nature_Park":              3.9,
+        "Kerandangan_Nature_Reserve":        3.8,
+        "Narmada_Park":                      4.0,
+        "Tambora_National_Park":             4.7,
+        "Gunung_Tunak_Nature_Reserve":       4.2,
+        "Semongkat_Nature_Reserve":          3.9,
+        # NTT
+        "Seventeen_Islands_Marine_Park":     4.6,
+        "Ruteng_Nature_Recreation_Park":     4.3,
+        "Matalawa_National_Park":            4.5,
+        "Teluk_Kupang_Marine_Park":          4.1,
+        "Watu_Ata_Nature_Reserve":           4.2,
+        "Menipo_Nature_Reserve":             4.0,
     },
     "Beach": {
         "Pandawa_Beach":       4.1,
@@ -473,6 +520,29 @@ ENTRY_FEE = {
     "Bali_Bird_Park":                 True,
     "Sacred_Monkey_Forest_Sanctuary": True,
     "Bali_Botanic_Garden":            True,
+    # Bali
+    "GWK_Cultural_Park":              True,
+    "Bali_Safari_and_Marine_Park":    True,
+    "Sangeh_Monkey_Forest":           True,
+    "Bali_Reptile_Park":              True,
+    "Tegallalang_Rice_Terrace_Park":  False,
+    "Taman_Ujung_Water_Palace":       True,
+    # NTB
+    "Moyo_Island_Wildlife_Reserve":   True,
+    "Gili_Matra_Marine_Park":         True,
+    "Suranadi_Nature_Park":           True,
+    "Kerandangan_Nature_Reserve":     False,
+    "Narmada_Park":                   True,
+    "Tambora_National_Park":          True,
+    "Gunung_Tunak_Nature_Reserve":    True,
+    "Semongkat_Nature_Reserve":       False,
+    # NTT
+    "Seventeen_Islands_Marine_Park":  True,
+    "Ruteng_Nature_Recreation_Park":  True,
+    "Matalawa_National_Park":         True,
+    "Teluk_Kupang_Marine_Park":       True,
+    "Watu_Ata_Nature_Reserve":        False,
+    "Menipo_Nature_Reserve":          False,
 }
 
 # establishedYear (xsd:integer) for Parks
@@ -485,7 +555,83 @@ PARK_ESTABLISHED_YEAR = {
     "Laiwangi_Wanggameti_National_Park": 1998,
     "Bali_Bird_Park":                    1995,
     "Bali_Botanic_Garden":               1959,
+    "GWK_Cultural_Park":                 1997,
+    "Bali_Safari_and_Marine_Park":       2007,
+    "Sangeh_Monkey_Forest":              1950,
+    "Narmada_Park":                      1727,
+    "Tambora_National_Park":             2015,
+    "Gili_Matra_Marine_Park":            1993,
+    "Matalawa_National_Park":            2004,
+    "Seventeen_Islands_Marine_Park":     1996,
 }
+
+# =============================================================================
+# Manually curated island -> province mapping.
+#
+# Replaces the previous DBpedia-based add_island_province() lookup, which used
+# wikiPageWikiLink as a fallback and produced false positives (e.g. Lombok
+# also matching Bali). Geographic facts for 28 named islands are stable enough
+# to curate once.
+ISLAND_TO_PROVINCE: dict[str, str] = {
+    # Bali
+    "Bali_Island":      "Bali",
+    "Nusa_Penida":      "Bali",
+    "Nusa_Lembongan":   "Bali",
+    "Nusa_Ceningan":    "Bali",
+    "Menjangan_Island": "Bali",
+    "Serangan":         "Bali",
+    # West Nusa Tenggara
+    "Lombok":           "West_Nusa_Tenggara",
+    "Sumbawa":          "West_Nusa_Tenggara",
+    "Gili_Trawangan":   "West_Nusa_Tenggara",
+    "Gili_Meno":        "West_Nusa_Tenggara",
+    "Gili_Air":         "West_Nusa_Tenggara",
+    "Moyo_Island":      "West_Nusa_Tenggara",
+    "Satonda_Island":   "West_Nusa_Tenggara",
+    # East Nusa Tenggara
+    "Flores":           "East_Nusa_Tenggara",
+    "Sumba":            "East_Nusa_Tenggara",
+    "Timor":            "East_Nusa_Tenggara",
+    "Komodo_island":    "East_Nusa_Tenggara",
+    "Rinca":            "East_Nusa_Tenggara",
+    "Padar":            "East_Nusa_Tenggara",
+    "Gili_Motang":      "East_Nusa_Tenggara",
+    "Alor_Island":      "East_Nusa_Tenggara",
+    "Lembata":          "East_Nusa_Tenggara",
+    "Adonara":          "East_Nusa_Tenggara",
+    "Solor":            "East_Nusa_Tenggara",
+    "Rote_Island":      "East_Nusa_Tenggara",
+    "Savu":             "East_Nusa_Tenggara",
+    "Pantar":           "East_Nusa_Tenggara",
+    "Ende_Island":      "East_Nusa_Tenggara",
+}
+
+# Cities not returned by DBpedia's populate step. Each entry creates a City
+# individual plus its locatedIn / locatedInIsland / locatedInProvince triples.
+EXTRA_CITIES: list[dict[str, str]] = [
+    {
+        "name":              "Labuan_Bajo",
+        "locatedIn":         "East_Nusa_Tenggara",
+        "locatedInIsland":   "Flores",
+        "locatedInProvince": "East_Nusa_Tenggara",
+    },
+]
+
+# Additional curated triples applied after the rest of enrichment has run.
+# Each entry is (subject, predicate, object). Used for patching sparse
+# entities and adding semantically known links that DBpedia doesn't expose.
+EXTRA_LINKS: list[tuple[str, str, str]] = [
+    # Pink Beach (in Komodo NP) — anchor it to the NTT cluster
+    ("Pink_Beach",            "locatedInIsland",        "Komodo_island"),
+    ("Pink_Beach",            "locatedInCity",          "Labuan_Bajo"),
+    ("Labuan_Bajo",           "hasTouristAttraction",   "Pink_Beach"),
+    ("Labuan_Bajo",           "hasTouristAttraction",   "Komodo_National_Park"),
+    # Komodo National Park — has more than just diving
+    ("Komodo_National_Park",  "hasActivity",            "Snorkeling"),
+    ("Komodo_National_Park",  "hasActivity",            "Hiking"),
+    ("Komodo_National_Park",  "hasActivity",            "Sightseeing"),
+]
+
 
 # =============================================================================
 # VALIDATION
@@ -554,6 +700,10 @@ __all__ = [
     "RATINGS",
     "ENTRY_FEE",
     "PARK_ESTABLISHED_YEAR",
+    # Extra curated structures
+    "ISLAND_TO_PROVINCE",
+    "EXTRA_CITIES",
+    "EXTRA_LINKS",
     # Validation
     "validate",
 ]

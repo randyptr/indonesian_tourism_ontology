@@ -1,4 +1,4 @@
-"""Steps 10–11: Property enrichment (visitor counts, ratings, entry fees, years)."""
+"""Property enrichment (visitor counts, ratings, entry fees, established years)."""
 
 import logging
 
@@ -39,7 +39,7 @@ def add_manual_parks(graph: Graph) -> None:
         activities=["Sightseeing", "Hiking"],
     )
 
-# Step 10: numberOfVisitors data property
+# numberOfVisitors data property
 def add_visitor_counts(graph: Graph) -> None:
     """Fetch annual visitor counts from DBpedia and add as data property triples.
 
@@ -90,7 +90,7 @@ def add_visitor_counts(graph: Graph) -> None:
 
     log.info("  -> %d values added", added_count)
 
-# Step 11: Curated hasRating data properties
+# Curated hasRating data properties
 def add_curated_ratings(graph: Graph) -> None:
     """Add manually curated hasRating (xsd:decimal, scale 1–5) triples.
 

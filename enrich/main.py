@@ -29,6 +29,8 @@ from enrich.manual import (
     add_manual_beaches,
     add_manual_religious_ceremonies,
     add_manual_temples,
+    add_extra_cities,
+    add_extra_links,
 )
 
 log = logging.getLogger(__name__)
@@ -60,6 +62,7 @@ ALL_ENRICHERS = [
 
     # Manual individuals (curated_data)
     "manual",
+    add_extra_cities,
     add_manual_transportation,
     add_manual_festivals,
     add_manual_traditional_dances,
@@ -67,9 +70,10 @@ ALL_ENRICHERS = [
     add_manual_beaches,
     add_manual_religious_ceremonies,
     add_manual_temples,
+    add_extra_links,
 ]
 
-_PHASE_LABELS = {
+PHASE_LABELS = {
     "backbone": "Backbone",
     "relation": "Relation Enrichment  (DBpedia)",
     "property": "Property Enrichment  (curated)",
@@ -90,6 +94,6 @@ def enrich_all(graph: Graph) -> None:
     for step in ALL_ENRICHERS:
         if isinstance(step, str):
             log.info("")
-            log.info("[%s]", _PHASE_LABELS.get(step, step))
+            log.info("[%s]", PHASE_LABELS.get(step, step))
         else:
             step(graph)

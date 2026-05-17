@@ -1,4 +1,8 @@
-"""Steps 3–9: Relation enrichment via DBpedia and hub edges."""
+"""Relation enrichment via DBpedia and hub edges.
+
+Step ordering is owned by `enrich.main.ALL_ENRICHERS`; functions here are
+declared in invocation order but do not embed step numbers.
+"""
 
 import logging
 
@@ -6,6 +10,7 @@ from rdflib import Graph, RDF
 
 from config import ONT, ONT_IRI, PROVINCES, ACTIVITIES
 from graph_utils import add_individual, add_relation, has_type, local_name
+from curated_data import ISLAND_TO_PROVINCE
 from populate import get_dbpedia_mappings
 from enrich.utils import (
     _DBP_RESOURCE,
@@ -25,75 +30,23 @@ from enrich.utils import (
 
 log = logging.getLogger(__name__)
 
-# Step 3: Island -> Province links
-def add_island_province(graph: Graph) -> None:
-    """Link each Island to its Province using DBpedia's isPartOf and wikiLinks.
+# Module-level constants used by the location-link enrichers below.
 
-    Queries DBpedia for relationships between our Island individuals and
-    our Province individuals. Uses locatedInProvince (domain = Island).
-
-    Example result:
-        Flores  locatedInProvince  East_Nusa_Tenggara
-        Lombok  locatedInProvince  West_Nusa_Tenggara
-    """
-    log.info("[Island -> Province Links]")
-    dbpedia_to_local, local_to_dbpedia = get_dbpedia_mappings()
-    all_names = _get_all_individual_names(graph)
-
-    # Collect DBpedia URIs for our Island individuals
-    island_dbpedia_uris = []
-    for name in all_names:
-        if has_type(graph, name, "Island") and name in local_to_dbpedia:
-            island_dbpedia_uris.append(local_to_dbpedia[name])
-
-    if not island_dbpedia_uris:
-        return
-
-    # Build DBpedia URIs for our 3 provinces
-    province_dbpedia_uris = [
-        f"{_DBP_RESOURCE}{province_name}"
-        for province_name in PROVINCES.values()
-    ]
-
-    # Reverse lookup: DBpedia province URI -> our local name
-    province_uri_to_local = {
-        f"{_DBP_RESOURCE}{name}": name for name in PROVINCES.values()
-    }
-
-    # Query: which of our islands link to which of our provinces?
-    results = _run_sparql(f"""
-        SELECT ?island ?province WHERE {{
-            VALUES ?island {{ {_make_values_clause(island_dbpedia_uris)} }}
-            VALUES ?province {{ {_make_values_clause(province_dbpedia_uris)} }}
-            {{ ?island <http://dbpedia.org/ontology/isPartOf> ?province }}
-            UNION {{ ?island <http://dbpedia.org/ontology/wikiPageWikiLink> ?province }}
-        }}
-    """)
-
-    # Add locatedInProvince triples for each match
-    link_count = 0
-    for row in results:
-        island_uri = row["island"]["value"]
-        province_uri = row["province"]["value"]
-        island_name = dbpedia_to_local.get(island_uri)
-        province_name = province_uri_to_local.get(province_uri)
-
-        if island_name and province_name:
-            add_relation(graph, island_name, "locatedInProvince", province_name)
-            link_count += 1
-
-    log.info("  -> %d links (DBpedia isPartOf + wikiLink)", link_count)
-
-# Known false positives produced by wikiPageWikiLink (source, target) pairs to skip.
+# Known false positives produced by DBpedia (wikiPageWikiLink, isPartOf, etc.).
+# Used by add_location_links to skip pairs that look geographic but are
+# editorial cross-references on Wikipedia.
 _LOCATION_LINK_BLACKLIST: set[tuple[str, str]] = {
-    ("Kupang",        "Flores"),
-    ("Kupang",        "Rote_Island"),
-    ("Kupang",        "Savu"),
-    ("Mount_Agung",   "Lombok"),
-    ("Dompu_Regency", "Satonda_Island"),
+    ("Kupang",                "Flores"),
+    ("Kupang",                "Rote_Island"),
+    ("Kupang",                "Savu"),
+    ("Mount_Agung",           "Lombok"),
+    ("Dompu_Regency",         "Satonda_Island"),
+    ("Lombok",                "Bali"),
+    ("Komodo_National_Park",  "West_Nusa_Tenggara"),
 }
 
-# Strict DBpedia properties that encode genuine geographic containment.
+# DBpedia properties that encode genuine geographic containment. Used by
+# add_location_links's strict-first pass before falling back to wikiPageWikiLink.
 _STRICT_LOCATION_PROPS = [
     "http://dbpedia.org/ontology/isPartOf",
     "http://dbpedia.org/ontology/location",
@@ -101,7 +54,33 @@ _STRICT_LOCATION_PROPS = [
     "http://dbpedia.org/ontology/region",
 ]
 
-# Step 4: Auto-discover location links via strict properties + wikiPageWikiLink fallback
+
+def add_island_province(graph: Graph) -> None:
+    """Link each Island to its Province via curated_data.ISLAND_TO_PROVINCE.
+
+    Replaces the previous DBpedia-based query, which used wikiPageWikiLink and
+    produced false positives (e.g. Lombok matched Bali via cross-references).
+    The 28-island mapping is small, stable, and easy to curate once.
+
+    Only adds the triple if both the island and the province individual
+    already exist in the graph.
+
+    Example:
+        Flores  locatedInProvince  East_Nusa_Tenggara
+        Lombok  locatedInProvince  West_Nusa_Tenggara
+    """
+    log.info("[Island -> Province Links]")
+    link_count = 0
+    skipped = 0
+    for island_name, province_name in ISLAND_TO_PROVINCE.items():
+        if not has_type(graph, island_name, "Island"):
+            skipped += 1
+            continue
+        add_relation(graph, island_name, "locatedInProvince", province_name)
+        link_count += 1
+    log.info("  -> %d links (%d islands skipped: not in graph)", link_count, skipped)
+
+
 def _build_location_targets(
     graph: Graph,
     local_to_dbpedia: dict[str, str],
@@ -249,7 +228,7 @@ def add_location_links(graph: Graph) -> None:
     log.info("  -> %d links (%d via strict props, %d via wikiPageWikiLink, %d blacklisted)",
              link_count, len(strict_hits), len(wiki_sources), skipped)
 
-# Step 5: Create Activity individuals
+# Create Activity individuals
 def add_activity_individuals(graph: Graph) -> None:
     """Create one Activity individual per entry in config.ACTIVITIES.
 
@@ -268,7 +247,7 @@ def add_activity_individuals(graph: Graph) -> None:
         add_individual(graph, owl_class, activity_name)
     log.info("  -> %d created: %s", len(ACTIVITIES), ", ".join(ACTIVITIES))
 
-# Step 6: Auto-discover hasActivity from DBpedia categories
+# Auto-discover hasActivity from DBpedia categories
 def _infer_activities_from_categories(
     category_results: list[dict],
     entity_uri_to_name: dict[str, str],
@@ -365,7 +344,7 @@ def add_activity_links(graph: Graph) -> None:
 
     log.info("  -> %d links (DBpedia categories + wikiLinks)", len(activity_pairs))
 
-# Step 7: Fallback activities for entities DBpedia didn't cover
+# Fallback activities for entities DBpedia didn't cover
 def add_activity_fallbacks(graph: Graph) -> None:
     """Assign default activities to entities that got none from DBpedia.
 
@@ -394,7 +373,7 @@ def add_activity_fallbacks(graph: Graph) -> None:
 
     log.info("  -> %d links assigned to entities with no DBpedia coverage", link_count)
 
-# Step 8: City -> hasTouristAttraction hub edges
+# City -> hasTouristAttraction hub edges
 def add_attraction_hubs(graph: Graph) -> None:
     """Link each provincial capital to all TouristAttractions in its province.
 
@@ -426,7 +405,7 @@ def add_attraction_hubs(graph: Graph) -> None:
 
     log.info("  -> %d hub edges (City -> hasTouristAttraction)", link_count)
 
-# Step 9: City -> hasAccommodation hub edges
+# City -> hasAccommodation hub edges
 def add_accommodation_hubs(graph: Graph) -> None:
     """Link each provincial capital to all Hotels located in its province.
 

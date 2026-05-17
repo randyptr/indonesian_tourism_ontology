@@ -1,4 +1,4 @@
-"""Step 1–2: Country backbone and Bali_Island fix."""
+"""Step 1-2: Country backbone and Bali_Island fix."""
 
 import logging
 
