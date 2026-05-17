@@ -42,7 +42,7 @@ EXTRA_ABOX_TTL_FILES = [
 # final path segment with the establishments ontology name.
 ESTABLISHMENTS_IRI = ONT_IRI.rstrip("#") + "/establishments"
 
-# Establishment class → which curated list it sources from, and which superclass
+# Establishment class -> which curated list it sources from, and which superclass
 # it subclasses (used to build the same hierarchy as establishments.omn).
 ESTABLISHMENT_GROUPS = [
     ("Restaurant",        "Establishments", RESTAURANTS),

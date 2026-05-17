@@ -5,7 +5,7 @@ SPARQL queries against the DBpedia endpoint and adds:
     - rdf:type triples (class membership)
     - A minimal locatedIn triple linking the individual to its province
 
-Relational enrichment (cross-entity links like island→province, hasActivity)
+Relational enrichment (cross-entity links like island->province, hasActivity)
 is handled separately in enrich.py. This module only creates individuals and
 their province assignment.
 
@@ -166,11 +166,11 @@ def _process_query_results(
         individuals_created += 1
 
     return individuals_created
-
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
+# ===============================================================================
 # SPARQL Query Definitions
 # Each dict maps province short name -> SPARQL query string.
-# ═══════════════════════════════════════════════════════════════════════════════
+# ===============================================================================
 
 _PROVINCE_QUERY = """
 PREFIX dbr: <http://dbpedia.org/resource/>
@@ -548,10 +548,10 @@ _CEREMONY_QUERIES_BY_PROVINCE = {
         } LIMIT 10""",
 }
 
-# ═══════════════════════════════════════════════════════════════════════════════
+# ===============================================================================
 # Public API — One function per ontology class
 # Each function queries DBpedia for its class and adds individuals to the graph.
-# ═══════════════════════════════════════════════════════════════════════════════
+# ===============================================================================
 
 def populate_provinces(graph: Graph) -> None:
     """Add the three target provinces (Bali, NTB, NTT) as Province individuals.
@@ -817,7 +817,7 @@ def populate_areas(graph: Graph) -> None:
         _AREA_QUERY_TEMPLATE.format(value_list=value_list)
     )
 
-    # Build URI → area mapping (last write wins; DBpedia returns one row per place)
+    # Build URI -> area mapping
     area_by_uri: dict[str, Decimal] = {}
     for row in query_results:
         place_uri = row.get("place", {}).get("value")
@@ -854,7 +854,7 @@ ALL_POPULATORS = [
     populate_festivals,
     populate_religious_ceremonies,
     populate_hotels,
-    populate_areas,  # must run after provinces + cities (depends on URI registry)
+    populate_areas,
 ]
 
 def populate_all(graph: Graph) -> None:

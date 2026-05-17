@@ -87,7 +87,7 @@ open ontology_graph.html
 
 | Metric | Count |
 |---|---|
-| Classes defined (TBox) | 68 |
+| Classes defined (TBox) | 72 |
 | Object properties defined | 16 |
 | Datatype properties defined | 25 |
 | **Total individuals (ABox)** | **424** |
@@ -183,7 +183,8 @@ Queries DBpedia for each class and adds `rdf:type` + `locatedIn` triples.
 **Food** — `TypicalFood`, `CeremonialFood`, `StapleFood`, `Beverage`, `Ingredient`, `Allergens`  
 **Transport** — `AirTransport`, `WaterTransport`, `LandTransport`  
 **Activities** — `WaterSport` (Surfing, Diving, …), `MountainSport` (Hiking), `Sightseeing`, `Cultural_Tour`  
-**Establishments** — `Restaurant`, `StreetVendor`, `TraditionalMarket`
+**Establishments** — `Restaurant`, `StreetVendor`, `TraditionalMarket`  
+**Visitors** — `Group` > `Adult` (`Man`, `Woman`)
 
 ## Key object properties
 
@@ -192,14 +193,14 @@ Queries DBpedia for each class and adds `rdf:type` + `locatedIn` triples.
 | `locatedIn` | — | — (transitive) |
 | `locatedInCountry` | Province | Country |
 | `locatedInProvince` | Island | Province |
-| `locatedInIsland` | City | Island |
-| `locatedInCity` | TouristAttraction ∪ Accommodation | City |
+| `locatedInIsland` | City ∪ NaturalAttractions | Island |
+| `locatedInCity` | TouristAttraction ∪ Accommodation ∪ Establishments ∪ Events ∪ Transportation | City |
 | `hasTouristAttraction` | City | TouristAttraction |
 | `hasAccommodation` | City | Accommodation |
 | `hasActivity` | TouristAttraction | Activities |
 | `hasTransportation` | City | Transportation |
 | `hasFood` | City | Food |
-| `originatesFrom` | Food | Province |
+| `originatesFrom` | TypicalFood | City ∪ Province |
 
 ## Graph embeddings & link prediction
 

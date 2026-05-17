@@ -43,14 +43,14 @@ USE_INVERSE_TRIPLES = False  # set True to double relational signal with synthet
 
 
 def _wire_supplementary_hubs(graph: Graph) -> None:
-    """Add City → hasFood and City → hasAccommodation hub edges for supplementary ABox files.
+    """Add City -> hasFood and City -> hasAccommodation hub edges for supplementary ABox files.
 
-    Food individuals (alergy_ingredients_dishes.ttl) carry originatesFrom → Province.
-    Establishment individuals (Resort, Villa, Guesthouse, Hostel) carry locatedIn → Province.
+    Food individuals (alergy_ingredients_dishes.ttl) carry originatesFrom -> Province.
+    Establishment individuals (Resort, Villa, Guesthouse, Hostel) carry locatedIn -> Province.
     Neither file goes through enrich_all, so their hub edges are wired here, after merging,
     so the embedding model sees the full City–Food and City–Accommodation relations.
     """
-    # Food hubs: City → hasFood → Food
+    # Food hubs: City -> hasFood -> Food
     for food_subj, _, province_obj in graph.triples((None, ONT.originatesFrom, None)):
         if not isinstance(province_obj, URIRef):
             continue
@@ -58,7 +58,7 @@ def _wire_supplementary_hubs(graph: Graph) -> None:
         if capital:
             graph.add((ONT[capital], ONT.hasFood, food_subj))
 
-    # Accommodation hubs: City → hasAccommodation → Resort / Villa / Guesthouse / Hostel
+    # Accommodation hubs: City -> hasAccommodation -> Resort / Villa / Guesthouse / Hostel
     # (Hotel is already handled by add_accommodation_hubs in enrich_all)
     for accom_class in ("Resort", "Villa", "Guesthouse", "Hostel"):
         for subj, _, _ in graph.triples((None, RDF.type, ONT[accom_class])):
@@ -150,7 +150,7 @@ def save_embedding_model(training_result, triples_factory: TriplesFactory) -> No
     MODEL_DIR.mkdir(exist_ok=True)
     torch.save(training_result.model.state_dict(), MODEL_DIR / "weights.pt")
     triples_factory.to_path_binary(MODEL_DIR / "triples")
-    log.info("Saved embedding model → %s/", MODEL_DIR)
+    log.info("Saved embedding model -> %s/", MODEL_DIR)
 
 
 def load_embedding_model() -> tuple:

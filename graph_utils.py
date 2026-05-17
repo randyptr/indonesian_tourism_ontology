@@ -62,11 +62,11 @@ class NeatFormatter(logging.Formatter):
     """Logging formatter for notebook display.
 
     Transforms plain log messages into visually structured output:
-      [Province]   →  blank line + ▸ Province   (section header)
-      + Name       →  · Name                     (item added)
-      - Name       →  ✗ Name                     (item skipped)
-      -> summary   →  ↳ summary                  (count / result line)
-      x -> y       →  x → y                      (inline arrow)
+      [Province]   ->  blank line + ▸ Province   (section header)
+      + Name       ->  · Name                     (item added)
+      - Name       ->  ✗ Name                     (item skipped)
+      -> summary   ->  ↳ summary                  (count / result line)
+      x -> y       ->  x -> y                      (inline arrow)
     """
 
     def format(self, record: logging.LogRecord) -> str:
@@ -76,5 +76,5 @@ class NeatFormatter(logging.Formatter):
         msg = re.sub(r"^(\s+)\+\s", lambda m: m.group(1) + "· ", msg)
         msg = re.sub(r"^(\s+)-\s", lambda m: m.group(1) + "✗ ", msg)
         msg = re.sub(r"^(\s+)->\s", lambda m: m.group(1) + "↳ ", msg)
-        msg = msg.replace(" -> ", " → ")
+        msg = msg.replace(" -> ", " -> ")
         return msg

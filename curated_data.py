@@ -25,38 +25,9 @@ Individuals (list[dict]):
     HOSTELS              — Hostel ⊑ Accommodation
 
 Properties (dict):
-    RATINGS             — hasRating (xsd:decimal, scale 1-5) per class → {name: score}
+    RATINGS             — hasRating (xsd:decimal, scale 1-5) per class -> {name: score}
     ENTRY_FEE           — hasEntryFee (xsd:boolean) for TouristAttractions
     PARK_ESTABLISHED_YEAR — establishedYear (xsd:integer) for Parks
-
-Class hierarchy reminder
-------------------------
-Transportation
-    AirTransport   — airports, airlines
-    LandTransport  — bus terminals, road transport
-    WaterTransport — ferry ports, harbours
-
-TypicalFood (top-level class)
-    CeremonialFood — food used in religious rituals
-    StapleFood     — everyday staple foods
-    Beverage       — traditional drinks
-
-CulturalAttraction (subclass of TouristAttraction)
-    TraditionalDance   — traditional regional dances
-    TraditionalHouse   — traditional vernacular architecture / adat houses
-
-Establishments (top-level class)
-    Restaurant         — dining establishments
-    StreetVendor       — warungs, street stalls, night markets
-    TraditionalMarket  — local pasar (traditional markets)
-    (TraditionalHouse also has Establishments as second parent)
-
-Accommodation (top-level class)
-    Hotel      — already populated by DBpedia
-    Resort     — luxury/eco resorts
-    Villa      — private villa rentals
-    Guesthouse — budget guesthouses / homestays
-    Hostel     — backpacker hostels
 """
 
 # =============================================================================
@@ -67,7 +38,6 @@ Accommodation (top-level class)
 # Populated here because DBpedia lacks structured airport/port data for this region.
 
 TRANSPORTATION: list[dict[str, str]] = [
-
     # Bali
     {"name": "Ngurah_Rai_International_Airport", "type": "AirTransport",   "locatedIn": "Bali"},
     {"name": "Gilimanuk_Ferry_Port",             "type": "WaterTransport", "locatedIn": "Bali"},
@@ -97,7 +67,6 @@ TRANSPORTATION: list[dict[str, str]] = [
 #           SocietalEvent under Tourist_attractions_in_East_Nusa_Tenggara
 
 FESTIVALS: list[dict[str, str]] = [
-
     # West Nusa Tenggara (NTB)
     {"name": "Bau_Nyale_Festival",          "locatedIn": "West_Nusa_Tenggara"},
     {"name": "Lombok_Sumbawa_Pearl_Festival","locatedIn": "West_Nusa_Tenggara"},
@@ -123,7 +92,6 @@ FESTIVALS: list[dict[str, str]] = [
 # DBpedia returns no structured dance data for this region; all entries are manual.
 
 TRADITIONAL_DANCES: list[dict[str, str]] = [
-
     # Bali
     {"name": "Kecak",         "locatedIn": "Bali"},
     {"name": "Legong",        "locatedIn": "Bali"},
@@ -155,7 +123,6 @@ TRADITIONAL_DANCES: list[dict[str, str]] = [
 # DBpedia does not reliably classify Indonesian vernacular architecture; all manual.
 
 TRADITIONAL_HOUSES: list[dict[str, str]] = [
-
     # Bali
     {"name": "Bale_Banjar", "locatedIn": "Bali"},
     {"name": "Jineng",      "locatedIn": "Bali"},
@@ -193,7 +160,6 @@ PARKS_MANUAL: list[dict[str, str]] = [
 # Bali entries here fill gaps not returned by the DBpedia populate step.
 
 BEACHES_MANUAL: list[dict[str, str]] = [
-
     # Bali
     {"name": "Balangan_Beach",   "locatedIn": "Bali"},
     {"name": "Amed_Beach",       "locatedIn": "Bali"},

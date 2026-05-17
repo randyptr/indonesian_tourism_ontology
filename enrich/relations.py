@@ -36,7 +36,7 @@ def add_island_province(graph: Graph) -> None:
         Flores  locatedInProvince  East_Nusa_Tenggara
         Lombok  locatedInProvince  West_Nusa_Tenggara
     """
-    log.info("[Island → Province Links]")
+    log.info("[Island -> Province Links]")
     dbpedia_to_local, local_to_dbpedia = get_dbpedia_mappings()
     all_names = _get_all_individual_names(graph)
 
@@ -424,7 +424,7 @@ def add_attraction_hubs(graph: Graph) -> None:
                     graph.add((ONT[capital_name], ONT.hasTouristAttraction, subject))
                     link_count += 1
 
-    log.info("  -> %d hub edges (City → hasTouristAttraction)", link_count)
+    log.info("  -> %d hub edges (City -> hasTouristAttraction)", link_count)
 
 # Step 9: City -> hasAccommodation hub edges
 def add_accommodation_hubs(graph: Graph) -> None:
@@ -450,4 +450,4 @@ def add_accommodation_hubs(graph: Graph) -> None:
                 graph.add((ONT[capital_name], ONT.hasAccommodation, subject))
                 link_count += 1
 
-    log.info("  -> %d hub edges (City → hasAccommodation)", link_count)
+    log.info("  -> %d hub edges (City -> hasAccommodation)", link_count)
