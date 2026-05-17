@@ -212,7 +212,7 @@ def _report_class_populations(
     data_ontology : owlready2.Ontology
         The loaded ABox ontology (individuals live here).
     """
-    log.info("── Individuals per populated class ──")
+    log.info("Individuals per populated class:")
 
     for class_label in CLASSES_TO_REPORT:
         # Search both ontologies because some classes may be defined in schema
