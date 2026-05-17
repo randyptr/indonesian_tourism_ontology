@@ -21,10 +21,18 @@ exposed as an interactive Jupyter notebook.
 ├── graph_utils.py      # RDF helpers (add_individual, add_relation, NeatFormatter, …)
 ├── curated_data.py     # All manually curated individuals and property values
 ├── populate.py         # DBpedia SPARQL queries → individuals (rdf:type + locatedIn)
-├── enrich.py           # Relational triples (locatedIn, hasActivity, hub edges, …)
 ├── reasoning.py        # HermiT consistency check via owlready2
 ├── graph_embedding.py  # DistMult embeddings + link prediction (PyKEEN)
 ├── visualize.py        # Interactive HTML graph (PyVis)
+│
+├── enrich/             # Enrichment pipeline (split by concern)
+│   ├── __init__.py     # Re-exports enrich_all, ALL_ENRICHERS, CAPITAL_OF_PROVINCE
+│   ├── main.py         # Orchestrator: ALL_ENRICHERS list + enrich_all()
+│   ├── backbone.py     # Step 1–2: country backbone, Bali island fix
+│   ├── relations.py    # Steps 3–9: island/location/activity/hub edges (DBpedia)
+│   ├── properties.py   # Steps 10–11: visitor counts, ratings, entry fees, years
+│   ├── manual.py       # Steps 12–18: transportation, festivals, dances, beaches, …
+│   └── utils.py        # Shared constants, SPARQL helpers, graph inspection helpers
 │
 ├── ontology/
 │   ├── schema.owl                    # TBox: classes, properties, axioms
