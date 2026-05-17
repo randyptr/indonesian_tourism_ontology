@@ -39,6 +39,7 @@ NUM_EPOCHS        = 400
 LEARNING_RATE     = 0.01
 RANDOM_SEED       = 42
 TOP_K_PREDICTIONS = 5
+USE_INVERSE_TRIPLES = False  # set True to double relational signal with synthetic inverses
 
 
 def _wire_supplementary_hubs(graph: Graph) -> None:
@@ -66,6 +67,13 @@ def _wire_supplementary_hubs(graph: Graph) -> None:
                     graph.add((ONT[capital], ONT.hasAccommodation, subj))
 
 
+_SKIP_INVERSE_PREFIXES = (
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "http://www.w3.org/2000/01/rdf-schema#",
+    "http://www.w3.org/2002/07/owl#",
+)
+
+
 def _add_inverse_triples(triples: list[tuple[str, str, str]]) -> list[tuple[str, str, str]]:
     """Generate inverse triples for every object-property assertion.
 
@@ -76,14 +84,9 @@ def _add_inverse_triples(triples: list[tuple[str, str, str]]) -> list[tuple[str,
     TBox predicates (rdf:type, rdfs:subClassOf, etc.) are excluded — only
     ontology-namespace predicates get an inverse.
     """
-    SKIP_INVERSE_PREFIXES = (
-        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "http://www.w3.org/2000/01/rdf-schema#",
-        "http://www.w3.org/2002/07/owl#",
-    )
     inverse_triples = []
     for s, p, o in triples:
-        if any(p.startswith(prefix) for prefix in SKIP_INVERSE_PREFIXES):
+        if any(p.startswith(prefix) for prefix in _SKIP_INVERSE_PREFIXES):
             continue
         # Build inverse predicate IRI: ont#inv_hasActivity
         if "#" in p:
@@ -114,15 +117,15 @@ def load_object_property_triples() -> tuple[Graph, np.ndarray]:
         if isinstance(s, URIRef) and isinstance(o, URIRef)
         and o != OWL.NamedIndividual
     ]
-    # Add inverse triples for richer bidirectional signal
-    # inverse = _add_inverse_triples(triple_strings)
-    # triple_strings.extend(inverse)
-    # log.info("Triples: %d original + %d inverse = %d total",
-    #          len(triple_strings) - len(inverse), len(inverse), len(triple_strings))
+    if USE_INVERSE_TRIPLES:
+        inverse = _add_inverse_triples(triple_strings)
+        triple_strings.extend(inverse)
+        log.info("Triples: %d original + %d inverse = %d total",
+                 len(triple_strings) - len(inverse), len(inverse), len(triple_strings))
     return merged_graph, np.array(triple_strings)
 
 
-def train_embedding_model(all_triples: np.ndarray, num_epochs: NUM_EPOCHS):
+def train_embedding_model(all_triples: np.ndarray, num_epochs: int = NUM_EPOCHS):
     """Train DistMult on the given triples and return (PipelineResult, TriplesFactory).
 
     Uses the full triple set for training, validation, and testing — the goal

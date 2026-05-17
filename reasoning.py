@@ -38,7 +38,10 @@ EXTRA_ABOX_TTL_FILES = [
 # Protégé's catalog-v001.xml, so we must pre-load them into the World under
 # their declared IRI before loading schema.owl. Then the import resolves
 # from cache and no HTTP fetch is attempted.
-ESTABLISHMENTS_IRI = "http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_Establishments"
+# Derived from ONT_IRI base: strip the fragment identifier and replace the
+# final path segment with the establishments ontology name.
+_ONT_BASE = ONT_IRI.rstrip("#").rsplit("/", 1)[0]  # "…/2026/3"
+ESTABLISHMENTS_IRI = f"{_ONT_BASE}/populate_Establishments"
 
 # Establishment class → which curated list it sources from, and which superclass
 # it subclasses (used to build the same hierarchy as establishments.omn).
@@ -112,10 +115,13 @@ def _graph_from_ttl(ttl_path: Path) -> Graph:
 def _build_establishments_graph() -> Graph:
     """Synthesise the populate_Establishments ontology from curated_data.
 
-    Mirrors what establishments.omn contains: a class hierarchy stub plus
-    one individual per curated entry, typed and linked via locatedIn.
-    The graph declares its IRI as ESTABLISHMENTS_IRI so owlready2 caches
-    it under the same IRI that schema.owl imports.
+    Builds an rdflib Graph that mirrors the content of establishments.omn:
+    a class hierarchy stub (Restaurant, StreetVendor, etc. with their
+    superclasses) plus one NamedIndividual per curated entry, each typed,
+    labelled, and linked via locatedIn to its province. The graph declares
+    its IRI as ESTABLISHMENTS_IRI so owlready2 caches it under the same
+    IRI that schema.owl imports, allowing the import to resolve from memory
+    without triggering an HTTP fetch.
     """
     graph = Graph()
     ns_iri = URIRef(ESTABLISHMENTS_IRI)
