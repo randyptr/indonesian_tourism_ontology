@@ -400,21 +400,6 @@ _MUSEUM_QUERIES_BY_PROVINCE = {
         } LIMIT 15""",
 }
 
-# Temples — Balinese Hindu temples (Pura) per province.
-#
-# Why two queries for Bali instead of one?
-# DBpedia does not consistently type Balinese temples as dbo:Temple — most Pura
-# pages are untyped or typed as dbo:ReligiousBuilding, and SPARQL UNION clauses
-# that mix VALUES + category patterns time out on the DBpedia endpoint.
-# Solution: run two separate lightweight queries and merge in populate_temples().
-#
-#   Query 1 (_TEMPLE_KNOWN_BALI): VALUES with confirmed DBpedia URIs for the
-#     famous "sad kahyangan" (9 directional temples) — reliable, never times out.
-#   Query 2 (_TEMPLE_DISCOVER_BALI): label STRSTARTS("Pura") scoped to the
-#     Tourist_attractions_in_Bali category — catches additional temples.
-#
-# NTB / NTT have very few temples on DBpedia so a single category query suffices.
-
 _TEMPLE_KNOWN_BALI_QUERY = """
     PREFIX dbr: <http://dbpedia.org/resource/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
