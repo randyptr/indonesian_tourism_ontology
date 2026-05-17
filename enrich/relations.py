@@ -84,7 +84,24 @@ def add_island_province(graph: Graph) -> None:
 
     log.info("  -> %d links (DBpedia isPartOf + wikiLink)", link_count)
 
-# Step 4: Auto-discover location links via wikiPageWikiLink
+# Known false positives produced by wikiPageWikiLink (source, target) pairs to skip.
+_LOCATION_LINK_BLACKLIST: set[tuple[str, str]] = {
+    ("Kupang",        "Flores"),
+    ("Kupang",        "Rote_Island"),
+    ("Kupang",        "Savu"),
+    ("Mount_Agung",   "Lombok"),
+    ("Dompu_Regency", "Satonda_Island"),
+}
+
+# Strict DBpedia properties that encode genuine geographic containment.
+_STRICT_LOCATION_PROPS = [
+    "http://dbpedia.org/ontology/isPartOf",
+    "http://dbpedia.org/ontology/location",
+    "http://dbpedia.org/property/location",
+    "http://dbpedia.org/ontology/region",
+]
+
+# Step 4: Auto-discover location links via strict properties + wikiPageWikiLink fallback
 def _build_location_targets(
     graph: Graph,
     local_to_dbpedia: dict[str, str],
@@ -147,64 +164,90 @@ def _choose_location_property(
     return None
 
 def add_location_links(graph: Graph) -> None:
-    """Discover location relationships by querying DBpedia wikiPageWikiLink.
+    """Discover location relationships from DBpedia.
 
-    For each entity in our graph, checks if DBpedia has a wikiPageWikiLink
-    to any of our location entities (Province, Island, City). If yes, adds
-    the appropriate locatedIn / locatedInIsland triple.
+    Strategy:
+        1. Query strict geographic properties (dbo:isPartOf, dbo:location, etc.)
+           for all entities. Entities that get at least one strict hit use ONLY
+           those results — no wikiPageWikiLink fallback needed.
+        2. Entities with zero strict hits fall back to wikiPageWikiLink, but
+           results are filtered through _LOCATION_LINK_BLACKLIST to remove
+           known false positives caused by Wikipedia article cross-references.
     """
     log.info("[Location Links]")
     dbpedia_to_local, local_to_dbpedia = get_dbpedia_mappings()
 
-    # Build source set: all entities with DBpedia URIs
     all_names = _get_all_individual_names(graph)
-    source_entities: dict[str, str] = {}   # DBpedia URI -> local name
+    source_entities: dict[str, str] = {}
     for name in all_names:
         if name in local_to_dbpedia:
             source_entities[local_to_dbpedia[name]] = name
 
-    # Build target set: location entities we can link TO
     location_targets = _build_location_targets(graph, local_to_dbpedia)
 
     if not source_entities or not location_targets:
         return
 
-    # Query in chunks to avoid SPARQL timeout on large VALUES clauses
     source_uri_list = list(source_entities.keys())
     target_values_str = _make_values_clause(location_targets.keys())
-    link_count = 0
+    prop_values_str = " ".join(f"<{p}>" for p in _STRICT_LOCATION_PROPS)
 
-    for chunk_start in range(0, len(source_uri_list), _SPARQL_CHUNK_SIZE):
-        chunk_uris = source_uri_list[chunk_start:chunk_start + _SPARQL_CHUNK_SIZE]
-        source_values_str = _make_values_clause(chunk_uris)
+    # Pass 1: strict geographic properties
+    strict_hits: set[str] = set()
+    pending_rows: list[tuple[str, str]] = []
 
+    for i in range(0, len(source_uri_list), _SPARQL_CHUNK_SIZE):
+        chunk = _make_values_clause(source_uri_list[i:i + _SPARQL_CHUNK_SIZE])
         rows = _run_sparql(f"""
             SELECT ?source ?target WHERE {{
-                VALUES ?source {{ {source_values_str} }}
+                VALUES ?source {{ {chunk} }}
+                VALUES ?target {{ {target_values_str} }}
+                VALUES ?prop   {{ {prop_values_str} }}
+                ?source ?prop ?target .
+            }}
+        """)
+        for row in rows:
+            src = row["source"]["value"]
+            strict_hits.add(src)
+            pending_rows.append((src, row["target"]["value"]))
+
+    # Pass 2: wikiPageWikiLink fallback for entities with no strict results
+    wiki_sources = [u for u in source_uri_list if u not in strict_hits]
+    for i in range(0, len(wiki_sources), _SPARQL_CHUNK_SIZE):
+        chunk = _make_values_clause(wiki_sources[i:i + _SPARQL_CHUNK_SIZE])
+        rows = _run_sparql(f"""
+            SELECT ?source ?target WHERE {{
+                VALUES ?source {{ {chunk} }}
                 VALUES ?target {{ {target_values_str} }}
                 ?source <http://dbpedia.org/ontology/wikiPageWikiLink> ?target .
             }}
         """)
-
         for row in rows:
-            source_uri = row["source"]["value"]
-            target_uri = row["target"]["value"]
-            source_name = source_entities.get(source_uri)
-            target_name = location_targets.get(target_uri)
+            pending_rows.append((row["source"]["value"], row["target"]["value"]))
 
-            # Skip self-links and missing mappings
-            if not source_name or not target_name or source_name == target_name:
-                continue
+    # Apply results
+    link_count = 0
+    skipped = 0
+    for source_uri, target_uri in pending_rows:
+        source_name = source_entities.get(source_uri)
+        target_name = location_targets.get(target_uri)
 
-            source_class = _get_ontology_class(graph, source_name)
-            target_class = _get_ontology_class(graph, target_name)
-            property_name = _choose_location_property(source_class, target_class)
+        if not source_name or not target_name or source_name == target_name:
+            continue
+        if (source_name, target_name) in _LOCATION_LINK_BLACKLIST:
+            log.debug("Blacklisted: %s -> %s", source_name, target_name)
+            skipped += 1
+            continue
 
-            if property_name:
-                add_relation(graph, source_name, property_name, target_name)
-                link_count += 1
+        source_class = _get_ontology_class(graph, source_name)
+        target_class = _get_ontology_class(graph, target_name)
+        prop = _choose_location_property(source_class, target_class)
+        if prop:
+            add_relation(graph, source_name, prop, target_name)
+            link_count += 1
 
-    log.info("  -> %d links (wikiPageWikiLink)", link_count)
+    log.info("  -> %d links (%d via strict props, %d via wikiPageWikiLink, %d blacklisted)",
+             link_count, len(strict_hits), len(wiki_sources), skipped)
 
 # Step 5: Create Activity individuals
 def add_activity_individuals(graph: Graph) -> None:

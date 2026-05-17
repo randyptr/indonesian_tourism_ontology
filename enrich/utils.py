@@ -58,16 +58,18 @@ DBPEDIA_RESOURCE_TO_ACTIVITY = {
     f"{_DBP_RESOURCE}Hiking":       "Hiking",
 }
 
-# Maps each activity name to its specific OWL leaf class in schema.owl.
+# Maps each activity individual to its parent class.
+# Typed as parent (WaterSport/MountainSport) rather than leaf class to avoid
+# OWL punning — Surfing/Diving/etc. are TBox classes, not individual names.
 ACTIVITY_OWL_CLASS: dict[str, str] = {
-    "Surfing":       "Surfing",
-    "Snorkeling":    "Snorkeling",
-    "Diving":        "Diving",
-    "Sailing":       "Sailing",
-    "Kayaking":      "Kayaking",
-    "Hiking":        "Hiking",
-    "Sightseeing":   "Activities",   # no dedicated leaf class in schema
-    "Cultural_Tour": "Activities",   # no dedicated leaf class in schema
+    "Surfing":       "WaterSport",
+    "Snorkeling":    "WaterSport",
+    "Diving":        "WaterSport",
+    "Sailing":       "WaterSport",
+    "Kayaking":      "WaterSport",
+    "Hiking":        "MountainSport",
+    "Sightseeing":   "Activities",
+    "Cultural_Tour": "Activities",
 }
 
 # When DBpedia provides no activity info, assign these defaults by class.

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://www.semanticweb.org/indonesian_tourism_ontology/establishments" uri="establishments.omn"/>
+    <uri id="User Entered Import Resolution" name="http://www.semanticweb.org/indonesian_tourism_ontology/food" uri="alergy_ingredients_dishes.ttl"/>
     <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_Establishments" uri="establishments.omn"/>
     <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/alergy-ingredients-dishes" uri="alergy_ingredients_dishes.ttl"/>
     <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/emmaa/ontologies/2026/3/populate_establishments" uri="establishments.omn"/>
