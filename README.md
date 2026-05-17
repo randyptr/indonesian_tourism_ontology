@@ -124,13 +124,6 @@ open ontology_graph.html
 | Volcano | 4 | DBpedia |
 | Province | 3 | DBpedia |
 | LandTransport | 3 | curated_data |
-| Activities | 2 | enrich |
-| Surfing | 1 | enrich |
-| Snorkeling | 1 | enrich |
-| Kayaking | 1 | enrich |
-| Sailing | 1 | enrich |
-| Diving | 1 | enrich |
-| Hiking | 1 | enrich |
 | Country | 1 | enrich |
 | Beverage | 1 | Turtle |
 
