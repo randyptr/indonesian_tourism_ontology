@@ -18,10 +18,7 @@ from enrich.utils import (
 
 log = logging.getLogger(__name__)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 16 (pre-property): Manual Park individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_manual_parks(graph: Graph) -> None:
     """Add Park individuals from curated_data.PARKS_MANUAL.
 
@@ -42,10 +39,7 @@ def add_manual_parks(graph: Graph) -> None:
         activities=["Sightseeing", "Hiking"],
     )
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 10: numberOfVisitors data property
-# ─────────────────────────────────────────────────────────────────────────────
 def add_visitor_counts(graph: Graph) -> None:
     """Fetch annual visitor counts from DBpedia and add as data property triples.
 
@@ -96,10 +90,7 @@ def add_visitor_counts(graph: Graph) -> None:
 
     log.info("  -> %d values added", added_count)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 11: Curated hasRating data properties
-# ─────────────────────────────────────────────────────────────────────────────
 def add_curated_ratings(graph: Graph) -> None:
     """Add manually curated hasRating (xsd:decimal, scale 1–5) triples.
 
@@ -134,10 +125,7 @@ def add_curated_ratings(graph: Graph) -> None:
     if skipped_missing:
         log.info("  - not in graph: %s", ", ".join(skipped_missing))
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 11b: Curated hasEntryFee (TouristAttraction -> xsd:boolean)
-# ─────────────────────────────────────────────────────────────────────────────
 def add_curated_entry_fees(graph: Graph) -> None:
     """Add manually curated hasEntryFee triples.
 
@@ -169,10 +157,7 @@ def add_curated_entry_fees(graph: Graph) -> None:
     if skipped_missing:
         log.info("  - not in graph: %s", ", ".join(skipped_missing))
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 11c: Curated establishedYear for Parks (Park -> xsd:integer, Functional)
-# ─────────────────────────────────────────────────────────────────────────────
 def add_park_established_years(graph: Graph) -> None:
     """Add manually curated establishedYear triples for Parks.
 

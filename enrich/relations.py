@@ -25,10 +25,7 @@ from enrich.utils import (
 
 log = logging.getLogger(__name__)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 3: Island -> Province links
-# ─────────────────────────────────────────────────────────────────────────────
 def add_island_province(graph: Graph) -> None:
     """Link each Island to its Province using DBpedia's isPartOf and wikiLinks.
 
@@ -87,10 +84,7 @@ def add_island_province(graph: Graph) -> None:
 
     log.info("  -> %d links (DBpedia isPartOf + wikiLink)", link_count)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 4: Auto-discover location links via wikiPageWikiLink
-# ─────────────────────────────────────────────────────────────────────────────
 def _build_location_targets(
     graph: Graph,
     local_to_dbpedia: dict[str, str],
@@ -111,7 +105,6 @@ def _build_location_targets(
         targets[province_uri] = province_name
 
     return targets
-
 
 def _choose_location_property(
     source_class: str | None,
@@ -152,7 +145,6 @@ def _choose_location_property(
         return "locatedIn"
 
     return None
-
 
 def add_location_links(graph: Graph) -> None:
     """Discover location relationships by querying DBpedia wikiPageWikiLink.
@@ -214,10 +206,7 @@ def add_location_links(graph: Graph) -> None:
 
     log.info("  -> %d links (wikiPageWikiLink)", link_count)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 5: Create Activity individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_activity_individuals(graph: Graph) -> None:
     """Create one Activity individual per entry in config.ACTIVITIES.
 
@@ -236,10 +225,7 @@ def add_activity_individuals(graph: Graph) -> None:
         add_individual(graph, owl_class, activity_name)
     log.info("  -> %d created: %s", len(ACTIVITIES), ", ".join(ACTIVITIES))
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 6: Auto-discover hasActivity from DBpedia categories
-# ─────────────────────────────────────────────────────────────────────────────
 def _infer_activities_from_categories(
     category_results: list[dict],
     entity_uri_to_name: dict[str, str],
@@ -261,7 +247,6 @@ def _infer_activities_from_categories(
 
     return pairs
 
-
 def _infer_activities_from_wikilinks(
     wikilink_results: list[dict],
     entity_uri_to_name: dict[str, str],
@@ -279,7 +264,6 @@ def _infer_activities_from_wikilinks(
             pairs.add((entity_name, activity_name))
 
     return pairs
-
 
 def add_activity_links(graph: Graph) -> None:
     """Discover hasActivity links from DBpedia categories and wikiLinks.
@@ -338,10 +322,7 @@ def add_activity_links(graph: Graph) -> None:
 
     log.info("  -> %d links (DBpedia categories + wikiLinks)", len(activity_pairs))
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 7: Fallback activities for entities DBpedia didn't cover
-# ─────────────────────────────────────────────────────────────────────────────
 def add_activity_fallbacks(graph: Graph) -> None:
     """Assign default activities to entities that got none from DBpedia.
 
@@ -370,10 +351,7 @@ def add_activity_fallbacks(graph: Graph) -> None:
 
     log.info("  -> %d links assigned to entities with no DBpedia coverage", link_count)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 8: City -> hasTouristAttraction hub edges
-# ─────────────────────────────────────────────────────────────────────────────
 def add_attraction_hubs(graph: Graph) -> None:
     """Link each provincial capital to all TouristAttractions in its province.
 
@@ -405,10 +383,7 @@ def add_attraction_hubs(graph: Graph) -> None:
 
     log.info("  -> %d hub edges (City → hasTouristAttraction)", link_count)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 9: City -> hasAccommodation hub edges
-# ─────────────────────────────────────────────────────────────────────────────
 def add_accommodation_hubs(graph: Graph) -> None:
     """Link each provincial capital to all Hotels located in its province.
 

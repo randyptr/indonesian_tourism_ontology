@@ -14,10 +14,7 @@ from enrich.utils import CAPITAL_OF_PROVINCE, _add_cultural_individuals
 
 log = logging.getLogger(__name__)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 12: Manual Transportation individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_manual_transportation(graph: Graph) -> None:
     """Add Transportation individuals from curated_data.TRANSPORTATION.
 
@@ -53,10 +50,7 @@ def add_manual_transportation(graph: Graph) -> None:
 
     log.info("  -> %d individuals added", added_count)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 13: Manual Festival individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_manual_festivals(graph: Graph) -> None:
     """Add Festival individuals for NTB and NTT from curated_data.FESTIVALS."""
     log.info("[Festivals]")
@@ -77,25 +71,18 @@ def add_manual_festivals(graph: Graph) -> None:
 
     log.info("  -> %d individuals added", added_count)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Steps 14–15: Manual TraditionalDance and TraditionalHouse individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_manual_traditional_dances(graph: Graph) -> None:
     """Add TraditionalDance individuals from curated_data.TRADITIONAL_DANCES."""
     log.info("[Traditional Dances]")
     _add_cultural_individuals(graph, TRADITIONAL_DANCES, "TraditionalDance", "traditional dances")
-
 
 def add_manual_traditional_houses(graph: Graph) -> None:
     """Add TraditionalHouse individuals from curated_data.TRADITIONAL_HOUSES."""
     log.info("[Traditional Houses]")
     _add_cultural_individuals(graph, TRADITIONAL_HOUSES, "TraditionalHouse", "traditional houses")
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 16: Manual Beach individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_manual_beaches(graph: Graph) -> None:
     """Add Beach individuals from curated_data.BEACHES_MANUAL.
 
@@ -115,10 +102,7 @@ def add_manual_beaches(graph: Graph) -> None:
         activities=["Surfing", "Snorkeling", "Sailing", "Kayaking"],
     )
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 17: Manual ReligiousCeremony individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_manual_religious_ceremonies(graph: Graph) -> None:
     """Add ReligiousCeremony individuals from curated_data.RELIGIOUS_CEREMONIES.
 
@@ -136,10 +120,7 @@ def add_manual_religious_ceremonies(graph: Graph) -> None:
         graph, RELIGIOUS_CEREMONIES, "ReligiousCeremony", "religious ceremonies",
     )
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Step 18: Manual Temple individuals
-# ─────────────────────────────────────────────────────────────────────────────
 def add_manual_temples(graph: Graph) -> None:
     """Add Temple individuals from curated_data.TEMPLES.
 

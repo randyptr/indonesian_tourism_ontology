@@ -89,13 +89,10 @@ CAPITAL_OF_PROVINCE = {
     "East_Nusa_Tenggara": "Kupang",
 }
 
-# ─────────────────────────────────────────────────────────────────────────────
 # SPARQL helpers
-# ─────────────────────────────────────────────────────────────────────────────
 _sparql = SPARQLWrapper(DBPEDIA_ENDPOINT)
 _sparql.setReturnFormat(JSON)
 _sparql.setTimeout(DBPEDIA_TIMEOUT_S)
-
 
 def _run_sparql(query: str) -> list[dict]:
     """Execute a SPARQL query against DBpedia and return the result bindings.
@@ -112,7 +109,6 @@ def _run_sparql(query: str) -> list[dict]:
     finally:
         time.sleep(DBPEDIA_THROTTLE_S)
 
-
 def _make_values_clause(uris: list[str]) -> str:
     """Build a SPARQL VALUES string like '<uri1> <uri2> <uri3>'.
 
@@ -122,10 +118,7 @@ def _make_values_clause(uris: list[str]) -> str:
     """
     return " ".join(f"<{uri}>" for uri in uris)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Graph inspection helpers
-# ─────────────────────────────────────────────────────────────────────────────
 def _get_all_individual_names(graph: Graph) -> set[str]:
     """Return the local names (after '#') of all ontology individuals."""
     names: set[str] = set()
@@ -135,7 +128,6 @@ def _get_all_individual_names(graph: Graph) -> set[str]:
             names.add(iri[len(ONT_IRI):])
     return names
 
-
 def _get_ontology_class(graph: Graph, individual_name: str) -> str | None:
     """Return the ontology class name for an individual, or None."""
     from config import ONT
@@ -144,7 +136,6 @@ def _get_ontology_class(graph: Graph, individual_name: str) -> str | None:
         if type_str.startswith(ONT_IRI) and type_uri != OWL.NamedIndividual:
             return type_str[len(ONT_IRI):]
     return None
-
 
 def _collect_entities_by_class(
     graph: Graph,
@@ -166,7 +157,6 @@ def _collect_entities_by_class(
             result[dbpedia_uri] = name
 
     return result
-
 
 def _add_cultural_individuals(
     graph: Graph,

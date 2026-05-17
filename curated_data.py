@@ -63,7 +63,6 @@ Accommodation (top-level class)
 # INDIVIDUALS
 # =============================================================================
 
-# ── Transportation
 # Domain of hasTransportation: City -> Transportation
 # Populated here because DBpedia lacks structured airport/port data for this region.
 
@@ -92,8 +91,6 @@ TRANSPORTATION: list[dict[str, str]] = [
     {"name": "H_Hasan_Aroeboesman_Airport",      "type": "AirTransport",   "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Festivals
 # NTB and NTT festivals are added manually because:
 #   - NTB:  DBpedia returns 0 results for Festival in West Nusa Tenggara
 #   - NTT:  DBpedia incorrectly categorises a gubernatorial election as a
@@ -122,8 +119,6 @@ FESTIVALS: list[dict[str, str]] = [
     {"name": "Bali_Kite_Festival",      "locatedIn": "Bali"},
 ]
 
-
-# ── Traditional Dances
 # TraditionalDance ⊑ CulturalAttraction ⊑ TouristAttraction
 # DBpedia returns no structured dance data for this region; all entries are manual.
 
@@ -155,8 +150,6 @@ TRADITIONAL_DANCES: list[dict[str, str]] = [
     {"name": "Tari_Bonet",    "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Traditional Houses
 # TraditionalHouse ⊑ CulturalAttraction ⊑ TouristAttraction
 #                  ⊑ Establishments  (can have servesFood edge)
 # DBpedia does not reliably classify Indonesian vernacular architecture; all manual.
@@ -183,8 +176,6 @@ TRADITIONAL_HOUSES: list[dict[str, str]] = [
     {"name": "Sao_Ata_Mosa_Lakitana", "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Parks (Manual supplement)
 # Park ⊑ TouristAttraction
 # These Bali parks are referenced in RATINGS, ENTRY_FEE, and PARK_ESTABLISHED_YEAR
 # but are not returned by DBpedia's populate step for this region.
@@ -197,8 +188,6 @@ PARKS_MANUAL: list[dict[str, str]] = [
     {"name": "Bali_Botanic_Garden",           "locatedIn": "Bali"},
 ]
 
-
-# ── Beaches (Manual supplement)
 # Beach ⊑ TouristAttraction
 # DBpedia covers Bali beaches well; NTB and NTT coverage is sparse or absent.
 # Bali entries here fill gaps not returned by the DBpedia populate step.
@@ -227,8 +216,6 @@ BEACHES_MANUAL: list[dict[str, str]] = [
     {"name": "Kolbano_Beach",   "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Religious Ceremonies
 # ReligiousCeremony ⊑ TouristAttraction
 # DBpedia returns near-zero structured results for all 3 provinces; all manual.
 
@@ -253,8 +240,6 @@ RELIGIOUS_CEREMONIES: list[dict[str, str]] = [
     {"name": "Etu",                    "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Temples
 # Temple ⊑ TouristAttraction
 # DBpedia covers some Bali temples; NTB/NTT coverage is sparse.
 # Bali entries here supplement DBpedia output; duplicates are harmless (rdflib is idempotent).
@@ -280,8 +265,6 @@ TEMPLES: list[dict[str, str]] = [
     {"name": "Pura_Segara_Rupek", "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Restaurants ───────
 # Restaurant ⊑ Establishments
 # DBpedia has no restaurant data for this region; all entries are manual.
 
@@ -314,8 +297,6 @@ RESTAURANTS: list[dict[str, str]] = [
     {"name": "Sari_Restaurant_Ende",         "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Street Vendors ────
 # StreetVendor ⊑ Establishments
 # Includes warungs (small local eateries) and night markets.
 
@@ -340,8 +321,6 @@ STREET_VENDORS: list[dict[str, str]] = [
     {"name": "Pasar_Malam_Ende",        "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Traditional Markets ───────────────────────────────────────────────────────
 # TraditionalMarket ⊑ Establishments
 # Local pasar (traditional open-air markets).
 
@@ -366,8 +345,6 @@ TRADITIONAL_MARKETS: list[dict[str, str]] = [
     {"name": "Pasar_Ende",               "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Resorts ───────────
 # Resort ⊑ Accommodation
 # City -> hasAccommodation -> Resort
 
@@ -394,8 +371,6 @@ RESORTS: list[dict[str, str]] = [
     {"name": "Meruorah_Komodo_Resort", "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Villas ────────────
 # Villa ⊑ Accommodation
 
 VILLAS: list[dict[str, str]] = [
@@ -417,8 +392,6 @@ VILLAS: list[dict[str, str]] = [
     {"name": "Golo_Hilltop_Escape",  "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Guesthouses 
 # Guesthouse ⊑ Accommodation
 # Includes homestays and budget boutique lodging.
 
@@ -442,8 +415,6 @@ GUESTHOUSES: list[dict[str, str]] = [
     {"name": "Soe_Guesthouse",         "locatedIn": "East_Nusa_Tenggara"},
 ]
 
-
-# ── Hostels
 # Hostel ⊑ Accommodation
 
 HOSTELS: list[dict[str, str]] = [
@@ -463,7 +434,6 @@ HOSTELS: list[dict[str, str]] = [
     {"name": "Flores_Backpacker_Hostel","locatedIn": "East_Nusa_Tenggara"},
     {"name": "Kupang_Youth_Hostel",     "locatedIn": "East_Nusa_Tenggara"},
 ]
-
 
 # =============================================================================
 # PROPERTIES
@@ -551,7 +521,6 @@ PARK_ESTABLISHED_YEAR = {
     "Bali_Botanic_Garden":               1959,
 }
 
-
 # =============================================================================
 # VALIDATION
 # =============================================================================
@@ -577,7 +546,6 @@ _LISTS_TO_VALIDATE: list[tuple[str, list[dict[str, str]]]] = [
     ("HOSTELS",              HOSTELS),
 ]
 
-
 def validate() -> None:
     """Validate that all list-of-dict constants have required keys.
 
@@ -597,9 +565,7 @@ def validate() -> None:
                     f"{', '.join(sorted(missing))}. Entry: {entry!r}"
                 )
 
-
 validate()
-
 
 __all__ = [
     # Individuals

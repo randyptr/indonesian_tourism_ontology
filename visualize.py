@@ -26,7 +26,6 @@ log = logging.getLogger(__name__)
 # Output file name for the interactive HTML visualization
 OUTPUT_HTML_FILE = "./graph_vis/ontology_graph.html"
 
-# ── Colour Palette ───────────────────────────────────────────────────────────
 # Each ontology class gets a distinct colour for visual differentiation.
 # "Other" is the fallback for individuals whose class isn't in this map.
 CLASS_COLOUR_MAP = {
@@ -54,7 +53,6 @@ TBOX_PREDICATES_TO_SKIP = {
     OWL.inverseOf, OWL.disjointWith,
 }
 
-
 def _load_combined_graph() -> Graph:
     """Load and merge both data.owl and schema.owl into a single rdflib Graph.
 
@@ -66,7 +64,6 @@ def _load_combined_graph() -> Graph:
     combined_graph.parse(str(DATA_FILE), format="xml")
     combined_graph.parse(str(SCHEMA_FILE), format="xml")
     return combined_graph
-
 
 def _build_individual_type_map(graph: Graph) -> dict[str, str]:
     """Map each individual's full IRI to its primary ontology class name.
@@ -93,7 +90,6 @@ def _build_individual_type_map(graph: Graph) -> dict[str, str]:
             type_map[str(subject)] = local_name(object_type)
     return type_map
 
-
 def _is_ontology_entity(node: URIRef) -> bool:
     """Check whether a node belongs to our ontology namespace.
 
@@ -101,7 +97,6 @@ def _is_ontology_entity(node: URIRef) -> bool:
     (DBpedia, OWL, RDF namespace) are excluded.
     """
     return isinstance(node, URIRef) and str(node).startswith(ONT_IRI)
-
 
 def _build_network_graph(
     graph: Graph,
@@ -166,7 +161,6 @@ def _build_network_graph(
     _add_colour_legend(network)
     return network
 
-
 def _add_colour_legend(network: Network) -> None:
     """Add a fixed legend of coloured boxes to the top-left of the canvas.
 
@@ -182,7 +176,6 @@ def _add_colour_legend(network: Network) -> None:
             fixed=True, size=20,
         )
 
-
 def main() -> None:
     """Load ontology, build network, and export as interactive HTML."""
     logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -195,7 +188,6 @@ def main() -> None:
     Path(OUTPUT_HTML_FILE).parent.mkdir(parents=True, exist_ok=True)
     network.write_html(OUTPUT_HTML_FILE, notebook=False, open_browser=False)
     log.info("Saved -> %s", OUTPUT_HTML_FILE)
-
 
 if __name__ == "__main__":
     main()

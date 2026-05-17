@@ -39,7 +39,6 @@ _sparql_client = SPARQLWrapper(DBPEDIA_ENDPOINT)
 _sparql_client.setReturnFormat(JSON)
 _sparql_client.setTimeout(DBPEDIA_TIMEOUT_S)
 
-
 def _execute_sparql_query(sparql_query: str) -> list[dict]:
     """Execute a SPARQL SELECT query against DBpedia and return result bindings.
 
@@ -67,14 +66,11 @@ def _execute_sparql_query(sparql_query: str) -> list[dict]:
     finally:
         time.sleep(DBPEDIA_THROTTLE_S)
 
-
-# ── DBpedia URI ↔ Local Name Registry ────────────────────────────────────────
 # Populated during queries so that enrich.py can map between DBpedia URIs
 # (used in wikiPageWikiLink discovery) and our ontology local names.
 
 _dbpedia_uri_to_local_name: dict[str, str] = {}
 _local_name_to_dbpedia_uri: dict[str, str] = {}
-
 
 def get_dbpedia_mappings() -> tuple[dict[str, str], dict[str, str]]:
     """Return the bidirectional mapping registries built during population.
@@ -87,7 +83,6 @@ def get_dbpedia_mappings() -> tuple[dict[str, str], dict[str, str]]:
     """
     return _dbpedia_uri_to_local_name, _local_name_to_dbpedia_uri
 
-
 def _register_uri_mapping(local_name_str: str, dbpedia_uri: str) -> None:
     """Record the bidirectional link between a local name and its DBpedia URI.
 
@@ -97,7 +92,6 @@ def _register_uri_mapping(local_name_str: str, dbpedia_uri: str) -> None:
     """
     _dbpedia_uri_to_local_name[dbpedia_uri] = local_name_str
     _local_name_to_dbpedia_uri[local_name_str] = dbpedia_uri
-
 
 def _process_query_results(
     graph: Graph,
@@ -172,7 +166,6 @@ def _process_query_results(
         individuals_created += 1
 
     return individuals_created
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SPARQL Query Definitions
@@ -555,7 +548,6 @@ _CEREMONY_QUERIES_BY_PROVINCE = {
         } LIMIT 10""",
 }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # Public API — One function per ontology class
 # Each function queries DBpedia for its class and adds individuals to the graph.
@@ -573,7 +565,6 @@ def populate_provinces(graph: Graph) -> None:
         name_variable="x", derive_name_from_label=False,
     )
 
-
 def populate_islands(graph: Graph) -> None:
     """Add islands for each province, with locatedIn linking to the province.
 
@@ -589,7 +580,6 @@ def populate_islands(graph: Graph) -> None:
             province_short_name=province_short,
         )
         log.info("  -> %s: %d islands", province_short, count)
-
 
 def populate_cities(graph: Graph) -> None:
     """Add regencies (kabupaten) and capital cities (kota) per province.
@@ -634,7 +624,6 @@ def populate_cities(graph: Graph) -> None:
         )
         log.info("  -> %s: %d cities/regencies", province_short, count)
 
-
 def populate_beaches(graph: Graph) -> None:
     """Add beaches per province with locatedIn assignment.
 
@@ -650,7 +639,6 @@ def populate_beaches(graph: Graph) -> None:
             uri_variable="beach", province_short_name=province_short,
         )
 
-
 def populate_parks(graph: Graph) -> None:
     """Add national parks per province with locatedIn assignment."""
     log.info("[Park]")
@@ -661,7 +649,6 @@ def populate_parks(graph: Graph) -> None:
             uri_variable="park", province_short_name=province_short,
         )
         log.info("  -> %s: %d parks", province_short, count)
-
 
 def populate_volcanoes(graph: Graph) -> None:
     """Add volcanoes per province with locatedIn assignment."""
@@ -674,7 +661,6 @@ def populate_volcanoes(graph: Graph) -> None:
         )
         log.info("  -> %s: %d volcanoes", province_short, count)
 
-
 def populate_museums(graph: Graph) -> None:
     """Add museums per province with locatedIn assignment."""
     log.info("[Museum]")
@@ -685,7 +671,6 @@ def populate_museums(graph: Graph) -> None:
             province_short_name=province_short,
         )
         log.info("  -> %s: %d museums", province_short, count)
-
 
 def populate_temples(graph: Graph) -> None:
     """Add Hindu/Buddhist temples per province with locatedIn assignment.
@@ -723,7 +708,6 @@ def populate_temples(graph: Graph) -> None:
         )
         log.info("  -> %s: %d temples", province_short, count)
 
-
 def populate_festivals(graph: Graph) -> None:
     """Add cultural festivals per province with locatedIn assignment."""
     log.info("[Festival]")
@@ -734,7 +718,6 @@ def populate_festivals(graph: Graph) -> None:
             province_short_name=province_short,
         )
         log.info("  -> %s: %d festivals", province_short, count)
-
 
 def populate_hotels(graph: Graph) -> None:
     """Add hotels per province with locatedIn assignment.
@@ -752,7 +735,6 @@ def populate_hotels(graph: Graph) -> None:
         )
         log.info("  -> %s: %d hotels", province_short, count)
 
-
 def populate_religious_ceremonies(graph: Graph) -> None:
     """Add religious ceremonies and cultural rituals per province.
 
@@ -769,11 +751,7 @@ def populate_religious_ceremonies(graph: Graph) -> None:
         )
         log.info("  -> %s: %d ceremonies", province_short, count)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Area enrichment (Province + City) — fetched from DBpedia and stored in km²
-# ─────────────────────────────────────────────────────────────────────────────
-
 _AREA_QUERY_TEMPLATE = """
 PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbp: <http://dbpedia.org/property/>
@@ -784,7 +762,6 @@ SELECT ?place ?areaSqM ?areaKm2 WHERE {{
   OPTIONAL {{ ?place dbp:areaTotalKm2 ?areaKm2 . }}
 }}
 """
-
 
 def _pick_area_km2(binding: dict) -> Decimal | None:
     """Choose the best available area value and convert to km².
@@ -808,7 +785,6 @@ def _pick_area_km2(binding: dict) -> Decimal | None:
             pass
 
     return None
-
 
 def populate_areas(graph: Graph) -> None:
     """Fetch areaTotal/areaTotalKm2 from DBpedia for every Province and City.
@@ -866,9 +842,6 @@ def populate_areas(graph: Graph) -> None:
 
     log.info("  -> wrote %d hasAreaSqKm triples", written)
 
-
-# ── Orchestrator ─────────────────────────────────────────────────────────────
-
 ALL_POPULATORS = [
     populate_provinces,
     populate_islands,
@@ -883,7 +856,6 @@ ALL_POPULATORS = [
     populate_hotels,
     populate_areas,  # must run after provinces + cities (depends on URI registry)
 ]
-
 
 def populate_all(graph: Graph) -> None:
     """Run every populator in canonical order.

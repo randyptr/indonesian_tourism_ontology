@@ -17,14 +17,12 @@ Blank Skeleton      The XML template written to data.owl on every fresh run.
 from pathlib import Path
 from rdflib import Namespace
 
-# ── File Paths ───────────────────────────────────────────────────────────────
 # All ontology files live under the 'ontology/' subdirectory of this project.
 PROJECT_DIR  = Path(__file__).resolve().parent
 ONTOLOGY_DIR = PROJECT_DIR / "ontology"
 SCHEMA_FILE  = ONTOLOGY_DIR / "schema.owl"   # TBox — class and property definitions
 DATA_FILE    = ONTOLOGY_DIR / "data.owl"     # ABox — individuals and assertions
 
-# ── Namespaces ───────────────────────────────────────────────────────────────
 # The ontology IRI is used as the namespace for all classes, properties,
 # and individuals defined in this project.
 ONT_IRI  = "http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#"
@@ -33,13 +31,10 @@ DATA_IRI = "http://www.semanticweb.org/emmaa/ontologies/2026/3/tourism-data"
 # rdflib Namespace object — used as ONT["ClassName"] or ONT.propertyName
 ONT = Namespace(ONT_IRI)
 
-# ── DBpedia Configuration ────────────────────────────────────────────────────
 # All SPARQL queries in populate.py and enrich.py hit this endpoint.
 DBPEDIA_ENDPOINT = "https://dbpedia.org/sparql"
 DBPEDIA_TIMEOUT_S = 30          # seconds before a single query is abandoned
 DBPEDIA_THROTTLE_S = 1.0       # polite delay (seconds) between consecutive queries
-
-# ── Domain Mappings ──────────────────────────────────────────────────────────
 
 # Province registry: short name -> OWL individual local name.
 # Used to iterate over the three target provinces and to resolve locatedIn targets.
@@ -65,7 +60,6 @@ ACTIVITIES = [
     "Cultural_Tour",
 ]
 
-# ── Blank Data OWL Skeleton ──────────────────────────────────────────────────
 # Written to data.owl at the start of every pipeline run (main.py Step 1).
 # Contains only the ontology declaration and the owl:imports link to schema.owl.
 BLANK_DATA_OWL = f"""\
