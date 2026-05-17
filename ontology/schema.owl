@@ -70,30 +70,6 @@
     </owl:ObjectProperty>
     
 
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMember -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasMember">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#memberOf"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTargetAudience -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasTargetAudience">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-    </owl:ObjectProperty>
     
 
 
@@ -179,27 +155,6 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Province"/>
     </owl:ObjectProperty>
     
-
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#memberOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#memberOf"/>
-    
-
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#organisedBy -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#organisedBy">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Activities"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Organisation"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-    </owl:ObjectProperty>
     
 
 
@@ -369,14 +324,6 @@
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasName -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#hasName">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -606,17 +553,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Adult -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Adult">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
-        <rdfs:comment xml:lang="en">A person of legal adult age.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Persona en edad adulta legal.</rdfs:comment>
-        <rdfs:label xml:lang="en">Adult</rdfs:label>
-        <rdfs:label xml:lang="es">Adulto</rdfs:label>
-    </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#AirTransport -->
 
@@ -840,17 +776,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Family -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Family">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
-        <rdfs:comment xml:lang="en">A group of related persons travelling together.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Grupo de personas emparentadas que viajan juntas.</rdfs:comment>
-        <rdfs:label xml:lang="es">Familia</rdfs:label>
-        <rdfs:label xml:lang="en">Family</rdfs:label>
-    </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Ferry -->
 
@@ -876,16 +801,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group">
-        <rdfs:comment xml:lang="en">A travel party of multiple persons.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Grupo de viaje compuesto por varias personas.</rdfs:comment>
-        <rdfs:label xml:lang="en">Group</rdfs:label>
-        <rdfs:label xml:lang="es">Grupo</rdfs:label>
-    </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Guesthouse -->
 
@@ -910,17 +825,6 @@
     </owl:Class>
     
 
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hindus -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hindus">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
-        <rdfs:comment xml:lang="es">Personas que practican la religión hindú.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Persons practicing the Hindu religion.</rdfs:comment>
-        <rdfs:label xml:lang="en">Hindus</rdfs:label>
-        <rdfs:label xml:lang="es">Hindúes</rdfs:label>
-    </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Hostel -->
@@ -1007,17 +911,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Locals -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Locals">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
-        <rdfs:comment xml:lang="es">Residentes nativos del destino.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Residents native to the destination.</rdfs:comment>
-        <rdfs:label xml:lang="es">Local</rdfs:label>
-        <rdfs:label xml:lang="en">Locals</rdfs:label>
-    </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Location -->
 
@@ -1041,17 +934,6 @@
     </owl:Class>
     
 
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Man -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Man">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Adult"/>
-        <rdfs:comment xml:lang="en">An adult male person.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Persona adulta de género masculino.</rdfs:comment>
-        <rdfs:label xml:lang="es">Hombre</rdfs:label>
-        <rdfs:label xml:lang="en">Man</rdfs:label>
-    </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#MountainSport -->
@@ -1093,17 +975,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Organisation -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Organisation">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
-        <rdfs:comment xml:lang="en">A formal entity such as a tourism authority, agency, or NGO.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Entidad formal como una autoridad de turismo, agencia u ONG.</rdfs:comment>
-        <rdfs:label xml:lang="en">Organisation</rdfs:label>
-        <rdfs:label xml:lang="es">Organización</rdfs:label>
-    </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Park -->
 
@@ -1116,16 +987,6 @@
     </owl:Class>
     
 
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person">
-        <rdfs:comment xml:lang="en">A human agent participating in tourism — tourist, guide, local, etc.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Agente humano que participa en el turismo: turista, guía, local, etc.</rdfs:comment>
-        <rdfs:label xml:lang="en">Person</rdfs:label>
-        <rdfs:label xml:lang="es">Persona</rdfs:label>
-    </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Plane -->
@@ -1332,17 +1193,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tourists -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Tourists">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Group"/>
-        <rdfs:comment xml:lang="es">Visitantes que viajan por ocio o cultura.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Visitors travelling for leisure or culture.</rdfs:comment>
-        <rdfs:label xml:lang="en">Tourists</rdfs:label>
-        <rdfs:label xml:lang="es">Turistas</rdfs:label>
-    </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TraditionalDance -->
 
@@ -1451,28 +1301,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Woman -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Woman">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Adult"/>
-        <rdfs:comment xml:lang="en">An adult female person.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Persona adulta de género femenino.</rdfs:comment>
-        <rdfs:label xml:lang="es">Mujer</rdfs:label>
-        <rdfs:label xml:lang="en">Woman</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Youth -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Youth">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Person"/>
-        <rdfs:comment xml:lang="en">A young person, typically a teenager.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Persona joven, normalmente adolescente.</rdfs:comment>
-        <rdfs:label xml:lang="es">Joven</rdfs:label>
-        <rdfs:label xml:lang="en">Youth</rdfs:label>
-    </owl:Class>
-    
 
 
     <!-- 
@@ -1715,6 +1543,18 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#Woha__Sumbawa">
         <rdf:type rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#City"/>
     </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#suitableFor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#suitableFor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/emmaa/ontologies/2026/3/untitled-ontology-9#TouristAttraction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Describes the type of visitor this attraction is suitable for (e.g., families, solo travellers, adventurers).</rdfs:comment>
+        <rdfs:label xml:lang="en">suitableFor</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
 </rdf:RDF>
 
 

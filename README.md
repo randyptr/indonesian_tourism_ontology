@@ -75,6 +75,52 @@ open ontology_graph.html
 
 `main.py` is idempotent — it wipes `data.owl` to a clean skeleton on every run.
 
+## Statistics
+
+| Metric | Count |
+|---|---|
+| Classes defined (TBox) | 74 |
+| Object properties defined | 19 |
+| Datatype properties defined | 24 |
+| **Total individuals (ABox)** | **430** |
+| **Total triples** | **2,826** |
+| Object properties used in ABox | 12 |
+| Datatype properties used in ABox | 8 |
+
+### Individuals by class
+
+| Class | Count | Source |
+|---|---|---|
+| City | 52 | DBpedia |
+| Ingredient | 52 | Turtle |
+| Island | 30 | DBpedia |
+| Beach | 23 | DBpedia + Manual |
+| ReligiousCeremony | 23 | DBpedia + Manual |
+| Restaurant | 20 | Manchester |
+| TraditionalDance | 19 | curated_data |
+| MainDish | 19 | Turtle |
+| Festival | 16 | DBpedia + Manual |
+| Resort | 15 | Manchester |
+| Temple | 14 | DBpedia + Manual |
+| StreetVendor | 13 | Manchester |
+| TraditionalMarket | 13 | Manchester |
+| TraditionalHouse | 13 | curated_data |
+| Allergens | 12 | Turtle |
+| Guesthouse | 12 | Manchester |
+| Museum | 11 | DBpedia |
+| Villa | 11 | Manchester |
+| Park | 9 | DBpedia + Manual |
+| Hostel | 9 | Manchester |
+| AirTransport | 8 | curated_data |
+| SideDish | 5 | Turtle |
+| WaterSport | 5 | curated_data |
+| Hotel | 5 | DBpedia |
+| Volcano | 4 | DBpedia |
+| LandTransport | 3 | curated_data |
+| Province | 3 | DBpedia |
+| Beverage | 1 | Turtle |
+| Country | 1 | enrich |
+
 ## Pipeline detail
 
 ### Populate (DBpedia SPARQL)

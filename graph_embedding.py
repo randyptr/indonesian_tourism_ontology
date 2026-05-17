@@ -258,7 +258,7 @@ def visualize_embeddings(trained_model, triples_factory: TriplesFactory, graph: 
     colour_palette = plt.get_cmap("tab20")
     for idx, class_name in enumerate(sorted(set(entity_classes))):
         pts = [j for j, c in enumerate(entity_classes) if c == class_name]
-        marker_size = 60 # bullet size
+        marker_size = 90 # bullet size
         plt.scatter(
             projected_2d[pts, 0], projected_2d[pts, 1],
             s=marker_size, color=colour_palette(idx % colour_palette.N),
